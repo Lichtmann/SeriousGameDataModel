@@ -38,9 +38,10 @@ namespace DataModel.Model
 
         public GameRoom(int id, KabelType type) : this()
         {
+            this.KabelType = type;
             RoomID = id;
-            DefaultHerstellerKatalog = new HerstellerKatalog(type);
-            DefaultBetriebsmittelKatalog = new BetriebsmittelKatalog(type);
+            DefaultHerstellerKatalog = new HerstellerKatalog(this.KabelType);
+            DefaultBetriebsmittelKatalog = new BetriebsmittelKatalog(this.KabelType);
         }
 
         public GameRoom Room { get => _room; /*set => _room = value;*/ }
@@ -79,14 +80,22 @@ namespace DataModel.Model
 
         public void AddPlayerToRoom(string name)
         {
-            PlayerList.Add(new Player(name));
-            //Todo
-            //if ( this.ZielKarte??.IsActive)
-            //{
-            //    PlayerList.Where(p => p.PlayerName == name).First().Zielkarte = this.ZielKarte;
-            //}
+            var newPlayer = new Player(name);
+            //Initial of Player // KabelType == unknow
+            //newPlayer.MyHerstellerKatalog = new HerstellerKatalog(this.KabelType);
+            //newPlayer.MyBetriebsmittelKatalog = new BetriebsmittelKatalog(this.KabelType);
+            PlayerList.Add(newPlayer);
         }
 
+        public void GenerateKatalogForAllPlayer()
+        {
+            if (PlayerList.Count == 0) return;
 
+            for (int i = 0; i < this.PlayerList.Count; i++)
+            {
+                PlayerList[i].MyHerstellerKatalog = new HerstellerKatalog(this.KabelType);
+                PlayerList[i].MyBetriebsmittelKatalog = new BetriebsmittelKatalog(this.KabelType);
+            }
+        }
     }
 }

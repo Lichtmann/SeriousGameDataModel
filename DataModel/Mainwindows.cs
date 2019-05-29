@@ -106,11 +106,17 @@ namespace DataModel
         /// <param name="e"></param>
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var player = listBox1.SelectedItem as Player;
-            if (player == null) return;
-            toolStripFocus.Text = "Focus: " + player?.PlayerName;
-            FocusRoom.FocusPlayer = player;
+            var item = listBox1.SelectedItem as Player; 
+            // Not 100% Convert into Player Class!!
+            if (item == null) return;
+            toolStripFocus.Text = "Focus: " + item.PlayerName;
+            //With Name Select Player,
+            FocusRoom.FocusPlayer = FocusRoom.PlayerList.Where(p => p.PlayerName == item?.PlayerName).First();
+            ClearInformationofOldPlayer();
+            ShowInformationofFocusPlayer();
         }
+
+
 
         #endregion
 
@@ -153,18 +159,20 @@ namespace DataModel
             bt_deleteplayer.Enabled = false;
             bt_KabelType.Enabled = false;
             FocusRoom.DefaultHerstellerKatalog = new HerstellerKatalog(FocusRoom.KabelType);
-            RenderDefultKatalogTable();
+            RenderDefultHerstellerKatalog();
             FocusRoom.DefaultBetriebsmittelKatalog = new BetriebsmittelKatalog(FocusRoom.KabelType);
             RenderDefultBetriebsmittelKatalog();
+            FocusRoom.GenerateKatalogForAllPlayer();
             bt_StartGameP2.Enabled = false;
             MessageBox.Show("GameRoom: " + FocusRoom.RoomID 
                 + "\nStart with " + FocusRoom.PlayerList.Count + " Players\n" 
                 + "KabelType: " + FocusRoom.KabelType
                 + "\nPlease Extract ZielKarte");
             InitialDataGridViewZielKarte();
+
         }
         
-        private void RenderDefultKatalogTable()
+        private void RenderDefultHerstellerKatalog()
         {
             dataGridView_DefaultHerstellerKatalog.Columns.Add("Maschine", "Maschinen Type");
             dataGridView_DefaultHerstellerKatalog.Columns.Add("Cablemachines", "Cablemachines");
@@ -274,30 +282,56 @@ namespace DataModel
 
         private void SetZielKarte(GameRoom room, string id)
         {
+            ZielKarte zcard;
             //check a Resource dictinary/Datenbank
             switch (id)
             {
                 case "Zi-01":
-                    room.ZielKarte = new ZielKarte(31000000, 2500, new Gewichtung(2, 3, 1));
-                    room.ZielKarte.SetID("Zi-01");
+                    zcard = new ZielKarte(31000000, 2500, new Gewichtung(2, 3, 1));
+                    zcard.SetID("Zi-01");
+                    room.ZielKarte = zcard;
                     break;
                 case "Zi-02":
+                    zcard = new ZielKarte(27000000, 1400, new Gewichtung(1, 3, 2));
+                    zcard.SetID("Zi-02");
+                    room.ZielKarte = zcard;
                     break;
                 case "Zi-03":
+                    zcard = new ZielKarte(24000000, 750, new Gewichtung(3, 1, 2));
+                    zcard.SetID("Zi-03");
+                    room.ZielKarte = zcard;
                     break;
                 case "Zi-04":
+                    zcard = new ZielKarte(24000000, 750, new Gewichtung(1, 2, 3));
+                    zcard.SetID("Zi-04");
+                    room.ZielKarte = zcard;
+                    break;
+                case "Zi-05":
+                    zcard = new ZielKarte(27000000, 1500, new Gewichtung(3, 2, 1));
+                    zcard.SetID("Zi-05");
+                    room.ZielKarte = zcard;
+                    break;
+                case "Zi-06":
+                    zcard = new ZielKarte(38000000, 3000, new Gewichtung(2, 1, 3));
+                    zcard.SetID("Zi-06");
+                    room.ZielKarte = zcard;
                     break;
                 default:
                     break;
             }
         }
 
+        /// <summary>
+        /// Generate a Zielkarte in Range of 1-6 randomly and Broadcast to all players.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bt_zielKarte_Click(object sender, EventArgs e)
         {
             if (FocusRoom == null) return;
             Random ran = new Random();
             int cardNumber = ran.Next(1, 6);
-            cardNumber = 1;
+            //cardNumber = 1;
             string CardID = "Zi-" + cardNumber.ToString().PadLeft(2, '0');
             SetZielKarte(FocusRoom, CardID);
             // Karte Animation messagebox:
@@ -306,7 +340,7 @@ namespace DataModel
             UpdateZielKarteToTabel(FocusRoom.ZielKarte);
             foreach (Player player in FocusRoom.PlayerList)
             {
-                UpdateZielKarteToPlayer(FocusRoom.ZielKarte, player);
+                BroadcastZielKarteToPlayer(FocusRoom.ZielKarte, player);
             }
         }
 
@@ -321,7 +355,7 @@ namespace DataModel
             dataGridView1.Rows[5].Cells[1].Value = zielKarte.Gewichtung.BudgetGewichtung;
         }
 
-        private static void UpdateZielKarteToPlayer(ZielKarte zielKarte, Player player)
+        private static void BroadcastZielKarteToPlayer(ZielKarte zielKarte, Player player)
         {
             //player1 accept card:
             //player.KalkulationManager.AddBudget(zielKarte.StartBudget);
@@ -347,6 +381,59 @@ namespace DataModel
         }
         #endregion
 
+        #region PlayerInfomation
+
+        private void ClearInformationofOldPlayer()
+        {
+            dataGridView_herstellerKatalog.Rows.Clear();
+            dataGridView_herstellerKatalog.Columns.Clear();
+        }
+        private void ShowInformationofFocusPlayer()
+        {
+            ShowPlayerHerstellerKatalog(dataGridView_herstellerKatalog, FocusRoom.FocusPlayer);
+            //ShowPlayerBetriebsmittelKatalog();
+        }
+
+        private void ShowPlayerHerstellerKatalog(DataGridView view, Player player)
+        {
+            view.Columns.Add("Maschine", "Maschinen Type");
+            view.Columns.Add("Cablemachines", "Cablemachines");
+            view.Columns.Add("Voltmaster", "Voltmaster");
+            view.Columns.Add("Zeus", "Zeus Maschine");
+
+            var katalog = player.MyHerstellerKatalog;
+            if (katalog == null)
+            {
+                MessageBox.Show("Katalog is not Generate");
+                return;
+            }
+            var mlist = katalog.MaschinenDimension;
+            if (mlist.Count < 1)
+            {
+                MessageBox.Show("Katalog is not Generate");
+                return;
+            }
+
+            view.Rows.Add(player.MyHerstellerKatalog.MaschinenDimension.Count);           
+
+            for (int i = 0; i < mlist.Count; i++)
+            {
+
+                view.Rows[i].Cells[0].Value = mlist[i].ToString();
+                view.Rows[i].Cells[1].Value = katalog.GetPreis(mlist[i], HerstellerType.Cablemachines);
+                view.Rows[i].Cells[1].Style.BackColor = LieferungColor(katalog.GetLieferungGrad(mlist[i], HerstellerType.Cablemachines));
+                view.Rows[i].Cells[2].Value = katalog.GetPreis(mlist[i], HerstellerType.Voltmaster);
+                view.Rows[i].Cells[2].Style.BackColor = LieferungColor(katalog.GetLieferungGrad(mlist[i], HerstellerType.Voltmaster));
+                view.Rows[i].Cells[3].Value = katalog.GetPreis(mlist[i], HerstellerType.Zeus_Machine);
+                view.Rows[i].Cells[3].Style.BackColor = LieferungColor(katalog.GetLieferungGrad(mlist[i], HerstellerType.Zeus_Machine));
+            }
+        }
+
+        private void ShowPlayerBetriebsmittelKatalog()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
 
     }
 }

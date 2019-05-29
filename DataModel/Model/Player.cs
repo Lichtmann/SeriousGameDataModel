@@ -17,6 +17,8 @@ namespace DataModel.Model
         private Evaluation _evaluation;
         // Maschinen Dimension
         // HerstellerKatalog
+        private HerstellerKatalog _myHerstellerKatalog;
+        private BetriebsmittelKatalog _myBetriebsmittelKatalog;
 
         public Player(string name )
         {
@@ -89,6 +91,12 @@ namespace DataModel.Model
 
         #region Kalkulation
         public KalkulationUnit KalkulationUnit { get => _kalkulationUnit; set => _kalkulationUnit = value; }
+
+        #endregion
+
+        #region Katalog
+        public HerstellerKatalog MyHerstellerKatalog { get => _myHerstellerKatalog; set => _myHerstellerKatalog = value; }
+        public BetriebsmittelKatalog MyBetriebsmittelKatalog { get => _myBetriebsmittelKatalog; set => _myBetriebsmittelKatalog = value; }
 
         #endregion
 
