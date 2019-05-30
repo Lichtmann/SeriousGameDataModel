@@ -51,17 +51,19 @@
             this.bt_KabelType = new System.Windows.Forms.Button();
             this.bt_StartGameP2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.bt_nextP14 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.bt_zielKarte = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bt_OpenRoom = new System.Windows.Forms.Button();
             this.lb_RoomID = new System.Windows.Forms.Label();
-            this.tab_HerstellerKatalog = new System.Windows.Forms.TabPage();
+            this.tab_DefaultKatalog = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView_DefaultHerstellerKatalog = new System.Windows.Forms.DataGridView();
-            this.tab_MaschinenKatalog = new System.Windows.Forms.TabPage();
             this.dataGridView_DefaultMaschinenKatalog = new System.Windows.Forms.DataGridView();
             this.tabPlayer = new System.Windows.Forms.TabPage();
             this.gb_phase3_1 = new System.Windows.Forms.GroupBox();
@@ -70,12 +72,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabDisPlayControl = new System.Windows.Forms.TabControl();
+            this.tabMyGoal = new System.Windows.Forms.TabPage();
+            this.dataGridView_showMenge = new System.Windows.Forms.DataGridView();
+            this.bt_showMenge = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dataGridView_MyGoal = new System.Windows.Forms.DataGridView();
+            this.tabMyKatalog = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dataGridView_herstellerKatalog = new System.Windows.Forms.DataGridView();
+            this.dataGridView_MyBetriebmittelKatalog = new System.Windows.Forms.DataGridView();
             this.tabBudget = new System.Windows.Forms.TabPage();
             this.tabLayout = new System.Windows.Forms.TabPage();
             this.tabMaschinen = new System.Windows.Forms.TabPage();
-            this.tabPrduktion = new System.Windows.Forms.TabPage();
-            this.tabHerstellerKatalog = new System.Windows.Forms.TabPage();
-            this.dataGridView_herstellerKatalog = new System.Windows.Forms.DataGridView();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripFocus = new System.Windows.Forms.ToolStripStatusLabel();
             this.playerListBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -93,15 +103,18 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.tab_HerstellerKatalog.SuspendLayout();
+            this.tab_DefaultKatalog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DefaultHerstellerKatalog)).BeginInit();
-            this.tab_MaschinenKatalog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DefaultMaschinenKatalog)).BeginInit();
             this.tabPlayer.SuspendLayout();
             this.gb_Phase1.SuspendLayout();
             this.tabDisPlayControl.SuspendLayout();
-            this.tabHerstellerKatalog.SuspendLayout();
+            this.tabMyGoal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_showMenge)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_MyGoal)).BeginInit();
+            this.tabMyKatalog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_herstellerKatalog)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_MyBetriebmittelKatalog)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playerListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameRoomBindingSource1)).BeginInit();
@@ -116,7 +129,7 @@
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1106, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(1282, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -173,7 +186,7 @@
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 25);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1106, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1282, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -199,21 +212,20 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabDisPlayControl);
-            this.splitContainer1.Size = new System.Drawing.Size(1106, 604);
-            this.splitContainer1.SplitterDistance = 487;
+            this.splitContainer1.Size = new System.Drawing.Size(1282, 715);
+            this.splitContainer1.SplitterDistance = 564;
             this.splitContainer1.TabIndex = 2;
             // 
             // tabGameControl
             // 
             this.tabGameControl.Controls.Add(this.tabGame);
-            this.tabGameControl.Controls.Add(this.tab_HerstellerKatalog);
-            this.tabGameControl.Controls.Add(this.tab_MaschinenKatalog);
+            this.tabGameControl.Controls.Add(this.tab_DefaultKatalog);
             this.tabGameControl.Controls.Add(this.tabPlayer);
             this.tabGameControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabGameControl.Location = new System.Drawing.Point(0, 0);
             this.tabGameControl.Name = "tabGameControl";
             this.tabGameControl.SelectedIndex = 0;
-            this.tabGameControl.Size = new System.Drawing.Size(487, 604);
+            this.tabGameControl.Size = new System.Drawing.Size(564, 715);
             this.tabGameControl.TabIndex = 0;
             // 
             // tabGame
@@ -228,7 +240,7 @@
             this.tabGame.Location = new System.Drawing.Point(4, 22);
             this.tabGame.Name = "tabGame";
             this.tabGame.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGame.Size = new System.Drawing.Size(479, 578);
+            this.tabGame.Size = new System.Drawing.Size(556, 689);
             this.tabGame.TabIndex = 0;
             this.tabGame.Text = "Game";
             this.tabGame.UseVisualStyleBackColor = true;
@@ -307,23 +319,33 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.bt_nextP14);
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.bt_zielKarte);
             this.panel2.Location = new System.Drawing.Point(3, 290);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(470, 262);
+            this.panel2.Size = new System.Drawing.Size(547, 315);
             this.panel2.TabIndex = 6;
+            // 
+            // bt_nextP14
+            // 
+            this.bt_nextP14.Location = new System.Drawing.Point(392, 32);
+            this.bt_nextP14.Name = "bt_nextP14";
+            this.bt_nextP14.Size = new System.Drawing.Size(75, 23);
+            this.bt_nextP14.TabIndex = 6;
+            this.bt_nextP14.Text = "Next-Phase";
+            this.bt_nextP14.UseVisualStyleBackColor = true;
+            this.bt_nextP14.Click += new System.EventHandler(this.bt_nextP14_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Enabled = false;
             this.dataGridView1.Location = new System.Drawing.Point(3, 61);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(464, 198);
+            this.dataGridView1.Size = new System.Drawing.Size(541, 254);
             this.dataGridView1.TabIndex = 5;
             // 
             // bt_zielKarte
@@ -344,7 +366,7 @@
             this.panel1.Controls.Add(this.lb_RoomID);
             this.panel1.Location = new System.Drawing.Point(3, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(470, 49);
+            this.panel1.Size = new System.Drawing.Size(547, 49);
             this.panel1.TabIndex = 5;
             // 
             // bt_OpenRoom
@@ -367,24 +389,45 @@
             this.lb_RoomID.TabIndex = 3;
             this.lb_RoomID.Text = "Room:";
             // 
-            // tab_HerstellerKatalog
+            // tab_DefaultKatalog
             // 
-            this.tab_HerstellerKatalog.Controls.Add(this.label5);
-            this.tab_HerstellerKatalog.Controls.Add(this.label4);
-            this.tab_HerstellerKatalog.Controls.Add(this.label3);
-            this.tab_HerstellerKatalog.Controls.Add(this.dataGridView_DefaultHerstellerKatalog);
-            this.tab_HerstellerKatalog.Location = new System.Drawing.Point(4, 22);
-            this.tab_HerstellerKatalog.Name = "tab_HerstellerKatalog";
-            this.tab_HerstellerKatalog.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_HerstellerKatalog.Size = new System.Drawing.Size(479, 578);
-            this.tab_HerstellerKatalog.TabIndex = 2;
-            this.tab_HerstellerKatalog.Text = "HerstellerKatal";
-            this.tab_HerstellerKatalog.UseVisualStyleBackColor = true;
+            this.tab_DefaultKatalog.Controls.Add(this.label7);
+            this.tab_DefaultKatalog.Controls.Add(this.label6);
+            this.tab_DefaultKatalog.Controls.Add(this.label5);
+            this.tab_DefaultKatalog.Controls.Add(this.label4);
+            this.tab_DefaultKatalog.Controls.Add(this.label3);
+            this.tab_DefaultKatalog.Controls.Add(this.dataGridView_DefaultHerstellerKatalog);
+            this.tab_DefaultKatalog.Controls.Add(this.dataGridView_DefaultMaschinenKatalog);
+            this.tab_DefaultKatalog.Location = new System.Drawing.Point(4, 22);
+            this.tab_DefaultKatalog.Name = "tab_DefaultKatalog";
+            this.tab_DefaultKatalog.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_DefaultKatalog.Size = new System.Drawing.Size(556, 689);
+            this.tab_DefaultKatalog.TabIndex = 2;
+            this.tab_DefaultKatalog.Text = "Katalog";
+            this.tab_DefaultKatalog.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(8, 329);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(125, 12);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "BetriebmittelKatalog";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 14);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(107, 12);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "HerstellerKatalog";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 509);
+            this.label5.Location = new System.Drawing.Point(329, 299);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 12);
             this.label5.TabIndex = 3;
@@ -393,7 +436,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 487);
+            this.label4.Location = new System.Drawing.Point(207, 299);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 12);
             this.label4.TabIndex = 2;
@@ -402,7 +445,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 462);
+            this.label3.Location = new System.Drawing.Point(73, 299);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 12);
             this.label3.TabIndex = 1;
@@ -416,19 +459,8 @@
             this.dataGridView_DefaultHerstellerKatalog.Location = new System.Drawing.Point(6, 29);
             this.dataGridView_DefaultHerstellerKatalog.Name = "dataGridView_DefaultHerstellerKatalog";
             this.dataGridView_DefaultHerstellerKatalog.RowTemplate.Height = 23;
-            this.dataGridView_DefaultHerstellerKatalog.Size = new System.Drawing.Size(467, 426);
+            this.dataGridView_DefaultHerstellerKatalog.Size = new System.Drawing.Size(544, 267);
             this.dataGridView_DefaultHerstellerKatalog.TabIndex = 0;
-            // 
-            // tab_MaschinenKatalog
-            // 
-            this.tab_MaschinenKatalog.Controls.Add(this.dataGridView_DefaultMaschinenKatalog);
-            this.tab_MaschinenKatalog.Location = new System.Drawing.Point(4, 22);
-            this.tab_MaschinenKatalog.Name = "tab_MaschinenKatalog";
-            this.tab_MaschinenKatalog.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_MaschinenKatalog.Size = new System.Drawing.Size(479, 578);
-            this.tab_MaschinenKatalog.TabIndex = 3;
-            this.tab_MaschinenKatalog.Text = "MaschinenKatalog";
-            this.tab_MaschinenKatalog.UseVisualStyleBackColor = true;
             // 
             // dataGridView_DefaultMaschinenKatalog
             // 
@@ -436,10 +468,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_DefaultMaschinenKatalog.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView_DefaultMaschinenKatalog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_DefaultMaschinenKatalog.Location = new System.Drawing.Point(0, 29);
+            this.dataGridView_DefaultMaschinenKatalog.Location = new System.Drawing.Point(3, 344);
             this.dataGridView_DefaultMaschinenKatalog.Name = "dataGridView_DefaultMaschinenKatalog";
             this.dataGridView_DefaultMaschinenKatalog.RowTemplate.Height = 23;
-            this.dataGridView_DefaultMaschinenKatalog.Size = new System.Drawing.Size(473, 426);
+            this.dataGridView_DefaultMaschinenKatalog.Size = new System.Drawing.Size(550, 274);
             this.dataGridView_DefaultMaschinenKatalog.TabIndex = 0;
             // 
             // tabPlayer
@@ -450,7 +482,7 @@
             this.tabPlayer.Location = new System.Drawing.Point(4, 22);
             this.tabPlayer.Name = "tabPlayer";
             this.tabPlayer.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPlayer.Size = new System.Drawing.Size(479, 578);
+            this.tabPlayer.Size = new System.Drawing.Size(556, 689);
             this.tabPlayer.TabIndex = 1;
             this.tabPlayer.Text = "Player";
             this.tabPlayer.UseVisualStyleBackColor = true;
@@ -461,7 +493,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gb_phase3_1.Location = new System.Drawing.Point(3, 146);
             this.gb_phase3_1.Name = "gb_phase3_1";
-            this.gb_phase3_1.Size = new System.Drawing.Size(473, 69);
+            this.gb_phase3_1.Size = new System.Drawing.Size(550, 69);
             this.gb_phase3_1.TabIndex = 1;
             this.gb_phase3_1.TabStop = false;
             this.gb_phase3_1.Text = "Phase3_1";
@@ -472,7 +504,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gb_phase2.Location = new System.Drawing.Point(3, 77);
             this.gb_phase2.Name = "gb_phase2";
-            this.gb_phase2.Size = new System.Drawing.Size(473, 63);
+            this.gb_phase2.Size = new System.Drawing.Size(550, 63);
             this.gb_phase2.TabIndex = 1;
             this.gb_phase2.TabStop = false;
             this.gb_phase2.Text = "Phase2";
@@ -485,7 +517,7 @@
             this.gb_Phase1.Controls.Add(this.label1);
             this.gb_Phase1.Location = new System.Drawing.Point(3, 3);
             this.gb_Phase1.Name = "gb_Phase1";
-            this.gb_Phase1.Size = new System.Drawing.Size(473, 68);
+            this.gb_Phase1.Size = new System.Drawing.Size(550, 68);
             this.gb_Phase1.TabIndex = 0;
             this.gb_Phase1.TabStop = false;
             this.gb_Phase1.Text = "Phase1";
@@ -510,65 +542,113 @@
             // 
             // tabDisPlayControl
             // 
+            this.tabDisPlayControl.Controls.Add(this.tabMyGoal);
+            this.tabDisPlayControl.Controls.Add(this.tabMyKatalog);
             this.tabDisPlayControl.Controls.Add(this.tabBudget);
             this.tabDisPlayControl.Controls.Add(this.tabLayout);
             this.tabDisPlayControl.Controls.Add(this.tabMaschinen);
-            this.tabDisPlayControl.Controls.Add(this.tabPrduktion);
-            this.tabDisPlayControl.Controls.Add(this.tabHerstellerKatalog);
             this.tabDisPlayControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabDisPlayControl.Location = new System.Drawing.Point(0, 0);
             this.tabDisPlayControl.Name = "tabDisPlayControl";
             this.tabDisPlayControl.SelectedIndex = 0;
-            this.tabDisPlayControl.Size = new System.Drawing.Size(615, 604);
+            this.tabDisPlayControl.Size = new System.Drawing.Size(714, 715);
             this.tabDisPlayControl.TabIndex = 0;
             // 
-            // tabBudget
+            // tabMyGoal
             // 
-            this.tabBudget.Location = new System.Drawing.Point(4, 22);
-            this.tabBudget.Name = "tabBudget";
-            this.tabBudget.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBudget.Size = new System.Drawing.Size(607, 578);
-            this.tabBudget.TabIndex = 0;
-            this.tabBudget.Text = "BudgetKalkulation";
-            this.tabBudget.UseVisualStyleBackColor = true;
+            this.tabMyGoal.Controls.Add(this.dataGridView_showMenge);
+            this.tabMyGoal.Controls.Add(this.bt_showMenge);
+            this.tabMyGoal.Controls.Add(this.label11);
+            this.tabMyGoal.Controls.Add(this.dataGridView_MyGoal);
+            this.tabMyGoal.Location = new System.Drawing.Point(4, 22);
+            this.tabMyGoal.Name = "tabMyGoal";
+            this.tabMyGoal.Size = new System.Drawing.Size(706, 689);
+            this.tabMyGoal.TabIndex = 3;
+            this.tabMyGoal.Text = "Ziel";
+            this.tabMyGoal.UseVisualStyleBackColor = true;
             // 
-            // tabLayout
+            // dataGridView_showMenge
             // 
-            this.tabLayout.Location = new System.Drawing.Point(4, 22);
-            this.tabLayout.Name = "tabLayout";
-            this.tabLayout.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLayout.Size = new System.Drawing.Size(607, 578);
-            this.tabLayout.TabIndex = 1;
-            this.tabLayout.Text = "LayoutList";
-            this.tabLayout.UseVisualStyleBackColor = true;
+            this.dataGridView_showMenge.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView_showMenge.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_showMenge.Location = new System.Drawing.Point(5, 290);
+            this.dataGridView_showMenge.Name = "dataGridView_showMenge";
+            this.dataGridView_showMenge.RowTemplate.Height = 23;
+            this.dataGridView_showMenge.Size = new System.Drawing.Size(692, 315);
+            this.dataGridView_showMenge.TabIndex = 3;
             // 
-            // tabMaschinen
+            // bt_showMenge
             // 
-            this.tabMaschinen.Location = new System.Drawing.Point(4, 22);
-            this.tabMaschinen.Name = "tabMaschinen";
-            this.tabMaschinen.Size = new System.Drawing.Size(607, 578);
-            this.tabMaschinen.TabIndex = 2;
-            this.tabMaschinen.Text = "MaschinenList";
-            this.tabMaschinen.UseVisualStyleBackColor = true;
+            this.bt_showMenge.Enabled = false;
+            this.bt_showMenge.Location = new System.Drawing.Point(5, 261);
+            this.bt_showMenge.Name = "bt_showMenge";
+            this.bt_showMenge.Size = new System.Drawing.Size(75, 23);
+            this.bt_showMenge.TabIndex = 2;
+            this.bt_showMenge.Text = "Show Menge";
+            this.bt_showMenge.UseVisualStyleBackColor = true;
+            this.bt_showMenge.Click += new System.EventHandler(this.bt_showMenge_Click);
             // 
-            // tabPrduktion
+            // label11
             // 
-            this.tabPrduktion.Location = new System.Drawing.Point(4, 22);
-            this.tabPrduktion.Name = "tabPrduktion";
-            this.tabPrduktion.Size = new System.Drawing.Size(607, 578);
-            this.tabPrduktion.TabIndex = 3;
-            this.tabPrduktion.Text = "Produktion";
-            this.tabPrduktion.UseVisualStyleBackColor = true;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 6);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(29, 12);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Ziel";
             // 
-            // tabHerstellerKatalog
+            // dataGridView_MyGoal
             // 
-            this.tabHerstellerKatalog.Controls.Add(this.dataGridView_herstellerKatalog);
-            this.tabHerstellerKatalog.Location = new System.Drawing.Point(4, 22);
-            this.tabHerstellerKatalog.Name = "tabHerstellerKatalog";
-            this.tabHerstellerKatalog.Size = new System.Drawing.Size(607, 578);
-            this.tabHerstellerKatalog.TabIndex = 4;
-            this.tabHerstellerKatalog.Text = "HerstellerKatalog";
-            this.tabHerstellerKatalog.UseVisualStyleBackColor = true;
+            this.dataGridView_MyGoal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView_MyGoal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_MyGoal.Location = new System.Drawing.Point(3, 24);
+            this.dataGridView_MyGoal.Name = "dataGridView_MyGoal";
+            this.dataGridView_MyGoal.RowTemplate.Height = 23;
+            this.dataGridView_MyGoal.Size = new System.Drawing.Size(694, 202);
+            this.dataGridView_MyGoal.TabIndex = 0;
+            // 
+            // tabMyKatalog
+            // 
+            this.tabMyKatalog.Controls.Add(this.label10);
+            this.tabMyKatalog.Controls.Add(this.label9);
+            this.tabMyKatalog.Controls.Add(this.label8);
+            this.tabMyKatalog.Controls.Add(this.dataGridView_herstellerKatalog);
+            this.tabMyKatalog.Controls.Add(this.dataGridView_MyBetriebmittelKatalog);
+            this.tabMyKatalog.Location = new System.Drawing.Point(4, 22);
+            this.tabMyKatalog.Name = "tabMyKatalog";
+            this.tabMyKatalog.Size = new System.Drawing.Size(706, 689);
+            this.tabMyKatalog.TabIndex = 4;
+            this.tabMyKatalog.Text = "MyKatalog";
+            this.tabMyKatalog.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(134, 14);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(53, 12);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Player: ";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 14);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(107, 12);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "HerstellerKatalog";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 329);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(125, 12);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "BetriebmittelKatalog";
             // 
             // dataGridView_herstellerKatalog
             // 
@@ -578,16 +658,56 @@
             this.dataGridView_herstellerKatalog.Location = new System.Drawing.Point(3, 29);
             this.dataGridView_herstellerKatalog.Name = "dataGridView_herstellerKatalog";
             this.dataGridView_herstellerKatalog.RowTemplate.Height = 23;
-            this.dataGridView_herstellerKatalog.Size = new System.Drawing.Size(600, 426);
+            this.dataGridView_herstellerKatalog.Size = new System.Drawing.Size(699, 267);
             this.dataGridView_herstellerKatalog.TabIndex = 0;
+            // 
+            // dataGridView_MyBetriebmittelKatalog
+            // 
+            this.dataGridView_MyBetriebmittelKatalog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView_MyBetriebmittelKatalog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_MyBetriebmittelKatalog.Location = new System.Drawing.Point(3, 351);
+            this.dataGridView_MyBetriebmittelKatalog.Name = "dataGridView_MyBetriebmittelKatalog";
+            this.dataGridView_MyBetriebmittelKatalog.RowTemplate.Height = 23;
+            this.dataGridView_MyBetriebmittelKatalog.Size = new System.Drawing.Size(700, 254);
+            this.dataGridView_MyBetriebmittelKatalog.TabIndex = 0;
+            // 
+            // tabBudget
+            // 
+            this.tabBudget.Location = new System.Drawing.Point(4, 22);
+            this.tabBudget.Name = "tabBudget";
+            this.tabBudget.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBudget.Size = new System.Drawing.Size(706, 689);
+            this.tabBudget.TabIndex = 0;
+            this.tabBudget.Text = "BudgetKalkulation";
+            this.tabBudget.UseVisualStyleBackColor = true;
+            // 
+            // tabLayout
+            // 
+            this.tabLayout.Location = new System.Drawing.Point(4, 22);
+            this.tabLayout.Name = "tabLayout";
+            this.tabLayout.Padding = new System.Windows.Forms.Padding(3);
+            this.tabLayout.Size = new System.Drawing.Size(706, 689);
+            this.tabLayout.TabIndex = 1;
+            this.tabLayout.Text = "LayoutList";
+            this.tabLayout.UseVisualStyleBackColor = true;
+            // 
+            // tabMaschinen
+            // 
+            this.tabMaschinen.Location = new System.Drawing.Point(4, 22);
+            this.tabMaschinen.Name = "tabMaschinen";
+            this.tabMaschinen.Size = new System.Drawing.Size(706, 689);
+            this.tabMaschinen.TabIndex = 2;
+            this.tabMaschinen.Text = "MaschinenList";
+            this.tabMaschinen.UseVisualStyleBackColor = true;
             // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripFocus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 632);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 743);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1106, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1282, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -614,7 +734,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1106, 654);
+            this.ClientSize = new System.Drawing.Size(1282, 765);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStrip1);
@@ -638,17 +758,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tab_HerstellerKatalog.ResumeLayout(false);
-            this.tab_HerstellerKatalog.PerformLayout();
+            this.tab_DefaultKatalog.ResumeLayout(false);
+            this.tab_DefaultKatalog.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DefaultHerstellerKatalog)).EndInit();
-            this.tab_MaschinenKatalog.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DefaultMaschinenKatalog)).EndInit();
             this.tabPlayer.ResumeLayout(false);
             this.gb_Phase1.ResumeLayout(false);
             this.gb_Phase1.PerformLayout();
             this.tabDisPlayControl.ResumeLayout(false);
-            this.tabHerstellerKatalog.ResumeLayout(false);
+            this.tabMyGoal.ResumeLayout(false);
+            this.tabMyGoal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_showMenge)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_MyGoal)).EndInit();
+            this.tabMyKatalog.ResumeLayout(false);
+            this.tabMyKatalog.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_herstellerKatalog)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_MyBetriebmittelKatalog)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playerListBindingSource)).EndInit();
@@ -679,7 +804,7 @@
         private System.Windows.Forms.TabPage tabBudget;
         private System.Windows.Forms.TabPage tabLayout;
         private System.Windows.Forms.TabPage tabMaschinen;
-        private System.Windows.Forms.TabPage tabPrduktion;
+        private System.Windows.Forms.TabPage tabMyGoal;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripFocus;
         private System.Windows.Forms.Label lb_type;
@@ -698,20 +823,30 @@
         private System.Windows.Forms.GroupBox gb_Phase1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabPage tabHerstellerKatalog;
+        private System.Windows.Forms.TabPage tabMyKatalog;
         private System.Windows.Forms.DataGridView dataGridView_herstellerKatalog;
         private System.Windows.Forms.BindingSource gameRoomBindingSource;
         private System.Windows.Forms.BindingSource gameRoomBindingSource1;
         private System.Windows.Forms.BindingSource playerListBindingSource;
         private System.Windows.Forms.Button bt_StartGameP2;
-        private System.Windows.Forms.TabPage tab_HerstellerKatalog;
+        private System.Windows.Forms.TabPage tab_DefaultKatalog;
         private System.Windows.Forms.DataGridView dataGridView_DefaultHerstellerKatalog;
-        private System.Windows.Forms.TabPage tab_MaschinenKatalog;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dataGridView_DefaultMaschinenKatalog;
+        private System.Windows.Forms.DataGridView dataGridView_MyBetriebmittelKatalog;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridView dataGridView_MyGoal;
+        private System.Windows.Forms.Button bt_nextP14;
+        private System.Windows.Forms.DataGridView dataGridView_showMenge;
+        private System.Windows.Forms.Button bt_showMenge;
     }
 }
 

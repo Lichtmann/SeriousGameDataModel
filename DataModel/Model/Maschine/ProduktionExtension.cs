@@ -162,8 +162,9 @@ namespace DataModel.Model
                 OutputProdukt = Material.GeschirmteAder,
                 InputProdukts = new List<InputRequire>()
                             {
-                                new InputRequire(){InputProdukt=Material.GetrockneteAder, Rate=1},
-                                new InputRequire(){InputProdukt=Material.Schirmdraht, Rate=50}
+                                new InputRequire(){InputProdukt=Material.GetrockneteAder, Rate=1}
+                                //,
+                                //new InputRequire(){InputProdukt=Material.Schirmdraht, Rate=50}
                             },
                 MinMenge = 0,
                 MaxMenge = 20000,

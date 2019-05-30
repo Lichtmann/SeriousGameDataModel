@@ -81,6 +81,7 @@
     <Compile Include="Model\Maschine\MaschineExtension.cs" />
     <Compile Include="Model\Maschine\Produktion.cs" />
     <Compile Include="Model\Maschine\ProduktionExtension.cs" />
+    <Compile Include="Model\Maschine\ProduktionManager.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

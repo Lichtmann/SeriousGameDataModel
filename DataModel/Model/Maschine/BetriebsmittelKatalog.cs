@@ -122,6 +122,10 @@ namespace DataModel.Model
 
         public List<MaschinenType> MaschinenDimension { get => _maschinenDimension; set => _maschinenDimension = value; }
         public KabelType KabelType { get => _kabelType; set => _kabelType = value; }
+
+        /// <summary>
+        /// List of Maschine, Zeigen Preis, Area and Produktion Information.
+        /// </summary>
         public List<Maschine> MaschineKatalog { get => _maschineKatalog; set => _maschineKatalog = value; }
         /// <summary>
         /// Set neu KabelType, Update MaschinenDimension and MaschineKatalog

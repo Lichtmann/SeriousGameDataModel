@@ -11,14 +11,24 @@ namespace DataModel.Model
     {
         private string _playerName;
         private ZielKarte _zielkarte;
-        private KalkulationUnit _kalkulationUnit;
-        // MaschinenManager
+        // BetriebmittelKatalog // HerstellerKatalog
+        private HerstellerKatalog _myHerstellerKatalog;         // KabelType
+        private BetriebsmittelKatalog _myBetriebsmittelKatalog; // KabelType
+        // MaschinenEinkaufList
         private List<Maschine> _maschinen;
+        // 1 MaterialflussManager 
+
+        // 2 KostenManager + 6 BudgetManager => KalkulationUnit
+        private KalkulationUnit _kalkulationUnit;
+        // 3 Erweiterbarkeit + 4 Zuganglichkeit => LayoutManager
+
+        // 5 ProduktionManager
+        private ProduktionManager _myProduktionManager;
+        // EventRegister
+
+        // End Evaluation
         private Evaluation _evaluation;
-        // Maschinen Dimension
-        // HerstellerKatalog
-        private HerstellerKatalog _myHerstellerKatalog;
-        private BetriebsmittelKatalog _myBetriebsmittelKatalog;
+
 
         public Player(string name )
         {
@@ -26,6 +36,12 @@ namespace DataModel.Model
             Zielkarte = new ZielKarte();
             Evaluation = new Evaluation() { Weights = new Gewichtung(1, 1, 1) };
             KalkulationUnit = new KalkulationUnit();
+            //1
+            //2 6
+            //3 4
+            //5
+            //
+            MyProduktionManager = new ProduktionManager();
         }
 
         #region Maschinen 
@@ -97,6 +113,7 @@ namespace DataModel.Model
         #region Katalog
         public HerstellerKatalog MyHerstellerKatalog { get => _myHerstellerKatalog; set => _myHerstellerKatalog = value; }
         public BetriebsmittelKatalog MyBetriebsmittelKatalog { get => _myBetriebsmittelKatalog; set => _myBetriebsmittelKatalog = value; }
+        public ProduktionManager MyProduktionManager { get => _myProduktionManager; set => _myProduktionManager = value; }
 
         #endregion
 

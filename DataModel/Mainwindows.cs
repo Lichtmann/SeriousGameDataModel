@@ -99,6 +99,7 @@ namespace DataModel
                 listBox1.Items.Add(p);
             }
         }
+        
         /// <summary>
         /// Focus Player Change
         /// </summary>
@@ -110,10 +111,15 @@ namespace DataModel
             // Not 100% Convert into Player Class!!
             if (item == null) return;
             toolStripFocus.Text = "Focus: " + item.PlayerName;
+            label10.Text = "Player: " + item.PlayerName;
             //With Name Select Player,
             FocusRoom.FocusPlayer = FocusRoom.PlayerList.Where(p => p.PlayerName == item?.PlayerName).First();
             ClearInformationofOldPlayer();
             ShowInformationofFocusPlayer();
+            if (bt_showMenge.Enabled)
+            {
+                ShowProduktionRequir(dataGridView_showMenge);
+            }
         }
 
 
@@ -232,7 +238,7 @@ namespace DataModel
                 row.Cells[5].Value = maschinenList[i].OutputProdukts.First().MaxMenge;
                 row.Cells[6].Value = maschinenList[i].MarktPreis;
                 row.Cells[7].Value = maschinenList[i].Area;
-                if (m_type == MaschinenType.Schirmmaschine)
+                if (m_type == MaschinenType.Schirmmaschine  && katalog.KabelType == KabelType.VPE)
                 {
                     dataGridView_DefaultMaschinenKatalog.Rows.Add(1);
                     index = dataGridView_DefaultMaschinenKatalog.Rows.Count - 1;
@@ -357,17 +363,53 @@ namespace DataModel
 
         private static void BroadcastZielKarteToPlayer(ZielKarte zielKarte, Player player)
         {
-            //player1 accept card:
-            //player.KalkulationManager.AddBudget(zielKarte.StartBudget);
             player.Zielkarte = zielKarte;
-            //Update new Content
-            //lb_PM_1.Content = zielKarte.Produktionsmenge.ToString() + " m/Tag";
-            //lb_Budget_1.Content = player1.KalkulationManager.Budget.ToString("N0") + "€";
-            //lb_kosten_1.Content = player1.KalkulationManager.Kosten.ToString("N0") + "€";
-            //lb_balance_1.Content = player1.KalkulationManager.Balance.ToString("N0") + "€";
-            //tx_Gewichtung.Text = zielKarte.Gewichtung.ToString();
+        }
+        private void bt_nextP14_Click(object sender, EventArgs e)
+        {
+            bt_zielKarte.Enabled = false;
+            bt_showMenge.Enabled = true;
+            bt_nextP14.Enabled = false;
+            foreach (Player player in FocusRoom.PlayerList)
+            {
+                InterpretationZielKarten(player);
+            }
         }
 
+        private void InterpretationZielKarten(Player player)
+        {
+            //Ziel Menge jeder Material
+            player.MyProduktionManager = new ProduktionManager(player, player.Zielkarte.Produktionsmenge);
+            //Start Budget;
+            //Todo
+        }
+        
+        private void ShowProduktionRequir(DataGridView view)
+        {
+            if (view.Columns.Count <2)
+            {
+                view.Columns.Add("material", "Material");
+                view.Columns.Add("RequirMenge", "Ziel Menge");
+                view.Columns.Add("CanMenge", "Theoretisch Menge");
+                view.Columns.Add("onlineMenge", "Runtime Menge");
+            }
+            view.Rows.Clear();
+            ProduktionManager manager = FocusRoom.FocusPlayer.MyProduktionManager;
+            for (int i = 0; i < manager.ZielMengen.Count; i++)
+            {
+                view.Rows.Add(1);
+                var index = view.Rows.Count - 1;
+                var row = view.Rows[index - 1];
+                row.Cells[0].Value = manager.ZielMengen[i].Produkt.ToString();
+                row.Cells[1].Value = manager.ZielMengen[i].Menge;
+            }
+        }
+        private void bt_showMenge_Click(object sender, EventArgs e)
+        {
+            if (FocusRoom.FocusPlayer == null) return;
+            
+            ShowProduktionRequir(dataGridView_showMenge);
+        }
         //GUI[Simulation]
         private string RenderZielKarte(ZielKarte zielKarte)
         {
@@ -385,23 +427,58 @@ namespace DataModel
 
         private void ClearInformationofOldPlayer()
         {
+            dataGridView_MyGoal.Rows.Clear();
+            dataGridView_MyGoal.Columns.Clear();
+
             dataGridView_herstellerKatalog.Rows.Clear();
             dataGridView_herstellerKatalog.Columns.Clear();
+
+            dataGridView_MyBetriebmittelKatalog.Rows.Clear();
+            dataGridView_MyBetriebmittelKatalog.Columns.Clear();
+
+            dataGridView_showMenge.Rows.Clear();
+            dataGridView_showMenge.Columns.Clear();
         }
         private void ShowInformationofFocusPlayer()
         {
+            ShowPlayerPlayerZielKarte(dataGridView_MyGoal, FocusRoom.FocusPlayer);
             ShowPlayerHerstellerKatalog(dataGridView_herstellerKatalog, FocusRoom.FocusPlayer);
+            ShowPlayerBetriebsmittelKatalog(dataGridView_MyBetriebmittelKatalog, FocusRoom.FocusPlayer);
             //ShowPlayerBetriebsmittelKatalog();
         }
 
-        private void ShowPlayerHerstellerKatalog(DataGridView view, Player player)
+        private void ShowPlayerPlayerZielKarte(DataGridView view, Player focusPlayer)
+        {
+            if (focusPlayer.Zielkarte.IsActive)
+            {
+                view.Columns.Add("Aspekt", "Aspekt");
+                view.Columns.Add("Value", "Value");
+                view.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                view.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                view.Rows.Add(6);
+                view.Rows[0].Cells[0].Value = "Karte ID";
+                view.Rows[1].Cells[0].Value = "Start Budget:";
+                view.Rows[2].Cells[0].Value = "Mengen:";
+                view.Rows[3].Cells[0].Value = "GW: Materialflus";
+                view.Rows[4].Cells[0].Value = "GW: Erweitebarkeit";
+                view.Rows[5].Cells[0].Value = "GW: Budget:";
+                view.Rows[0].Cells[1].Value = focusPlayer.Zielkarte.ID;
+                view.Rows[1].Cells[1].Value = focusPlayer.Zielkarte.StartBudget;
+                view.Rows[2].Cells[1].Value = focusPlayer.Zielkarte.Produktionsmenge;
+                view.Rows[3].Cells[1].Value = focusPlayer.Zielkarte.Gewichtung.MaterialflussGewichtung;
+                view.Rows[4].Cells[1].Value = focusPlayer.Zielkarte.Gewichtung.ErweiterbarkeitGewichtung;
+                view.Rows[5].Cells[1].Value = focusPlayer.Zielkarte.Gewichtung.BudgetGewichtung;
+            }
+        }
+
+        private void ShowPlayerHerstellerKatalog(DataGridView view, Player focusPlayer)
         {
             view.Columns.Add("Maschine", "Maschinen Type");
             view.Columns.Add("Cablemachines", "Cablemachines");
             view.Columns.Add("Voltmaster", "Voltmaster");
             view.Columns.Add("Zeus", "Zeus Maschine");
 
-            var katalog = player.MyHerstellerKatalog;
+            var katalog = focusPlayer.MyHerstellerKatalog;
             if (katalog == null)
             {
                 MessageBox.Show("Katalog is not Generate");
@@ -414,11 +491,10 @@ namespace DataModel
                 return;
             }
 
-            view.Rows.Add(player.MyHerstellerKatalog.MaschinenDimension.Count);           
+            view.Rows.Add(focusPlayer.MyHerstellerKatalog.MaschinenDimension.Count);           
 
             for (int i = 0; i < mlist.Count; i++)
             {
-
                 view.Rows[i].Cells[0].Value = mlist[i].ToString();
                 view.Rows[i].Cells[1].Value = katalog.GetPreis(mlist[i], HerstellerType.Cablemachines);
                 view.Rows[i].Cells[1].Style.BackColor = LieferungColor(katalog.GetLieferungGrad(mlist[i], HerstellerType.Cablemachines));
@@ -429,11 +505,68 @@ namespace DataModel
             }
         }
 
-        private void ShowPlayerBetriebsmittelKatalog()
+        private void ShowPlayerBetriebsmittelKatalog(DataGridView view, Player focusPlayer)
         {
-            throw new NotImplementedException();
+            view.Columns.Add("Maschine", "Betriebsmittel");
+            view.Columns.Add("InputM", "Input.Material");
+            view.Columns.Add("InputRate", "InputRate(n:1)");
+            view.Columns.Add("OutputM", "Output.Material");
+            view.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            view.Columns.Add("MinMenge", "MinMenge");
+            view.Columns.Add("MaxMenge", "MaxMenge");
+            view.Columns.Add("MarktPreis", "Preis €\n(ungefaehrt)");
+            view.Columns.Add("Area", "Groesse(m^2)");
+
+            var katalog = focusPlayer.MyBetriebsmittelKatalog;
+            if (katalog == null)
+            {
+                MessageBox.Show("Katalog is not Generate");
+                return;
+            }
+            var maschinenList = katalog.MaschineKatalog;
+            if (maschinenList.Count < 1)
+            {
+                MessageBox.Show("Katalog is not Generate");
+                return;
+            }
+
+
+            for (int i = 0; i < maschinenList.Count; i++)
+            {
+                var m_type = maschinenList[i].Type;
+                view.Rows.Add(1);
+                var index = view.Rows.Count - 1;
+                var row = view.Rows[index - 1];
+                row.Cells[0].Value = m_type.ToString();
+                row.Cells[1].Value = maschinenList[i].OutputProdukts.First().InputProdukts.First().InputProdukt.ToString();
+                row.Cells[2].Value = maschinenList[i].OutputProdukts.First().InputProdukts.First().Rate;
+                if (m_type == MaschinenType.Grobdrahtzugmaschine1 || m_type == MaschinenType.Grobdrahtzugmaschine2)
+                {
+                    row.Cells[3].Value = maschinenList[i].OutputProdukts.First().OutputProdukt.ToString()
+                        + "/ \n" + maschinenList[i].OutputProdukts.ElementAt(1).OutputProdukt.ToString();
+                }
+                else
+                {
+                    row.Cells[3].Value = maschinenList[i].OutputProdukts.First().OutputProdukt.ToString();
+                }
+                row.Cells[4].Value = maschinenList[i].OutputProdukts.First().MinMenge;
+                row.Cells[5].Value = maschinenList[i].OutputProdukts.First().MaxMenge;
+                row.Cells[6].Value = maschinenList[i].MarktPreis;
+                row.Cells[7].Value = maschinenList[i].Area;
+                if (m_type == MaschinenType.Schirmmaschine && katalog.KabelType == KabelType.VPE)
+                {
+                    view.Rows.Add(1);
+                    index = view.Rows.Count - 1;
+                    row = view.Rows[index - 1];
+                    row.Cells[1].Value = maschinenList[maschinenList.Count - 2].OutputProdukts.First().InputProdukts.ElementAt(1).InputProdukt.ToString();
+                    row.Cells[2].Value = maschinenList[maschinenList.Count - 2].OutputProdukts.First().InputProdukts.ElementAt(1).Rate;
+                }
+            }
         }
+
+
         #endregion
+
 
     }
 }
