@@ -334,7 +334,9 @@ namespace DataModel
         /// <param name="e"></param>
         private void bt_zielKarte_Click(object sender, EventArgs e)
         {
+            
             if (FocusRoom == null) return;
+            //Random Methodde
             Random ran = new Random();
             int cardNumber = ran.Next(1, 6);
             //cardNumber = 1;
@@ -363,8 +365,10 @@ namespace DataModel
 
         private static void BroadcastZielKarteToPlayer(ZielKarte zielKarte, Player player)
         {
+            //Zielkarte
             player.Zielkarte = zielKarte;
         }
+
         private void bt_nextP14_Click(object sender, EventArgs e)
         {
             bt_zielKarte.Enabled = false;
@@ -374,16 +378,27 @@ namespace DataModel
             {
                 InterpretationZielKarten(player);
             }
-        }
+            listBox1.SetSelected(0, true);
+            // Kalkulaton Log Initial
+            rb_Budget_Log.Text = "Budget " +"\t\t"+ "Kosten " + "\t\t" + "Balance" + "\n";
+            //Show Zustand  
+            rb_Budget_Log.Text += FocusRoom.FocusPlayer.Zielkarte.StartBudget.ToString() + "\n";
+            ShowKalkulationState(FocusRoom.FocusPlayer);
 
+        }
+        /// <summary>
+        /// Set Start Budget und PMenge to all player, wenn "Next Phase" click.
+        /// </summary>
+        /// <param name="player"></param>
         private void InterpretationZielKarten(Player player)
         {
             //Ziel Menge jeder Material
             player.MyProduktionManager = new ProduktionManager(player, player.Zielkarte.Produktionsmenge);
-            //Start Budget;
-            //Todo
+            //Set Start Budget;
+            player.KalkulationUnit = new KalkulationUnit(player, player.Zielkarte.StartBudget);
+                   
         }
-        
+
         private void ShowProduktionRequir(DataGridView view)
         {
             if (view.Columns.Count <2)
@@ -564,10 +579,85 @@ namespace DataModel
             }
         }
 
-
+        private void ShowKalkulationState(Player focusPlayer)
+        {
+            tb_budget.Text = focusPlayer.KalkulationUnit.Budget.ToString();
+            tb_kosten.Text = focusPlayer.KalkulationUnit.Kosten.ToString();
+            tb_balance.Text = focusPlayer.KalkulationUnit.Balance.ToString();
+        }
 
 
         #endregion
 
+
+        #region InforKarten BSP
+        private void bt_buyInforCard_Click(object sender, EventArgs e)
+        {
+            // #1#Wer hat diese Karten ziehen? Focusplayer!
+            var _player = FocusRoom.FocusPlayer;
+            // #2# Check, if you have enough money?
+            if (_player.KalkulationUnit.Balance < 130000)
+            {
+                MessageBox.Show("You have no more money to buy Informationcard.");
+                return;
+            }
+            // Generate Methode; 
+            // #2# Todo List<Karten> "Karte Pool" in FocusRoom
+            Random ran = new Random();
+            int cardNumber = ran.Next(1, 17);
+            cardNumber = 1; // test
+            string CardID = "In-" + cardNumber.ToString().PadLeft(2, '0');
+            //BSP Karte01
+            var Incard = new InformationKarte();
+                Incard.SetID(CardID);
+                Incard.AppearPhase = Phases.Phase2_1;
+                Incard.EffectivePhase = Phases.Phase3_6;
+                Incard.IsActive = true; 
+                Incard.DescriptionText = "Die Produktionsgeschwindigkeit der Vernetzungsanlage 1 steigt um 500 m/Tag.";
+            // #3# Zeigen new Karten:
+            MessageBox.Show(RenderInforKarte(Incard), "InforKarte");
+            // #4# Do  Event Effect
+            Incard.DoKarteEffectToPlayer(_player);
+            ClearInformationofOldPlayer();
+            ShowInformationofFocusPlayer();
+            //switch (CardID)
+            //{
+            //    case "In-01":
+            //        //In_card = new ZielKarte(31000000, 2500, new Gewichtung(2, 3, 1));
+            //        //In_card zcard.SetID("Zi-01");
+            //        //Katalog Change:
+            //        var maschine = FocusRoom.DefaultBetriebsmittelKatalog.MaschineKatalog.First(m => m.Type == MaschinenType.Vernetzungsanlage1);
+            //        maschine.OutputProdukts.First().MaxMenge += 500;
+            //        maschine = FocusRoom.FocusPlayer.MyBetriebsmittelKatalog.MaschineKatalog.First(m => m.Type == MaschinenType.Grobdrahtzugmaschine1);
+            //        maschine.OutputProdukts.First().MaxMenge += 500;
+
+            //        ClearInformationofOldPlayer();
+            //        ShowInformationofFocusPlayer();
+            //        break;
+            //    default:
+            //        break;
+            //}
+        }
+
+        private string RenderInforKarte(InformationKarte inforKarte)
+        {
+            return "Informationkarte: " + inforKarte.ID + "\n"
+                + "kosten: 130000" + "\n"
+                + "Information: " + inforKarte.DescriptionText + "\n"
+                + "Wird am Phase" + inforKarte.EffectivePhase.GetPhaseValue().ToString() + "laut vorgelesen";                
+        }
+
+        private void GetInforKarte(Player player, string cardID)
+        {
+            InformationKarte Incard;
+            //check a Resource dictinary/Datenbank
+
+            //Erhalten Id in eine List zu erinnern
+
+            //Kosten. .
+
+            //Effect zu Katalog,.. auswerken
+            #endregion
+        }
     }
 }

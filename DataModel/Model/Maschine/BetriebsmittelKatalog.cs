@@ -140,5 +140,37 @@ namespace DataModel.Model
             MaschineKatalog.Clear();
             MaschineKatalog = GetKatalog(this.KabelType);
         }
+
+
+        #region Information Event
+        /// <summary>
+        /// "In-01" Die Produktionsgeschwindigkeit steigt um 500 m/Tag.
+        /// "In-08", 
+        /// </summary>
+        /// <param name="m_type"></param>
+        /// <param name="p_type"></param>
+        /// <param name="addmenge"></param>
+        public void AddMaschineMaxMenge(MaschinenType m_type, Material p_type, int addmenge)
+        {
+            var maschine = MaschineKatalog.First(m => m.Type == m_type);
+            if (maschine == null) return;
+            maschine.OutputProdukts.First(p => p.OutputProdukt == p_type).MaxMenge += addmenge;
+        }
+
+        public int GetMaschineMaxMenge(MaschinenType m_type, Material p_type)
+        {
+            var maschine = MaschineKatalog.First(m => m.Type == m_type);
+            //if (maschine == null) return 0 ;
+            return maschine.OutputProdukts.First(p => p.OutputProdukt == p_type).MaxMenge;
+        }
+
+        public void SetMaschineMaxMenge(MaschinenType m_type, Material p_type, int menge)
+        {
+            var maschine = MaschineKatalog.First(m => m.Type == m_type);
+            if (maschine == null) return;
+            maschine.OutputProdukts.First(p => p.OutputProdukt == p_type).MaxMenge = menge;
+        }
+
+        #endregion
     }
 }

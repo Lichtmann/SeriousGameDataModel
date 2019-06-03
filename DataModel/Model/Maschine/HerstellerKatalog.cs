@@ -202,9 +202,61 @@ namespace DataModel.Model
         {
             return new Dictionary<Tuple<MaschinenType, HerstellerType>, int>(PreisTable);
         }
+
+        #region InforEvent
+        public void SetHerstellerLieferung(MaschinenType m_type, HerstellerType hersteller, LieferungGrad lg)
+        {
+            LieferungGrad val;
+            var key = new Tuple<MaschinenType, HerstellerType>(m_type, hersteller);
+            if (LieferungGradTable.TryGetValue(key, out val))
+            {
+                LieferungGradTable[key] = lg;
+            }
+            else
+            {
+                LieferungGradTable.Add(key, lg);
+            }
+        }
+
+        //public LieferungGrad GetHerstellerLieferung(MaschinenType m_type, HerstellerType hersteller, LieferungGrad lg)
+        //{
+        //    LieferungGrad val;
+        //    var key = new Tuple<MaschinenType, HerstellerType>(m_type, hersteller);
+        //    LieferungGradTable.TryGetValue(key, out val);
+        //    return val;
+
+        //}
+
+        public void SetHerstellerPreis(MaschinenType m_type, HerstellerType hersteller, int preis)
+        {
+            int val;
+            var key = new Tuple<MaschinenType, HerstellerType>(m_type, hersteller);
+            if (PreisTable.TryGetValue(key, out val))
+            {
+                PreisTable[key] = preis;
+            }
+            else
+            {
+                PreisTable.Add(key, preis);
+            }
+        }
+        public int GetHerstellerPreis(MaschinenType m_type, HerstellerType hersteller, int preis)
+        {
+            int val;
+            var key = new Tuple<MaschinenType, HerstellerType>(m_type, hersteller);
+            if (PreisTable.TryGetValue(key, out val))
+            {
+                return val;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        #endregion
     }
 
-
+    
 
 
 }

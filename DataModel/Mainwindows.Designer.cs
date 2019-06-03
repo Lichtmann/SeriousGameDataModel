@@ -66,7 +66,11 @@
             this.dataGridView_DefaultHerstellerKatalog = new System.Windows.Forms.DataGridView();
             this.dataGridView_DefaultMaschinenKatalog = new System.Windows.Forms.DataGridView();
             this.tabPhasePlay = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.bt_eventcard_phase4 = new System.Windows.Forms.Button();
+            this.bt_inforcard_phase4 = new System.Windows.Forms.Button();
             this.gb_Phase3_2 = new System.Windows.Forms.GroupBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.bt_Eventcard_phase3 = new System.Windows.Forms.Button();
             this.bt_work_inforcard_phase3 = new System.Windows.Forms.Button();
@@ -95,6 +99,25 @@
             this.gb_Phase1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabPhase67 = new System.Windows.Forms.TabPage();
+            this.button9 = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.bt_Evaliation = new System.Windows.Forms.Button();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.bt_event_p7 = new System.Windows.Forms.Button();
+            this.bt_Inforcard_p7 = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.bt_SetHersteller = new System.Windows.Forms.Button();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.bt_EventPhase5 = new System.Windows.Forms.Button();
+            this.bt_inforkarte5 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.bt_roll_Lieferung = new System.Windows.Forms.Button();
+            this.label26 = new System.Windows.Forms.Label();
+            this.bt_event_p6 = new System.Windows.Forms.Button();
             this.tabDisPlayControl = new System.Windows.Forms.TabControl();
             this.tabMyGoal = new System.Windows.Forms.TabPage();
             this.dataGridView_showMenge = new System.Windows.Forms.DataGridView();
@@ -108,36 +131,20 @@
             this.dataGridView_herstellerKatalog = new System.Windows.Forms.DataGridView();
             this.dataGridView_MyBetriebmittelKatalog = new System.Windows.Forms.DataGridView();
             this.tabBudget = new System.Windows.Forms.TabPage();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.tb_budget = new System.Windows.Forms.TextBox();
             this.tabLayout = new System.Windows.Forms.TabPage();
             this.tabMaschinen = new System.Windows.Forms.TabPage();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripFocus = new System.Windows.Forms.ToolStripStatusLabel();
             this.playerListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tb_kosten = new System.Windows.Forms.TextBox();
+            this.tb_balance = new System.Windows.Forms.TextBox();
+            this.rb_Budget_Log = new System.Windows.Forms.RichTextBox();
             this.gameRoomBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gameRoomBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label23 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.bt_eventcard_phase4 = new System.Windows.Forms.Button();
-            this.bt_inforcard_phase4 = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.bt_EventPhase5 = new System.Windows.Forms.Button();
-            this.bt_inforkarte5 = new System.Windows.Forms.Button();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.bt_SetHersteller = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.bt_roll_Lieferung = new System.Windows.Forms.Button();
-            this.label26 = new System.Windows.Forms.Label();
-            this.bt_event_p6 = new System.Windows.Forms.Button();
-            this.tabPhase67 = new System.Windows.Forms.TabPage();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.bt_event_p7 = new System.Windows.Forms.Button();
-            this.bt_Inforcard_p7 = new System.Windows.Forms.Button();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.bt_Evaliation = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -154,10 +161,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DefaultHerstellerKatalog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DefaultMaschinenKatalog)).BeginInit();
             this.tabPhasePlay.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.gb_Phase3_2.SuspendLayout();
             this.gb_phase3_1.SuspendLayout();
             this.gb_phase2.SuspendLayout();
             this.gb_Phase1.SuspendLayout();
+            this.tabPhase67.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.tabDisPlayControl.SuspendLayout();
             this.tabMyGoal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_showMenge)).BeginInit();
@@ -165,15 +177,11 @@
             this.tabMyKatalog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_herstellerKatalog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_MyBetriebmittelKatalog)).BeginInit();
+            this.tabBudget.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playerListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameRoomBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameRoomBindingSource)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.tabPhase67.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -296,7 +304,7 @@
             this.tabGame.Location = new System.Drawing.Point(4, 22);
             this.tabGame.Name = "tabGame";
             this.tabGame.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGame.Size = new System.Drawing.Size(607, 827);
+            this.tabGame.Size = new System.Drawing.Size(607, 650);
             this.tabGame.TabIndex = 0;
             this.tabGame.Text = "Game";
             this.tabGame.UseVisualStyleBackColor = true;
@@ -457,7 +465,7 @@
             this.tab_DefaultKatalog.Location = new System.Drawing.Point(4, 22);
             this.tab_DefaultKatalog.Name = "tab_DefaultKatalog";
             this.tab_DefaultKatalog.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_DefaultKatalog.Size = new System.Drawing.Size(607, 827);
+            this.tab_DefaultKatalog.Size = new System.Drawing.Size(607, 650);
             this.tab_DefaultKatalog.TabIndex = 2;
             this.tab_DefaultKatalog.Text = "Katalog";
             this.tab_DefaultKatalog.UseVisualStyleBackColor = true;
@@ -545,6 +553,39 @@
             this.tabPhasePlay.Text = "Phase";
             this.tabPhasePlay.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.bt_eventcard_phase4);
+            this.groupBox1.Controls.Add(this.bt_inforcard_phase4);
+            this.groupBox1.Location = new System.Drawing.Point(7, 510);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(594, 61);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Phase4";
+            // 
+            // bt_eventcard_phase4
+            // 
+            this.bt_eventcard_phase4.BackColor = System.Drawing.Color.DarkOrange;
+            this.bt_eventcard_phase4.Location = new System.Drawing.Point(287, 24);
+            this.bt_eventcard_phase4.Name = "bt_eventcard_phase4";
+            this.bt_eventcard_phase4.Size = new System.Drawing.Size(236, 23);
+            this.bt_eventcard_phase4.TabIndex = 16;
+            this.bt_eventcard_phase4.Text = "Event Phase4";
+            this.bt_eventcard_phase4.UseVisualStyleBackColor = false;
+            // 
+            // bt_inforcard_phase4
+            // 
+            this.bt_inforcard_phase4.BackColor = System.Drawing.Color.LemonChiffon;
+            this.bt_inforcard_phase4.Location = new System.Drawing.Point(13, 24);
+            this.bt_inforcard_phase4.Name = "bt_inforcard_phase4";
+            this.bt_inforcard_phase4.Size = new System.Drawing.Size(236, 23);
+            this.bt_inforcard_phase4.TabIndex = 15;
+            this.bt_inforcard_phase4.Text = "Open InforKarte Phase4";
+            this.bt_inforcard_phase4.UseVisualStyleBackColor = false;
+            // 
             // gb_Phase3_2
             // 
             this.gb_Phase3_2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -567,6 +608,15 @@
             this.gb_Phase3_2.TabIndex = 2;
             this.gb_Phase3_2.TabStop = false;
             this.gb_Phase3_2.Text = "Phase3_2";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(11, 167);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(215, 12);
+            this.label23.TabIndex = 16;
+            this.label23.Text = "7. Zwei Ereigniskarteat der Phase 3";
             // 
             // label22
             // 
@@ -796,6 +846,7 @@
             this.bt_buyInforCard.TabIndex = 2;
             this.bt_buyInforCard.Text = "Buy Inforcard";
             this.bt_buyInforCard.UseVisualStyleBackColor = true;
+            this.bt_buyInforCard.Click += new System.EventHandler(this.bt_buyInforCard_Click);
             // 
             // label13
             // 
@@ -845,6 +896,210 @@
             this.label1.Size = new System.Drawing.Size(95, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "1: Kable Type: ";
+            // 
+            // tabPhase67
+            // 
+            this.tabPhase67.Controls.Add(this.button9);
+            this.tabPhase67.Controls.Add(this.groupBox4);
+            this.tabPhase67.Controls.Add(this.groupBox2);
+            this.tabPhase67.Controls.Add(this.groupBox3);
+            this.tabPhase67.Location = new System.Drawing.Point(4, 22);
+            this.tabPhase67.Name = "tabPhase67";
+            this.tabPhase67.Size = new System.Drawing.Size(607, 650);
+            this.tabPhase67.TabIndex = 3;
+            this.tabPhase67.Text = "Phase6 7";
+            this.tabPhase67.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.Transparent;
+            this.button9.Location = new System.Drawing.Point(155, 421);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(236, 23);
+            this.button9.TabIndex = 21;
+            this.button9.Text = "How is winner?";
+            this.button9.UseVisualStyleBackColor = false;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.bt_Evaliation);
+            this.groupBox4.Controls.Add(this.label28);
+            this.groupBox4.Controls.Add(this.label27);
+            this.groupBox4.Controls.Add(this.bt_event_p7);
+            this.groupBox4.Controls.Add(this.bt_Inforcard_p7);
+            this.groupBox4.Location = new System.Drawing.Point(3, 261);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(594, 140);
+            this.groupBox4.TabIndex = 20;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Phase7";
+            // 
+            // bt_Evaliation
+            // 
+            this.bt_Evaliation.BackColor = System.Drawing.Color.Transparent;
+            this.bt_Evaliation.Location = new System.Drawing.Point(152, 97);
+            this.bt_Evaliation.Name = "bt_Evaliation";
+            this.bt_Evaliation.Size = new System.Drawing.Size(236, 23);
+            this.bt_Evaliation.TabIndex = 20;
+            this.bt_Evaliation.Text = "Evaliation";
+            this.bt_Evaliation.UseVisualStyleBackColor = false;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(21, 29);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(101, 12);
+            this.label28.TabIndex = 19;
+            this.label28.Text = "1. Ereigniskarte";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(21, 44);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(89, 12);
+            this.label27.TabIndex = 18;
+            this.label27.Text = "2. Inforkarten";
+            // 
+            // bt_event_p7
+            // 
+            this.bt_event_p7.BackColor = System.Drawing.Color.DarkOrange;
+            this.bt_event_p7.Location = new System.Drawing.Point(287, 29);
+            this.bt_event_p7.Name = "bt_event_p7";
+            this.bt_event_p7.Size = new System.Drawing.Size(236, 23);
+            this.bt_event_p7.TabIndex = 16;
+            this.bt_event_p7.Text = "Event Phase7";
+            this.bt_event_p7.UseVisualStyleBackColor = false;
+            // 
+            // bt_Inforcard_p7
+            // 
+            this.bt_Inforcard_p7.BackColor = System.Drawing.Color.LemonChiffon;
+            this.bt_Inforcard_p7.Location = new System.Drawing.Point(287, 58);
+            this.bt_Inforcard_p7.Name = "bt_Inforcard_p7";
+            this.bt_Inforcard_p7.Size = new System.Drawing.Size(236, 23);
+            this.bt_Inforcard_p7.TabIndex = 15;
+            this.bt_Inforcard_p7.Text = "Open InforKarte Phase7";
+            this.bt_Inforcard_p7.UseVisualStyleBackColor = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.bt_SetHersteller);
+            this.groupBox2.Controls.Add(this.label25);
+            this.groupBox2.Controls.Add(this.label24);
+            this.groupBox2.Controls.Add(this.bt_EventPhase5);
+            this.groupBox2.Controls.Add(this.bt_inforkarte5);
+            this.groupBox2.Location = new System.Drawing.Point(3, 24);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(594, 101);
+            this.groupBox2.TabIndex = 17;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Phase5";
+            // 
+            // bt_SetHersteller
+            // 
+            this.bt_SetHersteller.BackColor = System.Drawing.Color.GreenYellow;
+            this.bt_SetHersteller.Location = new System.Drawing.Point(287, 28);
+            this.bt_SetHersteller.Name = "bt_SetHersteller";
+            this.bt_SetHersteller.Size = new System.Drawing.Size(236, 23);
+            this.bt_SetHersteller.TabIndex = 19;
+            this.bt_SetHersteller.Text = "Set Hersteller";
+            this.bt_SetHersteller.UseVisualStyleBackColor = false;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(21, 28);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(293, 12);
+            this.label25.TabIndex = 18;
+            this.label25.Text = "1. Markieren Hersteller fuer jeder Maschinentype";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(18, 57);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(35, 12);
+            this.label24.TabIndex = 17;
+            this.label24.Text = "2. 3.";
+            // 
+            // bt_EventPhase5
+            // 
+            this.bt_EventPhase5.BackColor = System.Drawing.Color.DarkOrange;
+            this.bt_EventPhase5.Location = new System.Drawing.Point(287, 72);
+            this.bt_EventPhase5.Name = "bt_EventPhase5";
+            this.bt_EventPhase5.Size = new System.Drawing.Size(236, 23);
+            this.bt_EventPhase5.TabIndex = 16;
+            this.bt_EventPhase5.Text = "Event Phase5";
+            this.bt_EventPhase5.UseVisualStyleBackColor = false;
+            // 
+            // bt_inforkarte5
+            // 
+            this.bt_inforkarte5.BackColor = System.Drawing.Color.LemonChiffon;
+            this.bt_inforkarte5.Location = new System.Drawing.Point(13, 72);
+            this.bt_inforkarte5.Name = "bt_inforkarte5";
+            this.bt_inforkarte5.Size = new System.Drawing.Size(236, 23);
+            this.bt_inforkarte5.TabIndex = 15;
+            this.bt_inforkarte5.Text = "Open InforKarte Phase5";
+            this.bt_inforkarte5.UseVisualStyleBackColor = false;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.label29);
+            this.groupBox3.Controls.Add(this.bt_roll_Lieferung);
+            this.groupBox3.Controls.Add(this.label26);
+            this.groupBox3.Controls.Add(this.bt_event_p6);
+            this.groupBox3.Location = new System.Drawing.Point(3, 141);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(594, 101);
+            this.groupBox3.TabIndex = 20;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Phase6";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(21, 77);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(17, 12);
+            this.label29.TabIndex = 20;
+            this.label29.Text = "2.";
+            // 
+            // bt_roll_Lieferung
+            // 
+            this.bt_roll_Lieferung.BackColor = System.Drawing.Color.GreenYellow;
+            this.bt_roll_Lieferung.Location = new System.Drawing.Point(287, 23);
+            this.bt_roll_Lieferung.Name = "bt_roll_Lieferung";
+            this.bt_roll_Lieferung.Size = new System.Drawing.Size(236, 23);
+            this.bt_roll_Lieferung.TabIndex = 19;
+            this.bt_roll_Lieferung.Text = "Roll";
+            this.bt_roll_Lieferung.UseVisualStyleBackColor = false;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(21, 28);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(233, 12);
+            this.label26.TabIndex = 18;
+            this.label26.Text = "1. roll=> LieferungErgebnis =>Aufpreis";
+            // 
+            // bt_event_p6
+            // 
+            this.bt_event_p6.BackColor = System.Drawing.Color.DarkOrange;
+            this.bt_event_p6.Location = new System.Drawing.Point(287, 72);
+            this.bt_event_p6.Name = "bt_event_p6";
+            this.bt_event_p6.Size = new System.Drawing.Size(236, 23);
+            this.bt_event_p6.TabIndex = 16;
+            this.bt_event_p6.Text = "Event Phase6";
+            this.bt_event_p6.UseVisualStyleBackColor = false;
             // 
             // tabDisPlayControl
             // 
@@ -924,7 +1179,7 @@
             this.tabMyKatalog.Controls.Add(this.dataGridView_MyBetriebmittelKatalog);
             this.tabMyKatalog.Location = new System.Drawing.Point(4, 22);
             this.tabMyKatalog.Name = "tabMyKatalog";
-            this.tabMyKatalog.Size = new System.Drawing.Size(706, 689);
+            this.tabMyKatalog.Size = new System.Drawing.Size(773, 650);
             this.tabMyKatalog.TabIndex = 4;
             this.tabMyKatalog.Text = "MyKatalog";
             this.tabMyKatalog.UseVisualStyleBackColor = true;
@@ -980,20 +1235,61 @@
             // 
             // tabBudget
             // 
+            this.tabBudget.Controls.Add(this.rb_Budget_Log);
+            this.tabBudget.Controls.Add(this.tb_balance);
+            this.tabBudget.Controls.Add(this.tb_kosten);
+            this.tabBudget.Controls.Add(this.label32);
+            this.tabBudget.Controls.Add(this.label31);
+            this.tabBudget.Controls.Add(this.label30);
+            this.tabBudget.Controls.Add(this.tb_budget);
             this.tabBudget.Location = new System.Drawing.Point(4, 22);
             this.tabBudget.Name = "tabBudget";
             this.tabBudget.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBudget.Size = new System.Drawing.Size(706, 689);
+            this.tabBudget.Size = new System.Drawing.Size(773, 650);
             this.tabBudget.TabIndex = 0;
             this.tabBudget.Text = "BudgetKalkulation";
             this.tabBudget.UseVisualStyleBackColor = true;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(401, 19);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(47, 12);
+            this.label32.TabIndex = 3;
+            this.label32.Text = "Balance";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(223, 20);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(41, 12);
+            this.label31.TabIndex = 2;
+            this.label31.Text = "Kosten";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(55, 19);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(41, 12);
+            this.label30.TabIndex = 1;
+            this.label30.Text = "Budget";
+            // 
+            // tb_budget
+            // 
+            this.tb_budget.Location = new System.Drawing.Point(17, 35);
+            this.tb_budget.Name = "tb_budget";
+            this.tb_budget.Size = new System.Drawing.Size(128, 21);
+            this.tb_budget.TabIndex = 0;
             // 
             // tabLayout
             // 
             this.tabLayout.Location = new System.Drawing.Point(4, 22);
             this.tabLayout.Name = "tabLayout";
             this.tabLayout.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLayout.Size = new System.Drawing.Size(706, 689);
+            this.tabLayout.Size = new System.Drawing.Size(773, 650);
             this.tabLayout.TabIndex = 1;
             this.tabLayout.Text = "LayoutList";
             this.tabLayout.UseVisualStyleBackColor = true;
@@ -1002,7 +1298,7 @@
             // 
             this.tabMaschinen.Location = new System.Drawing.Point(4, 22);
             this.tabMaschinen.Name = "tabMaschinen";
-            this.tabMaschinen.Size = new System.Drawing.Size(706, 689);
+            this.tabMaschinen.Size = new System.Drawing.Size(773, 650);
             this.tabMaschinen.TabIndex = 2;
             this.tabMaschinen.Text = "MaschinenList";
             this.tabMaschinen.UseVisualStyleBackColor = true;
@@ -1028,6 +1324,28 @@
             this.playerListBindingSource.DataMember = "PlayerList";
             this.playerListBindingSource.DataSource = this.gameRoomBindingSource1;
             // 
+            // tb_kosten
+            // 
+            this.tb_kosten.Location = new System.Drawing.Point(182, 35);
+            this.tb_kosten.Name = "tb_kosten";
+            this.tb_kosten.Size = new System.Drawing.Size(128, 21);
+            this.tb_kosten.TabIndex = 4;
+            // 
+            // tb_balance
+            // 
+            this.tb_balance.Location = new System.Drawing.Point(352, 35);
+            this.tb_balance.Name = "tb_balance";
+            this.tb_balance.Size = new System.Drawing.Size(128, 21);
+            this.tb_balance.TabIndex = 5;
+            // 
+            // rb_Budget_Log
+            // 
+            this.rb_Budget_Log.Location = new System.Drawing.Point(17, 67);
+            this.rb_Budget_Log.Name = "rb_Budget_Log";
+            this.rb_Budget_Log.Size = new System.Drawing.Size(463, 231);
+            this.rb_Budget_Log.TabIndex = 6;
+            this.rb_Budget_Log.Text = "";
+            // 
             // gameRoomBindingSource1
             // 
             this.gameRoomBindingSource1.DataSource = typeof(DataModel.Model.GameRoom);
@@ -1035,252 +1353,6 @@
             // gameRoomBindingSource
             // 
             this.gameRoomBindingSource.DataSource = typeof(DataModel.Model.GameRoom);
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(11, 167);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(215, 12);
-            this.label23.TabIndex = 16;
-            this.label23.Text = "7. Zwei Ereigniskarteat der Phase 3";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.bt_eventcard_phase4);
-            this.groupBox1.Controls.Add(this.bt_inforcard_phase4);
-            this.groupBox1.Location = new System.Drawing.Point(7, 510);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(594, 61);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Phase4";
-            // 
-            // bt_eventcard_phase4
-            // 
-            this.bt_eventcard_phase4.BackColor = System.Drawing.Color.DarkOrange;
-            this.bt_eventcard_phase4.Location = new System.Drawing.Point(287, 24);
-            this.bt_eventcard_phase4.Name = "bt_eventcard_phase4";
-            this.bt_eventcard_phase4.Size = new System.Drawing.Size(236, 23);
-            this.bt_eventcard_phase4.TabIndex = 16;
-            this.bt_eventcard_phase4.Text = "Event Phase4";
-            this.bt_eventcard_phase4.UseVisualStyleBackColor = false;
-            // 
-            // bt_inforcard_phase4
-            // 
-            this.bt_inforcard_phase4.BackColor = System.Drawing.Color.LemonChiffon;
-            this.bt_inforcard_phase4.Location = new System.Drawing.Point(13, 24);
-            this.bt_inforcard_phase4.Name = "bt_inforcard_phase4";
-            this.bt_inforcard_phase4.Size = new System.Drawing.Size(236, 23);
-            this.bt_inforcard_phase4.TabIndex = 15;
-            this.bt_inforcard_phase4.Text = "Open InforKarte Phase4";
-            this.bt_inforcard_phase4.UseVisualStyleBackColor = false;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.bt_SetHersteller);
-            this.groupBox2.Controls.Add(this.label25);
-            this.groupBox2.Controls.Add(this.label24);
-            this.groupBox2.Controls.Add(this.bt_EventPhase5);
-            this.groupBox2.Controls.Add(this.bt_inforkarte5);
-            this.groupBox2.Location = new System.Drawing.Point(3, 24);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(594, 101);
-            this.groupBox2.TabIndex = 17;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Phase5";
-            // 
-            // bt_EventPhase5
-            // 
-            this.bt_EventPhase5.BackColor = System.Drawing.Color.DarkOrange;
-            this.bt_EventPhase5.Location = new System.Drawing.Point(287, 72);
-            this.bt_EventPhase5.Name = "bt_EventPhase5";
-            this.bt_EventPhase5.Size = new System.Drawing.Size(236, 23);
-            this.bt_EventPhase5.TabIndex = 16;
-            this.bt_EventPhase5.Text = "Event Phase5";
-            this.bt_EventPhase5.UseVisualStyleBackColor = false;
-            // 
-            // bt_inforkarte5
-            // 
-            this.bt_inforkarte5.BackColor = System.Drawing.Color.LemonChiffon;
-            this.bt_inforkarte5.Location = new System.Drawing.Point(13, 72);
-            this.bt_inforkarte5.Name = "bt_inforkarte5";
-            this.bt_inforkarte5.Size = new System.Drawing.Size(236, 23);
-            this.bt_inforkarte5.TabIndex = 15;
-            this.bt_inforkarte5.Text = "Open InforKarte Phase5";
-            this.bt_inforkarte5.UseVisualStyleBackColor = false;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(18, 57);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(35, 12);
-            this.label24.TabIndex = 17;
-            this.label24.Text = "2. 3.";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(21, 28);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(293, 12);
-            this.label25.TabIndex = 18;
-            this.label25.Text = "1. Markieren Hersteller fuer jeder Maschinentype";
-            // 
-            // bt_SetHersteller
-            // 
-            this.bt_SetHersteller.BackColor = System.Drawing.Color.GreenYellow;
-            this.bt_SetHersteller.Location = new System.Drawing.Point(287, 28);
-            this.bt_SetHersteller.Name = "bt_SetHersteller";
-            this.bt_SetHersteller.Size = new System.Drawing.Size(236, 23);
-            this.bt_SetHersteller.TabIndex = 19;
-            this.bt_SetHersteller.Text = "Set Hersteller";
-            this.bt_SetHersteller.UseVisualStyleBackColor = false;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.label29);
-            this.groupBox3.Controls.Add(this.bt_roll_Lieferung);
-            this.groupBox3.Controls.Add(this.label26);
-            this.groupBox3.Controls.Add(this.bt_event_p6);
-            this.groupBox3.Location = new System.Drawing.Point(3, 141);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(594, 101);
-            this.groupBox3.TabIndex = 20;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Phase6";
-            // 
-            // bt_roll_Lieferung
-            // 
-            this.bt_roll_Lieferung.BackColor = System.Drawing.Color.GreenYellow;
-            this.bt_roll_Lieferung.Location = new System.Drawing.Point(287, 23);
-            this.bt_roll_Lieferung.Name = "bt_roll_Lieferung";
-            this.bt_roll_Lieferung.Size = new System.Drawing.Size(236, 23);
-            this.bt_roll_Lieferung.TabIndex = 19;
-            this.bt_roll_Lieferung.Text = "Roll";
-            this.bt_roll_Lieferung.UseVisualStyleBackColor = false;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(21, 28);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(233, 12);
-            this.label26.TabIndex = 18;
-            this.label26.Text = "1. roll=> LieferungErgebnis =>Aufpreis";
-            // 
-            // bt_event_p6
-            // 
-            this.bt_event_p6.BackColor = System.Drawing.Color.DarkOrange;
-            this.bt_event_p6.Location = new System.Drawing.Point(287, 72);
-            this.bt_event_p6.Name = "bt_event_p6";
-            this.bt_event_p6.Size = new System.Drawing.Size(236, 23);
-            this.bt_event_p6.TabIndex = 16;
-            this.bt_event_p6.Text = "Event Phase6";
-            this.bt_event_p6.UseVisualStyleBackColor = false;
-            // 
-            // tabPhase67
-            // 
-            this.tabPhase67.Controls.Add(this.button9);
-            this.tabPhase67.Controls.Add(this.groupBox4);
-            this.tabPhase67.Controls.Add(this.groupBox2);
-            this.tabPhase67.Controls.Add(this.groupBox3);
-            this.tabPhase67.Location = new System.Drawing.Point(4, 22);
-            this.tabPhase67.Name = "tabPhase67";
-            this.tabPhase67.Size = new System.Drawing.Size(607, 827);
-            this.tabPhase67.TabIndex = 3;
-            this.tabPhase67.Text = "Phase6 7";
-            this.tabPhase67.UseVisualStyleBackColor = true;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Controls.Add(this.bt_Evaliation);
-            this.groupBox4.Controls.Add(this.label28);
-            this.groupBox4.Controls.Add(this.label27);
-            this.groupBox4.Controls.Add(this.bt_event_p7);
-            this.groupBox4.Controls.Add(this.bt_Inforcard_p7);
-            this.groupBox4.Location = new System.Drawing.Point(3, 261);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(594, 140);
-            this.groupBox4.TabIndex = 20;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Phase7";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(21, 44);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(89, 12);
-            this.label27.TabIndex = 18;
-            this.label27.Text = "2. Inforkarten";
-            // 
-            // bt_event_p7
-            // 
-            this.bt_event_p7.BackColor = System.Drawing.Color.DarkOrange;
-            this.bt_event_p7.Location = new System.Drawing.Point(287, 29);
-            this.bt_event_p7.Name = "bt_event_p7";
-            this.bt_event_p7.Size = new System.Drawing.Size(236, 23);
-            this.bt_event_p7.TabIndex = 16;
-            this.bt_event_p7.Text = "Event Phase7";
-            this.bt_event_p7.UseVisualStyleBackColor = false;
-            // 
-            // bt_Inforcard_p7
-            // 
-            this.bt_Inforcard_p7.BackColor = System.Drawing.Color.LemonChiffon;
-            this.bt_Inforcard_p7.Location = new System.Drawing.Point(287, 58);
-            this.bt_Inforcard_p7.Name = "bt_Inforcard_p7";
-            this.bt_Inforcard_p7.Size = new System.Drawing.Size(236, 23);
-            this.bt_Inforcard_p7.TabIndex = 15;
-            this.bt_Inforcard_p7.Text = "Open InforKarte Phase7";
-            this.bt_Inforcard_p7.UseVisualStyleBackColor = false;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(21, 77);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(17, 12);
-            this.label29.TabIndex = 20;
-            this.label29.Text = "2.";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(21, 29);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(101, 12);
-            this.label28.TabIndex = 19;
-            this.label28.Text = "1. Ereigniskarte";
-            // 
-            // bt_Evaliation
-            // 
-            this.bt_Evaliation.BackColor = System.Drawing.Color.Transparent;
-            this.bt_Evaliation.Location = new System.Drawing.Point(152, 97);
-            this.bt_Evaliation.Name = "bt_Evaliation";
-            this.bt_Evaliation.Size = new System.Drawing.Size(236, 23);
-            this.bt_Evaliation.TabIndex = 20;
-            this.bt_Evaliation.Text = "Evaliation";
-            this.bt_Evaliation.UseVisualStyleBackColor = false;
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.Transparent;
-            this.button9.Location = new System.Drawing.Point(155, 421);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(236, 23);
-            this.button9.TabIndex = 21;
-            this.button9.Text = "How is winner?";
-            this.button9.UseVisualStyleBackColor = false;
             // 
             // MainWindows
             // 
@@ -1315,6 +1387,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DefaultHerstellerKatalog)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DefaultMaschinenKatalog)).EndInit();
             this.tabPhasePlay.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.gb_Phase3_2.ResumeLayout(false);
             this.gb_Phase3_2.PerformLayout();
             this.gb_phase3_1.ResumeLayout(false);
@@ -1323,6 +1396,13 @@
             this.gb_phase2.PerformLayout();
             this.gb_Phase1.ResumeLayout(false);
             this.gb_Phase1.PerformLayout();
+            this.tabPhase67.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.tabDisPlayControl.ResumeLayout(false);
             this.tabMyGoal.ResumeLayout(false);
             this.tabMyGoal.PerformLayout();
@@ -1332,19 +1412,13 @@
             this.tabMyKatalog.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_herstellerKatalog)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_MyBetriebmittelKatalog)).EndInit();
+            this.tabBudget.ResumeLayout(false);
+            this.tabBudget.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playerListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameRoomBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameRoomBindingSource)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.tabPhase67.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1460,6 +1534,13 @@
         private System.Windows.Forms.Button bt_roll_Lieferung;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Button bt_event_p6;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox tb_budget;
+        private System.Windows.Forms.RichTextBox rb_Budget_Log;
+        private System.Windows.Forms.TextBox tb_balance;
+        private System.Windows.Forms.TextBox tb_kosten;
     }
 }
 

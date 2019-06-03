@@ -130,7 +130,7 @@ namespace DataModel.Model
     public static partial class EnumExtensions
     {
         //phse
-        public static double GetRateValue(this Phases enumValue)
+        public static int GetPhaseValue(this Phases enumValue)
         {
             FieldInfo fieldInfo = enumValue.GetType().GetField(enumValue.ToString());
             PhaseValueAttribute[] attrs =

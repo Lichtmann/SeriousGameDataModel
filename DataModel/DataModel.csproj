@@ -74,6 +74,7 @@
     <Compile Include="Model\Karten\Interface\IPhase.cs" />
     <Compile Include="Model\Karten\ZielKarte.cs" />
     <Compile Include="Model\Layout\LayoutUnit.cs" />
+    <Compile Include="Model\Layout\saeulen.cs" />
     <Compile Include="Model\MaschinenManager.cs" />
     <Compile Include="Model\Maschine\BetriebsmittelKatalog.cs" />
     <Compile Include="Model\Maschine\HerstellerKatalog.cs" />
