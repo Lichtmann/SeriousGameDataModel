@@ -10,7 +10,7 @@ namespace DataModel.Model.Karten //.Interface
     public interface IPhase
     {
          Phases AppearPhase { get; set; }
-         Phases EffectivePhase { get; set; }
+         Phases BroadcastPhase { get; set; }
          
     }
 }

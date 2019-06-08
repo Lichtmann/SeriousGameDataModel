@@ -10,6 +10,7 @@ namespace DataModel.Model
     public class Player
     {
         private string _playerName;
+        private GameRoom _atRomm;
         private ZielKarte _zielkarte;
         // BetriebmittelKatalog // HerstellerKatalog
         private HerstellerKatalog _myHerstellerKatalog;         // KabelType
@@ -42,6 +43,11 @@ namespace DataModel.Model
             //5
             //
             MyProduktionManager = new ProduktionManager();
+        }
+
+        public Player(string name, GameRoom room) : this(name)
+        {
+            this.AtRomm = room;
         }
 
         #region Maschinen 
@@ -114,6 +120,7 @@ namespace DataModel.Model
         public HerstellerKatalog MyHerstellerKatalog { get => _myHerstellerKatalog; set => _myHerstellerKatalog = value; }
         public BetriebsmittelKatalog MyBetriebsmittelKatalog { get => _myBetriebsmittelKatalog; set => _myBetriebsmittelKatalog = value; }
         public ProduktionManager MyProduktionManager { get => _myProduktionManager; set => _myProduktionManager = value; }
+        public GameRoom AtRomm { get => _atRomm; set => _atRomm = value; }
 
         #endregion
 

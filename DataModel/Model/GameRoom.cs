@@ -13,11 +13,14 @@ namespace DataModel.Model
         private int _roomID;
         private KabelType _kabelType;
         private ZielKarte _zielkarte;
-        //Plaer Manager;
+        //Player Manager;
         private List<Player> _playerList;
         private Player _focusPlayer;
+        //Katalog
         private HerstellerKatalog _defaultHerstellerKatalog;
         private BetriebsmittelKatalog _defaultBetriebsmittelKatalog;
+        //Karten Pool
+        private List<InformationKarte> _inforKartenPool = new List<InformationKarte>();
 
         public GameRoom()
         {
@@ -52,6 +55,8 @@ namespace DataModel.Model
         public Player FocusPlayer { get => _focusPlayer; set => _focusPlayer = value; }
         public HerstellerKatalog DefaultHerstellerKatalog { get => _defaultHerstellerKatalog; set => _defaultHerstellerKatalog = value; }
         public BetriebsmittelKatalog DefaultBetriebsmittelKatalog { get => _defaultBetriebsmittelKatalog; set => _defaultBetriebsmittelKatalog = value; }
+        public List<InformationKarte> InforKartenPool { get => _inforKartenPool; set => _inforKartenPool = value; }
+        public List<InformationKarte> InforKartenToBroadcast { get => InforKartenPool.Where(i=> (i.FirstOwner.PlayerName!="who") && i.IsSecret).ToList(); /*set => _inforKartenPool = value; */}
 
         public void SetSelectedPlayer(int index)
         {
@@ -80,13 +85,36 @@ namespace DataModel.Model
 
         public void AddPlayerToRoom(string name)
         {
-            var newPlayer = new Player(name);
+            var newPlayer = new Player(name, this);
             //Initial of Player // KabelType == unknow
             //newPlayer.MyHerstellerKatalog = new HerstellerKatalog(this.KabelType);
             //newPlayer.MyBetriebsmittelKatalog = new BetriebsmittelKatalog(this.KabelType);
             PlayerList.Add(newPlayer);
         }
 
+        /// <summary>
+        /// Initial Game with GameInhalt Ressource
+        /// </summary>
+        public void StartGameWithKabelType()
+        {
+            //Default Katalog
+            this.DefaultHerstellerKatalog = new HerstellerKatalog(this.KabelType);
+            this.DefaultBetriebsmittelKatalog = new BetriebsmittelKatalog(this.KabelType);
+            //Katalog of Players
+            this.GenerateKatalogForAllPlayer();
+            //Inforcard pool
+            if (this.KabelType == KabelType.MI)
+            {
+                InforKartenPool = InforKarteLib.GetKartenForMI();
+            }
+            else //(this.KabelType == KabelType.VPE)
+            {
+                InforKartenPool = InforKarteLib.GetKartenForVPE();
+            }
+            
+            //EreignisKarte pool
+            //Todo
+        }
         public void GenerateKatalogForAllPlayer()
         {
             if (PlayerList.Count == 0) return;

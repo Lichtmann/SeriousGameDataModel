@@ -67,6 +67,7 @@
     <Compile Include="Model\Evaluation\KalkulationUnit.cs" />
     <Compile Include="Model\Karten\BaseKarte.cs" />
     <Compile Include="Model\Karten\EreignisKarte.cs" />
+    <Compile Include="Model\Karten\InforKarteLib.cs" />
     <Compile Include="Model\Karten\InformationKarte.cs" />
     <Compile Include="Model\Karten\Interface\IBudget.cs" />
     <Compile Include="Model\Karten\Interface\IBuffDeBuff.cs" />

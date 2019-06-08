@@ -75,6 +75,10 @@ namespace DataModel.Model.Karten
             return zcard;
         }
 
+        /// <summary>
+        /// Get a Random ID of ZielKarte
+        /// </summary>
+        /// <returns></returns>
         public static string GetRandomID()
         {
             return "Zi-" + GetRandomNumber().ToString().PadLeft(2, '0');

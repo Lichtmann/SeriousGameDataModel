@@ -157,27 +157,42 @@ namespace DataModel
         /// <param name="e"></param>
         private void bt_StartGameP2_Click(object sender, EventArgs e)
         {
+            //Condition to Start Game
             if (FocusRoom == null) return;
             if (FocusRoom.PlayerList.Count < 1) return;
             if (FocusRoom.KabelType == KabelType.unknow) return;
+            //Unable Button
             bt_OpenRoom.Enabled = false;
             bt_AddPlayer.Enabled = false;
             bt_deleteplayer.Enabled = false;
             bt_KabelType.Enabled = false;
-            FocusRoom.DefaultHerstellerKatalog = new HerstellerKatalog(FocusRoom.KabelType);
+            bt_StartGameP2.Enabled = false; ///#
+            // #!# Initial Game with GameInhalt Ressource
+            FocusRoom.StartGameWithKabelType();
+            // GUI Show Katalog
             RenderDefultHerstellerKatalog();
-            FocusRoom.DefaultBetriebsmittelKatalog = new BetriebsmittelKatalog(FocusRoom.KabelType);
             RenderDefultBetriebsmittelKatalog();
-            FocusRoom.GenerateKatalogForAllPlayer();
-            bt_StartGameP2.Enabled = false;
+            // GUI Summary
             MessageBox.Show("GameRoom: " + FocusRoom.RoomID 
                 + "\nStart with " + FocusRoom.PlayerList.Count + " Players\n" 
                 + "KabelType: " + FocusRoom.KabelType
                 + "\nPlease Extract ZielKarte");
+            // GUI Ziel 
             InitialDataGridViewZielKarte();
-
         }
         
+
+        public void RefreshDefultKatalog()
+        {
+            //Clear
+            dataGridView_DefaultHerstellerKatalog.Rows.Clear();
+            dataGridView_DefaultHerstellerKatalog.Columns.Clear();
+            dataGridView_DefaultMaschinenKatalog.Rows.Clear();
+            dataGridView_DefaultMaschinenKatalog.Columns.Clear();
+            // Render
+            RenderDefultHerstellerKatalog();
+            RenderDefultBetriebsmittelKatalog();
+        }
         private void RenderDefultHerstellerKatalog()
         {
             dataGridView_DefaultHerstellerKatalog.Columns.Add("Maschine", "Maschinen Type");
@@ -396,6 +411,11 @@ namespace DataModel
 
         #region PlayerInfomation
 
+        public void RefreshInformationOfPlayer()
+        {
+            ClearInformationofOldPlayer();
+            ShowInformationofFocusPlayer();
+        }
         private void ClearInformationofOldPlayer()
         {
             dataGridView_MyGoal.Rows.Clear();
@@ -545,8 +565,7 @@ namespace DataModel
 
         #endregion
 
-
-        #region InforKarten BSP
+        #region InforKarten 
         private void bt_buyInforCard_Click(object sender, EventArgs e)
         {
             // #1#Wer hat diese Karten ziehen? Focusplayer!
@@ -557,63 +576,27 @@ namespace DataModel
                 MessageBox.Show("You have no more money to buy Informationcard.");
                 return;
             }
-            // Generate Methode; 
-            // #2# Todo List<Karten> "Karte Pool" in FocusRoom
-            Random ran = new Random();
-            int cardNumber = ran.Next(1, 17);
-            cardNumber = 1; // test
-            string CardID = "In-" + cardNumber.ToString().PadLeft(2, '0');
-            //BSP Karte01
-            var Incard = new InformationKarte();
-                Incard.SetID(CardID);
-                Incard.AppearPhase = Phases.Phase2_1;
-                Incard.EffectivePhase = Phases.Phase3_6;
-                Incard.IsActive = true; 
-                Incard.DescriptionText = "Die Produktionsgeschwindigkeit der Vernetzungsanlage 1 steigt um 500 m/Tag.";
-            // #3# Zeigen new Karten:
-            MessageBox.Show(RenderInforKarte(Incard), "InforKarte");
-            // #4# Do  Event Effect
-            Incard.DoKarteEffectToPlayer(_player);
-            ClearInformationofOldPlayer();
-            ShowInformationofFocusPlayer();
-            //switch (CardID)
-            //{
-            //    case "In-01":
-            //        //In_card = new ZielKarte(31000000, 2500, new Gewichtung(2, 3, 1));
-            //        //In_card zcard.SetID("Zi-01");
-            //        //Katalog Change:
-            //        var maschine = FocusRoom.DefaultBetriebsmittelKatalog.MaschineKatalog.First(m => m.Type == MaschinenType.Vernetzungsanlage1);
-            //        maschine.OutputProdukts.First().MaxMenge += 500;
-            //        maschine = FocusRoom.FocusPlayer.MyBetriebsmittelKatalog.MaschineKatalog.First(m => m.Type == MaschinenType.Grobdrahtzugmaschine1);
-            //        maschine.OutputProdukts.First().MaxMenge += 500;
-
-            //        ClearInformationofOldPlayer();
-            //        ShowInformationofFocusPlayer();
-            //        break;
-            //    default:
-            //        break;
-            //}
+            // #3# Check, whether there are any available karte in kartepool
+            var restkarten = FocusRoom.InforKartenPool.GetUnused_CardPool();
+            if (restkarten.Count == 0 )
+            {
+                MessageBox.Show("There are no more rest card.");
+                return;
+            }
+            // #4# Generate Methode; 
+            var newInforCard = restkarten.DrawCardRandomFromPool();
+            // #5# Set FirstOwner to Card
+            newInforCard.FirstOwner = _player;
+            //_player
+            // #6# GUI Show Card Content:
+            newInforCard.ShowAsMessageBox();
+            // #7# Do  Event Effect
+            newInforCard.DoEffect();
+            // #8# Refresch GUI, Do it in DoEffect();
+            //RefreshDefultKatalog();
+            //RefreshInformationOfPlayer();            
         }
+        #endregion
 
-        private string RenderInforKarte(InformationKarte inforKarte)
-        {
-            return "Informationkarte: " + inforKarte.ID + "\n"
-                + "kosten: 130000" + "\n"
-                + "Information: " + inforKarte.DescriptionText + "\n"
-                + "Wird am Phase" + inforKarte.EffectivePhase.GetPhaseValue().ToString() + "laut vorgelesen";                
-        }
-
-        private void GetInforKarte(Player player, string cardID)
-        {
-            InformationKarte Incard;
-            //check a Resource dictinary/Datenbank
-
-            //Erhalten Id in eine List zu erinnern
-
-            //Kosten. .
-
-            //Effect zu Katalog,.. auswerken
-            #endregion
-        }
     }
 }
