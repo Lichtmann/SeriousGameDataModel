@@ -152,23 +152,46 @@ namespace DataModel.Model
         /// <param name="addmenge"></param>
         public void AddMaschineMaxMenge(MaschinenType m_type, Material p_type, int addmenge)
         {
-            var maschine = MaschineKatalog.First(m => m.Type == m_type);
-            if (maschine == null) return;
-            maschine.OutputProdukts.First(p => p.OutputProdukt == p_type).MaxMenge += addmenge;
+            //Bug, Wenn keine richtige MaschineTy nach KabelType gibt.
+            if (MaschineKatalog.Any<Maschine>(m => m.Type == m_type))
+            {
+                var maschine = MaschineKatalog.FirstOrDefault<Maschine>(m => m.Type == m_type);
+                maschine.OutputProdukts.First(p => p.OutputProdukt == p_type).MaxMenge += addmenge;
+            }
+            else
+            {
+                Console.WriteLine("Gibt es keine richtige MaschineType nach aktuelle KabelType. ");
+            }
+
         }
 
         public int GetMaschineMaxMenge(MaschinenType m_type, Material p_type)
         {
-            var maschine = MaschineKatalog.First(m => m.Type == m_type);
             //if (maschine == null) return 0 ;
-            return maschine.OutputProdukts.First(p => p.OutputProdukt == p_type).MaxMenge;
+            if (MaschineKatalog.Any<Maschine>(m => m.Type == m_type))
+            {
+                var maschine = MaschineKatalog.First(m => m.Type == m_type);
+                return maschine.OutputProdukts.First(p => p.OutputProdukt == p_type).MaxMenge;
+            }
+            else
+            {
+                Console.WriteLine("Gibt es keine richtige MaschineType nach aktuelle KabelType. ");
+                return -1;
+            }
         }
 
         public void SetMaschineMaxMenge(MaschinenType m_type, Material p_type, int menge)
         {
-            var maschine = MaschineKatalog.First(m => m.Type == m_type);
-            if (maschine == null) return;
-            maschine.OutputProdukts.First(p => p.OutputProdukt == p_type).MaxMenge = menge;
+
+            if (MaschineKatalog.Any<Maschine>(m => m.Type == m_type))
+            {
+                var maschine = MaschineKatalog.First(m => m.Type == m_type);
+                maschine.OutputProdukts.First(p => p.OutputProdukt == p_type).MaxMenge = menge;
+            }
+            else
+            {
+                Console.WriteLine("Gibt es keine richtige MaschineType nach aktuelle KabelType. ");
+            }
         }
 
         #endregion

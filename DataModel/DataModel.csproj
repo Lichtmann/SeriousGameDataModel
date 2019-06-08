@@ -73,6 +73,7 @@
     <Compile Include="Model\Karten\Interface\IKosten.cs" />
     <Compile Include="Model\Karten\Interface\IPhase.cs" />
     <Compile Include="Model\Karten\ZielKarte.cs" />
+    <Compile Include="Model\Karten\ZielKarteLib.cs" />
     <Compile Include="Model\Layout\LayoutUnit.cs" />
     <Compile Include="Model\Layout\saeulen.cs" />
     <Compile Include="Model\MaschinenManager.cs" />

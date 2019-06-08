@@ -15,7 +15,7 @@ namespace DataModel
 {
     public partial class MainWindows : Form
     {
-        //Self Instance
+        //Self Instance of APP
         public static MainWindows W_Instance;
         //Game Romm Object / Manager
         private GameRoom _focusRoom;
@@ -270,6 +270,25 @@ namespace DataModel
         #endregion
 
         #region ZielKarten
+        private void bt_zielKarte_Click(object sender, EventArgs e)
+        {
+            if (FocusRoom == null) return;
+            // # Generation Methodde
+            ////string CardID = ZielKarteLib.GetRandomID();
+            ////ZielKarte Card = ZielKarteLib.GetZielKarteWithID(CardID);
+            ZielKarte Card = ZielKarteLib.GetRandomZielKarte();
+            // # Set
+            SetZielKarte(FocusRoom, Card);
+            // # GUI Karte Animation messagebox:
+            FocusRoom.ZielKarte.ShowAsMessageBox();
+            FocusRoom.ZielKarte.ShowInDataGridView(dataGridView1);
+            // # BroadcastZielKarteToPlayer
+            foreach (Player player in FocusRoom.PlayerList)
+            {
+                BroadcastZielKarteToPlayer(FocusRoom.ZielKarte, player);
+            }
+        }
+
         //GUI[Simulation]
         private void InitialDataGridViewZielKarte()
         {
@@ -286,45 +305,12 @@ namespace DataModel
             dataGridView1.Rows[5].Cells[0].Value = "GW: Budget:";
         }
 
-        private void SetZielKarte(GameRoom room, string id)
+        private void SetZielKarte(GameRoom room, ZielKarte card)
         {
-            ZielKarte zcard;
             //check a Resource dictinary/Datenbank
-            switch (id)
-            {
-                case "Zi-01":
-                    zcard = new ZielKarte(31000000, 2500, new Gewichtung(2, 3, 1));
-                    zcard.SetID("Zi-01");
-                    room.ZielKarte = zcard;
-                    break;
-                case "Zi-02":
-                    zcard = new ZielKarte(27000000, 1400, new Gewichtung(1, 3, 2));
-                    zcard.SetID("Zi-02");
-                    room.ZielKarte = zcard;
-                    break;
-                case "Zi-03":
-                    zcard = new ZielKarte(24000000, 750, new Gewichtung(3, 1, 2));
-                    zcard.SetID("Zi-03");
-                    room.ZielKarte = zcard;
-                    break;
-                case "Zi-04":
-                    zcard = new ZielKarte(24000000, 750, new Gewichtung(1, 2, 3));
-                    zcard.SetID("Zi-04");
-                    room.ZielKarte = zcard;
-                    break;
-                case "Zi-05":
-                    zcard = new ZielKarte(27000000, 1500, new Gewichtung(3, 2, 1));
-                    zcard.SetID("Zi-05");
-                    room.ZielKarte = zcard;
-                    break;
-                case "Zi-06":
-                    zcard = new ZielKarte(38000000, 3000, new Gewichtung(2, 1, 3));
-                    zcard.SetID("Zi-06");
-                    room.ZielKarte = zcard;
-                    break;
-                default:
-                    break;
-            }
+            if (card.ID == "Zi-00" && card.IsActive == false) return;
+            //
+            room.ZielKarte = card;
         }
 
         /// <summary>
@@ -332,36 +318,6 @@ namespace DataModel
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void bt_zielKarte_Click(object sender, EventArgs e)
-        {
-            
-            if (FocusRoom == null) return;
-            //Random Methodde
-            Random ran = new Random();
-            int cardNumber = ran.Next(1, 6);
-            //cardNumber = 1;
-            string CardID = "Zi-" + cardNumber.ToString().PadLeft(2, '0');
-            SetZielKarte(FocusRoom, CardID);
-            // Karte Animation messagebox:
-            //string content = RenderZielKarte(FocusRoom.ZielKarte);
-            MessageBox.Show(RenderZielKarte(FocusRoom.ZielKarte), "ZielKarte");
-            UpdateZielKarteToTabel(FocusRoom.ZielKarte);
-            foreach (Player player in FocusRoom.PlayerList)
-            {
-                BroadcastZielKarteToPlayer(FocusRoom.ZielKarte, player);
-            }
-        }
-
-        // GUI[Simulation]
-        private void UpdateZielKarteToTabel(ZielKarte zielKarte)
-        {
-            dataGridView1.Rows[0].Cells[1].Value = zielKarte.ID;
-            dataGridView1.Rows[1].Cells[1].Value = zielKarte.StartBudget;
-            dataGridView1.Rows[2].Cells[1].Value = zielKarte.Produktionsmenge;
-            dataGridView1.Rows[3].Cells[1].Value = zielKarte.Gewichtung.MaterialflussGewichtung;
-            dataGridView1.Rows[4].Cells[1].Value = zielKarte.Gewichtung.ErweiterbarkeitGewichtung;
-            dataGridView1.Rows[5].Cells[1].Value = zielKarte.Gewichtung.BudgetGewichtung;
-        }
 
         private static void BroadcastZielKarteToPlayer(ZielKarte zielKarte, Player player)
         {

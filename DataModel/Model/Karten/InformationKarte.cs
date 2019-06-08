@@ -53,6 +53,7 @@ namespace DataModel.Model.Karten //.Interface
             {
                 case "In-01":
                     DoKarte01(player);
+                    //DoKarte01(focusroom);
                     break;
                 case "In-02":
                     break;
