@@ -11,8 +11,12 @@ namespace DataModel.Model
     {
         private GameRoom _room;
         private int _roomID;
+        //KabelType
         private KabelType _kabelType;
+        //Ziel
         private ZielKarte _zielkarte;
+        //Phase
+        private Phases _currentPhase;
         //Player Manager;
         private List<Player> _playerList;
         private Player _focusPlayer;
@@ -37,6 +41,7 @@ namespace DataModel.Model
         public GameRoom(int id) : this()
         {
             RoomID = id;
+            CurrentPhase = Phases.Phase1_1;
         }
 
         public GameRoom(int id, KabelType type) : this()
@@ -57,6 +62,7 @@ namespace DataModel.Model
         public BetriebsmittelKatalog DefaultBetriebsmittelKatalog { get => _defaultBetriebsmittelKatalog; set => _defaultBetriebsmittelKatalog = value; }
         public List<InformationKarte> InforKartenPool { get => _inforKartenPool; set => _inforKartenPool = value; }
         public List<InformationKarte> InforKartenToBroadcast { get => InforKartenPool.Where(i=> (i.FirstOwner.PlayerName!="who") && i.IsSecret).ToList(); /*set => _inforKartenPool = value; */}
+        public Phases CurrentPhase { get => _currentPhase; set => _currentPhase = value; }
 
         public void SetSelectedPlayer(int index)
         {

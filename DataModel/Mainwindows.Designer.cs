@@ -40,6 +40,8 @@
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolBt_NextPhase = new System.Windows.Forms.ToolStripButton();
+            this.Lb_currentPhase = new System.Windows.Forms.ToolStripLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabGameControl = new System.Windows.Forms.TabControl();
             this.tabGame = new System.Windows.Forms.TabPage();
@@ -131,6 +133,12 @@
             this.dataGridView_herstellerKatalog = new System.Windows.Forms.DataGridView();
             this.dataGridView_MyBetriebmittelKatalog = new System.Windows.Forms.DataGridView();
             this.tabBudget = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
+            this.lbox_Balance = new System.Windows.Forms.ListBox();
+            this.lbox_ksoten = new System.Windows.Forms.ListBox();
+            this.lbox_Budget = new System.Windows.Forms.ListBox();
+            this.tb_balance = new System.Windows.Forms.TextBox();
+            this.tb_kosten = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -140,9 +148,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripFocus = new System.Windows.Forms.ToolStripStatusLabel();
             this.playerListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tb_kosten = new System.Windows.Forms.TextBox();
-            this.tb_balance = new System.Windows.Forms.TextBox();
-            this.rb_Budget_Log = new System.Windows.Forms.RichTextBox();
+            this.dataGridView_layoutList = new System.Windows.Forms.DataGridView();
             this.gameRoomBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gameRoomBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
@@ -178,8 +184,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_herstellerKatalog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_MyBetriebmittelKatalog)).BeginInit();
             this.tabBudget.SuspendLayout();
+            this.tabLayout.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playerListBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_layoutList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameRoomBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameRoomBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -246,7 +254,9 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1});
+            this.toolStripButton1,
+            this.toolBt_NextPhase,
+            this.Lb_currentPhase});
             this.toolStrip1.Location = new System.Drawing.Point(0, 25);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1400, 25);
@@ -261,6 +271,23 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // toolBt_NextPhase
+            // 
+            this.toolBt_NextPhase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolBt_NextPhase.Enabled = false;
+            this.toolBt_NextPhase.Image = ((System.Drawing.Image)(resources.GetObject("toolBt_NextPhase.Image")));
+            this.toolBt_NextPhase.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolBt_NextPhase.Name = "toolBt_NextPhase";
+            this.toolBt_NextPhase.Size = new System.Drawing.Size(73, 22);
+            this.toolBt_NextPhase.Text = "NextPhase";
+            this.toolBt_NextPhase.Click += new System.EventHandler(this.toolBt_NextPhase_Click);
+            // 
+            // Lb_currentPhase
+            // 
+            this.Lb_currentPhase.Name = "Lb_currentPhase";
+            this.Lb_currentPhase.Size = new System.Drawing.Size(92, 22);
+            this.Lb_currentPhase.Text = "CurrentPhase: ";
             // 
             // splitContainer1
             // 
@@ -674,6 +701,7 @@
             this.bt_nachkauf_oldlayout.TabIndex = 10;
             this.bt_nachkauf_oldlayout.Text = "old Layout";
             this.bt_nachkauf_oldlayout.UseVisualStyleBackColor = false;
+            this.bt_nachkauf_oldlayout.Click += new System.EventHandler(this.bt_nachkauf_oldlayout_Click);
             // 
             // bt_nachkauf_neulayout
             // 
@@ -684,6 +712,7 @@
             this.bt_nachkauf_neulayout.TabIndex = 9;
             this.bt_nachkauf_neulayout.Text = "neu Layout";
             this.bt_nachkauf_neulayout.UseVisualStyleBackColor = false;
+            this.bt_nachkauf_neulayout.Click += new System.EventHandler(this.bt_nachkauf_neulayout_Click);
             // 
             // bt_nachkauf_maschinen
             // 
@@ -759,6 +788,7 @@
             this.bt_old_layout.TabIndex = 7;
             this.bt_old_layout.Text = "Buy old Layout";
             this.bt_old_layout.UseVisualStyleBackColor = true;
+            this.bt_old_layout.Click += new System.EventHandler(this.bt_old_layout_Click);
             // 
             // bt_neu_layout
             // 
@@ -768,6 +798,7 @@
             this.bt_neu_layout.TabIndex = 6;
             this.bt_neu_layout.Text = "Buy neu Layout";
             this.bt_neu_layout.UseVisualStyleBackColor = true;
+            this.bt_neu_layout.Click += new System.EventHandler(this.bt_neu_layout_Click);
             // 
             // button2
             // 
@@ -828,6 +859,7 @@
             // 
             this.gb_phase2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gb_phase2.BackColor = System.Drawing.Color.Transparent;
             this.gb_phase2.Controls.Add(this.bt_buyInforCard);
             this.gb_phase2.Controls.Add(this.label13);
             this.gb_phase2.Controls.Add(this.label12);
@@ -1235,7 +1267,10 @@
             // 
             // tabBudget
             // 
-            this.tabBudget.Controls.Add(this.rb_Budget_Log);
+            this.tabBudget.Controls.Add(this.button3);
+            this.tabBudget.Controls.Add(this.lbox_Balance);
+            this.tabBudget.Controls.Add(this.lbox_ksoten);
+            this.tabBudget.Controls.Add(this.lbox_Budget);
             this.tabBudget.Controls.Add(this.tb_balance);
             this.tabBudget.Controls.Add(this.tb_kosten);
             this.tabBudget.Controls.Add(this.label32);
@@ -1250,10 +1285,61 @@
             this.tabBudget.Text = "BudgetKalkulation";
             this.tabBudget.UseVisualStyleBackColor = true;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(384, 393);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "Refresh";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // lbox_Balance
+            // 
+            this.lbox_Balance.FormattingEnabled = true;
+            this.lbox_Balance.ItemHeight = 12;
+            this.lbox_Balance.Location = new System.Drawing.Point(17, 442);
+            this.lbox_Balance.Name = "lbox_Balance";
+            this.lbox_Balance.Size = new System.Drawing.Size(324, 172);
+            this.lbox_Balance.TabIndex = 9;
+            // 
+            // lbox_ksoten
+            // 
+            this.lbox_ksoten.FormattingEnabled = true;
+            this.lbox_ksoten.ItemHeight = 12;
+            this.lbox_ksoten.Location = new System.Drawing.Point(384, 77);
+            this.lbox_ksoten.Name = "lbox_ksoten";
+            this.lbox_ksoten.Size = new System.Drawing.Size(335, 292);
+            this.lbox_ksoten.TabIndex = 8;
+            // 
+            // lbox_Budget
+            // 
+            this.lbox_Budget.FormattingEnabled = true;
+            this.lbox_Budget.ItemHeight = 12;
+            this.lbox_Budget.Location = new System.Drawing.Point(17, 77);
+            this.lbox_Budget.Name = "lbox_Budget";
+            this.lbox_Budget.Size = new System.Drawing.Size(324, 292);
+            this.lbox_Budget.TabIndex = 7;
+            // 
+            // tb_balance
+            // 
+            this.tb_balance.Location = new System.Drawing.Point(17, 393);
+            this.tb_balance.Name = "tb_balance";
+            this.tb_balance.Size = new System.Drawing.Size(201, 21);
+            this.tb_balance.TabIndex = 5;
+            // 
+            // tb_kosten
+            // 
+            this.tb_kosten.Location = new System.Drawing.Point(384, 33);
+            this.tb_kosten.Name = "tb_kosten";
+            this.tb_kosten.Size = new System.Drawing.Size(335, 21);
+            this.tb_kosten.TabIndex = 4;
+            // 
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(401, 19);
+            this.label32.Location = new System.Drawing.Point(24, 378);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(47, 12);
             this.label32.TabIndex = 3;
@@ -1262,30 +1348,31 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(223, 20);
+            this.label31.Location = new System.Drawing.Point(382, 18);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(41, 12);
+            this.label31.Size = new System.Drawing.Size(89, 12);
             this.label31.TabIndex = 2;
-            this.label31.Text = "Kosten";
+            this.label31.Text = "Kosten current";
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(55, 19);
+            this.label30.Location = new System.Drawing.Point(15, 19);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(41, 12);
+            this.label30.Size = new System.Drawing.Size(89, 12);
             this.label30.TabIndex = 1;
-            this.label30.Text = "Budget";
+            this.label30.Text = "Budget current";
             // 
             // tb_budget
             // 
             this.tb_budget.Location = new System.Drawing.Point(17, 35);
             this.tb_budget.Name = "tb_budget";
-            this.tb_budget.Size = new System.Drawing.Size(128, 21);
+            this.tb_budget.Size = new System.Drawing.Size(324, 21);
             this.tb_budget.TabIndex = 0;
             // 
             // tabLayout
             // 
+            this.tabLayout.Controls.Add(this.dataGridView_layoutList);
             this.tabLayout.Location = new System.Drawing.Point(4, 22);
             this.tabLayout.Name = "tabLayout";
             this.tabLayout.Padding = new System.Windows.Forms.Padding(3);
@@ -1324,27 +1411,17 @@
             this.playerListBindingSource.DataMember = "PlayerList";
             this.playerListBindingSource.DataSource = this.gameRoomBindingSource1;
             // 
-            // tb_kosten
+            // dataGridView_layoutList
             // 
-            this.tb_kosten.Location = new System.Drawing.Point(182, 35);
-            this.tb_kosten.Name = "tb_kosten";
-            this.tb_kosten.Size = new System.Drawing.Size(128, 21);
-            this.tb_kosten.TabIndex = 4;
-            // 
-            // tb_balance
-            // 
-            this.tb_balance.Location = new System.Drawing.Point(352, 35);
-            this.tb_balance.Name = "tb_balance";
-            this.tb_balance.Size = new System.Drawing.Size(128, 21);
-            this.tb_balance.TabIndex = 5;
-            // 
-            // rb_Budget_Log
-            // 
-            this.rb_Budget_Log.Location = new System.Drawing.Point(17, 67);
-            this.rb_Budget_Log.Name = "rb_Budget_Log";
-            this.rb_Budget_Log.Size = new System.Drawing.Size(463, 231);
-            this.rb_Budget_Log.TabIndex = 6;
-            this.rb_Budget_Log.Text = "";
+            this.dataGridView_layoutList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView_layoutList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_layoutList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_layoutList.Location = new System.Drawing.Point(22, 20);
+            this.dataGridView_layoutList.Name = "dataGridView_layoutList";
+            this.dataGridView_layoutList.RowTemplate.Height = 23;
+            this.dataGridView_layoutList.Size = new System.Drawing.Size(743, 390);
+            this.dataGridView_layoutList.TabIndex = 0;
             // 
             // gameRoomBindingSource1
             // 
@@ -1414,9 +1491,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_MyBetriebmittelKatalog)).EndInit();
             this.tabBudget.ResumeLayout(false);
             this.tabBudget.PerformLayout();
+            this.tabLayout.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playerListBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_layoutList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameRoomBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameRoomBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -1538,9 +1617,15 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox tb_budget;
-        private System.Windows.Forms.RichTextBox rb_Budget_Log;
         private System.Windows.Forms.TextBox tb_balance;
         private System.Windows.Forms.TextBox tb_kosten;
+        private System.Windows.Forms.ToolStripLabel Lb_currentPhase;
+        private System.Windows.Forms.ToolStripButton toolBt_NextPhase;
+        private System.Windows.Forms.ListBox lbox_Balance;
+        private System.Windows.Forms.ListBox lbox_ksoten;
+        private System.Windows.Forms.ListBox lbox_Budget;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridView dataGridView_layoutList;
     }
 }
 

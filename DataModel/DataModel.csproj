@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Model\EnumAndAttribute\Attributes.cs" />
     <Compile Include="Model\EnumAndAttribute\EnumExtensions.cs" />
+    <Compile Include="Model\EnumAndAttribute\EnumKalkulationEvent.cs" />
     <Compile Include="Model\EnumAndAttribute\EnumKarten.cs" />
     <Compile Include="Model\EnumAndAttribute\EnumLayout.cs" />
     <Compile Include="Model\EnumAndAttribute\EnumLieferung.cs" />
@@ -64,7 +65,11 @@
     <Compile Include="Model\Evaluation\Evaluation.cs" />
     <Compile Include="Model\Evaluation\Gewichtung.cs" />
     <Compile Include="Model\GameRoom.cs" />
-    <Compile Include="Model\Evaluation\KalkulationUnit.cs" />
+    <Compile Include="Model\GameRoomExtension.cs" />
+    <Compile Include="Model\Kalkulation\BudgetRecord.cs" />
+    <Compile Include="Model\Kalkulation\KalkulationRecord.cs" />
+    <Compile Include="Model\Kalkulation\KalkulationUnit.cs" />
+    <Compile Include="Model\Kalkulation\KostenRecord.cs" />
     <Compile Include="Model\Karten\BaseKarte.cs" />
     <Compile Include="Model\Karten\EreignisKarte.cs" />
     <Compile Include="Model\Karten\InforKarteLib.cs" />
@@ -76,6 +81,7 @@
     <Compile Include="Model\Karten\ZielKarte.cs" />
     <Compile Include="Model\Karten\ZielKarteLib.cs" />
     <Compile Include="Model\Layout\LayoutUnit.cs" />
+    <Compile Include="Model\Layout\LayoutUnitLib.cs" />
     <Compile Include="Model\Layout\saeulen.cs" />
     <Compile Include="Model\MaschinenManager.cs" />
     <Compile Include="Model\Maschine\BetriebsmittelKatalog.cs" />

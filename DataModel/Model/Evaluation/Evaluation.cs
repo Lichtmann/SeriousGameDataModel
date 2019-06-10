@@ -17,6 +17,8 @@ namespace DataModel.Model//.Evaluation
         private int _produzierbarPunkt;
         private int _budgetPunkt;
 
+        private int _extraScroe;
+
         private Gewichtung _gewichtung;
 
         private MaterialflussRanks _materialflussRank;
@@ -36,6 +38,7 @@ namespace DataModel.Model//.Evaluation
             ZuganglichkeitRank = ZuganglichkeitRanks.MoreConflictOrDefault;  //0
             ProduzierbareRank = ProduzierbareRanks.NotReachGoal;             //0
             BudgetRank = BudgetRanks.normal;                                 //0
+            ExtraScroe = 0;
         }
 
         /// <summary>
@@ -45,7 +48,7 @@ namespace DataModel.Model//.Evaluation
         {
             get
             {
-                _endScroe = MaterialflussPunkt + KostenPunkt + ErweiterbarkeitPunkt + ZuganglichkeitPunkt + ProduzierbarPunkt + BudgetPunkt;
+                _endScroe = MaterialflussPunkt + KostenPunkt + ErweiterbarkeitPunkt + ZuganglichkeitPunkt + ProduzierbarPunkt + BudgetPunkt + ExtraScroe;
                 return _endScroe;
             }
             //set { _endScroe = value; }
@@ -54,10 +57,11 @@ namespace DataModel.Model//.Evaluation
         public string ScroeToString()
         {
             string l;
-            l = "End Scroe = MaterialflussPunkt*Weights + KostenPunkt + ErweiterbarkeitPunkt*Weights + ZuganglichkeitPunkt + ProduzierbarPunkt + BudgetPunkt*Weights \n"
+            l = "End Scroe = MaterialflussPunkt*Weights + KostenPunkt + ErweiterbarkeitPunkt*Weights + ZuganglichkeitPunkt + ProduzierbarPunkt + BudgetPunkt*Weights + ExtraScroe\n"
               + "          = " + (int)MaterialflussRank + "*" + Weights.MaterialflussGewichtung + " + "
               + (int)KostenRank + " + " + (int)ErweiterbarkeitRank + "*" + Weights.ErweiterbarkeitGewichtung + " + "
               + (int)ZuganglichkeitRank + " + " + (int)ProduzierbareRank + " + " + (int)BudgetRank + "*" + Weights.BudgetGewichtung
+              + " + " +ExtraScroe
               + "\n= " + EndScroe;
 
             return l;
@@ -94,6 +98,7 @@ namespace DataModel.Model//.Evaluation
             get => (int)BudgetRank * Weights.BudgetGewichtung;
             set => _budgetPunkt = value;
         }
+        public int ExtraScroe { get => _extraScroe; set => _extraScroe = value; }
 
         //Gewicht
         public Gewichtung Weights { get => _gewichtung; set => _gewichtung = value; }

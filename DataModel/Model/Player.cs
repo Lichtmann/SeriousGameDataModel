@@ -16,7 +16,8 @@ namespace DataModel.Model
         private HerstellerKatalog _myHerstellerKatalog;         // KabelType
         private BetriebsmittelKatalog _myBetriebsmittelKatalog; // KabelType
         // MaschinenEinkaufList
-        private List<Maschine> _maschinen;
+        private List<Maschine> _maschinenList = new List<Maschine>();
+        private List<LayoutUnit> _layoutUnitList = new List<LayoutUnit>();
         // 1 MaterialflussManager 
 
         // 2 KostenManager + 6 BudgetManager => KalkulationUnit
@@ -37,6 +38,8 @@ namespace DataModel.Model
             Zielkarte = new ZielKarte();
             Evaluation = new Evaluation() { Weights = new Gewichtung(1, 1, 1) };
             KalkulationUnit = new KalkulationUnit();
+            LayoutUnitList = new List<LayoutUnit>();
+            MaschinenList = new List<Maschine>();
             //1
             //2 6
             //3 4
@@ -49,14 +52,22 @@ namespace DataModel.Model
         {
             this.AtRomm = room;
         }
-
-        #region Maschinen 
-        //Maschinen Kosten, Anzahl, Kapazitat,
+        public GameRoom AtRomm { get => _atRomm; set => _atRomm = value; }
         public string PlayerName { get => _playerName; set => _playerName = value; }
         public ZielKarte Zielkarte { get => _zielkarte; set => _zielkarte = value; }
-        public List<Maschine> Maschinen { get => _maschinen; set => _maschinen = value; }
-        public int MaschinenAnzahl => Maschinen.Count;
-        public int MaschinenEinkaufKosten => Maschinen.Select(m => m.KalkulationPreis).Sum();
+
+        #region LayoutUnit
+        public List<LayoutUnit> LayoutUnitList { get => _layoutUnitList; set => _layoutUnitList = value; }
+        public List<LayoutUnit> NewLayoutUnitList { get => LayoutUnitList.Where(l => l.Type == LayoutUnitType.NewLayout).ToList();/* set => _layoutUnitList = value;*/ }
+        public List<LayoutUnit> OldLayoutUnitList { get => LayoutUnitList.Where(l => l.Type == LayoutUnitType.OldLayout).ToList(); /*set => _layoutUnitList = value;*/ }
+
+        #endregion
+        #region Maschinen 
+        //Maschinen Kosten, Anzahl, Kapazitat,
+        public ProduktionManager MyProduktionManager { get => _myProduktionManager; set => _myProduktionManager = value; }
+        public List<Maschine> MaschinenList { get => _maschinenList; set => _maschinenList = value; }
+        public int MaschinenAnzahl => MaschinenList.Count;
+        public int MaschinenEinkaufKosten => MaschinenList.Select(m => m.KalkulationPreis).Sum();
         #endregion
 
         #region Evaluation Result
@@ -119,8 +130,7 @@ namespace DataModel.Model
         #region Katalog
         public HerstellerKatalog MyHerstellerKatalog { get => _myHerstellerKatalog; set => _myHerstellerKatalog = value; }
         public BetriebsmittelKatalog MyBetriebsmittelKatalog { get => _myBetriebsmittelKatalog; set => _myBetriebsmittelKatalog = value; }
-        public ProduktionManager MyProduktionManager { get => _myProduktionManager; set => _myProduktionManager = value; }
-        public GameRoom AtRomm { get => _atRomm; set => _atRomm = value; }
+       
 
         #endregion
 

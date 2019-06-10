@@ -105,7 +105,7 @@ namespace DataModel.Model.Karten
                     Incard.SetID(In_id);
                     Incard.TypeSet = new List<KabelType>() { KabelType.VPE};
                     Incard.BroadcastPhase = Phases.Phase3_6;
-                    Incard.DescriptionText = "Empty";
+                    Incard.DescriptionText = "die Vernetzungsanlage 1 Die Produktionsgeschwindigkeit steigt um 500 m / Tag.";  
                     Incard.IsActive = true;
                     break;
                 case "In-02":
@@ -254,7 +254,7 @@ namespace DataModel.Model.Karten
                 // GUI Update Render  
                 MainWindows.W_Instance.RefreshInformationOfPlayer();
                 MainWindows.W_Instance.RefreshDefultKatalog();
-                MessageBox.Show("Inforcard In-001 implement to owner.");
+                MessageBox.Show("Inforcard In-001 implement to owner.\n" + card.DescriptionText);
             }
             else  // Time to Broadcast informationkarte to other player
             {

@@ -43,9 +43,10 @@ namespace DataModel
         {
             //Todo : GenerateRoomID();
             int neuRoomID = 100;
-            GameRoom room = new GameRoom(neuRoomID);
+            GameRoom room = new GameRoom(neuRoomID);            
             RoomList.Add(room);
             UpdateFocusRoomGUI(room);
+            MessageBox.Show("Phase1 Schritt1: Add Player and Select KabelType.");
             ///LoadKatalog();
         }
 
@@ -53,6 +54,7 @@ namespace DataModel
         {
             FocusRoom = room;
             W_Instance.lb_RoomID.Text = "Room: " + room.RoomID;
+            this.ShowCurrentPhase(room.CurrentPhase);
             ///UpdateKabelType();
         }
         #endregion
@@ -175,12 +177,16 @@ namespace DataModel
             // GUI Summary
             MessageBox.Show("GameRoom: " + FocusRoom.RoomID 
                 + "\nStart with " + FocusRoom.PlayerList.Count + " Players\n" 
-                + "KabelType: " + FocusRoom.KabelType
-                + "\nPlease Extract ZielKarte");
+                + "KabelType: " + FocusRoom.KabelType);
             // GUI Ziel 
+            FocusRoom.NextPhase();
             InitialDataGridViewZielKarte();
         }
         
+        public void ShowCurrentPhase(Phases phase)
+        {
+            this.Lb_currentPhase.Text = "Current Phase: " + phase.ToString();
+        }
 
         public void RefreshDefultKatalog()
         {
@@ -325,6 +331,7 @@ namespace DataModel
             //check a Resource dictinary/Datenbank
             if (card.ID == "Zi-00" && card.IsActive == false) return;
             //
+            
             room.ZielKarte = card;
         }
 
@@ -345,16 +352,17 @@ namespace DataModel
             bt_zielKarte.Enabled = false;
             bt_showMenge.Enabled = true;
             bt_nextP14.Enabled = false;
+            toolBt_NextPhase.Enabled = true;
             foreach (Player player in FocusRoom.PlayerList)
             {
                 InterpretationZielKarten(player);
             }
             listBox1.SetSelected(0, true);
-            // Kalkulaton Log Initial
-            rb_Budget_Log.Text = "Budget " +"\t\t"+ "Kosten " + "\t\t" + "Balance" + "\n";
+            //Next
+            FocusRoom.NextPhase();
+
             //Show Zustand  
-            rb_Budget_Log.Text += FocusRoom.FocusPlayer.Zielkarte.StartBudget.ToString() + "\n";
-            ShowKalkulationState(FocusRoom.FocusPlayer);
+            ShowCurrentkalkulation(FocusRoom.FocusPlayer);
 
         }
         /// <summary>
@@ -365,9 +373,10 @@ namespace DataModel
         {
             //Ziel Menge jeder Material
             player.MyProduktionManager = new ProduktionManager(player, player.Zielkarte.Produktionsmenge);
-            //Set Start Budget;
-            player.KalkulationUnit = new KalkulationUnit(player, player.Zielkarte.StartBudget);
-                   
+            //creat KalkulationUnit
+            player.KalkulationUnit = new KalkulationUnit(player);
+            //Set StartBudget to KalkulationUnit
+            player.SetStartBudget(player.Zielkarte.StartBudget);
         }
 
         private void ShowProduktionRequir(DataGridView view)
@@ -554,14 +563,76 @@ namespace DataModel
                 }
             }
         }
+        private void ShowPlayerLayoutList(DataGridView view, Player focusPlayer)
+        {
+            view.Rows.Clear();
+            view.Columns.Clear();
 
-        private void ShowKalkulationState(Player focusPlayer)
+            view.Columns.Add("ID", "ID");
+            view.Columns.Add("Type", "Type");
+            view.Columns.Add("DefaultPreis", "DefaultPreis");
+            view.Columns.Add("NachKauf", "NachKauf");
+            view.Columns.Add("UnitPreisChange", "UnitPreisChange");
+            view.Columns.Add("SaeulenKosten", "SaeulenKosten");
+            view.Columns.Add("EndKosten", "EndKosten");
+            view.Columns.Add("AvailableUnit", "AvailableUnit");
+            view.Columns.Add("AvailableArea", "AvailableArea");
+            foreach (LayoutUnit newlayout in focusPlayer.NewLayoutUnitList)
+            {
+                view.Rows.Add(1);
+                var index = view.Rows.Count - 1;
+                var row = view.Rows[index - 1];
+                row.Cells[0].Value = newlayout.ID;
+                row.Cells[1].Value = newlayout.Type;
+                row.Cells[2].Value = newlayout.Type.DefaultPreis();
+                row.Cells[3].Value = newlayout.IsNachKauf;
+                row.Cells[4].Value = newlayout.UnitPreisChange;
+                row.Cells[5].Value = newlayout.SaeulenKosten;
+                row.Cells[6].Value = newlayout.EndKosten;
+                row.Cells[7].Value = newlayout.AvailableUnit;
+                row.Cells[8].Value = newlayout.AvailableArea;
+            }
+            foreach (LayoutUnit ollayout in focusPlayer.OldLayoutUnitList)
+            {
+                view.Rows.Add(1);
+                var index = view.Rows.Count - 1;
+                var row = view.Rows[index - 1];
+                row.Cells[0].Value = ollayout.ID;
+                row.Cells[1].Value = ollayout.Type;
+                row.Cells[2].Value = ollayout.Type.DefaultPreis();
+                row.Cells[3].Value = ollayout.IsNachKauf;
+                row.Cells[4].Value = ollayout.UnitPreisChange;
+                row.Cells[5].Value = ollayout.SaeulenKosten;
+                row.Cells[6].Value = ollayout.EndKosten;
+                row.Cells[7].Value = ollayout.AvailableUnit;
+                row.Cells[8].Value = ollayout.AvailableArea;
+            }
+
+        }
+        //GUI Simulation
+
+        public void ShowCurrentkalkulation(Player focusPlayer)
         {
             tb_budget.Text = focusPlayer.KalkulationUnit.Budget.ToString();
             tb_kosten.Text = focusPlayer.KalkulationUnit.Kosten.ToString();
             tb_balance.Text = focusPlayer.KalkulationUnit.Balance.ToString();
+            lbox_Budget.Items.Clear();
+            foreach (BudgetRecord b_record in focusPlayer.KalkulationUnit.BudgetRecordList)
+            {
+                lbox_Budget.Items.Add(b_record);
+                //item.Text = b_record.EventName + "#"+b_record.MoneyAmount;
+                //item.ToolTipText = b_record.Description;
+                //lbox_Budget.Items.Add(item);
+            }
+            lbox_ksoten.Items.Clear();
+            foreach (KostenRecord k_record in focusPlayer.KalkulationUnit.KostenRecordList)
+            {
+                lbox_ksoten.Items.Add(k_record);
+                //item.Text = k_record.EventName + "/t#" + k_record.MoneyAmount;
+                //item.ToolTipText = k_record.Description;
+                //lbox_ksoten.Items.Add(item);
+            }
         }
-
 
         #endregion
 
@@ -584,7 +655,7 @@ namespace DataModel
                 return;
             }
             // #4# Generate Methode; 
-            var newInforCard = restkarten.DrawCardRandomFromPool();
+            InformationKarte newInforCard = restkarten.DrawCardRandomFromPool();
             // #5# Set FirstOwner to Card
             newInforCard.FirstOwner = _player;
             //_player
@@ -592,11 +663,100 @@ namespace DataModel
             newInforCard.ShowAsMessageBox();
             // #7# Do  Event Effect
             newInforCard.DoEffect();
-            // #8# Refresch GUI, Do it in DoEffect();
+            _player.AddInforCardCostRecord(newInforCard);
+            // #8# Refresch GUI
+            ShowCurrentkalkulation(_player);
             //RefreshDefultKatalog();
             //RefreshInformationOfPlayer();            
         }
         #endregion
 
+        #region Buy Layoutkarte
+        private void bt_neu_layout_Click(object sender, EventArgs e)
+        {
+            // #1#Wer wolle neue Layout kaufen? Focusplayer!
+            var _player = FocusRoom.FocusPlayer;
+            // #2# Check, if you have enough money?
+            if (_player.KalkulationUnit.Balance < 3500000)
+            {
+                MessageBox.Show("You have no more money to buy Layoutkarte.");
+                return;
+            }
+            //creat
+            LayoutUnit unit = _player.DrawFirstHandUnit();
+            _player.LayoutUnitList.Add(unit);
+            _player.BuyLayoutUnitRecord();
+            //GUI 
+            ShowCurrentkalkulation(_player);
+            ShowPlayerLayoutList(dataGridView_layoutList, _player);
+        }
+
+        private void bt_old_layout_Click(object sender, EventArgs e)
+        {
+            // #1#Wer wolle neue Layout kaufen? Focusplayer!
+            var _player = FocusRoom.FocusPlayer;
+            // #2# Check, if you have enough money?
+            if (_player.KalkulationUnit.Balance < 2000000)
+            {
+                MessageBox.Show("You have no more money to buy Layoutkarte.");
+                return;
+            }
+            //creat
+            LayoutUnit unit = _player.DrawSecondHandUnit();
+            _player.LayoutUnitList.Add(unit);
+            _player.BuyLayoutUnitRecord();
+            //GUI
+            ShowCurrentkalkulation(_player);
+            ShowPlayerLayoutList(dataGridView_layoutList, _player);
+        }
+
+        private void bt_nachkauf_neulayout_Click(object sender, EventArgs e)
+        {
+            // #1#Wer wolle neue Layout kaufen? Focusplayer!
+            var _player = FocusRoom.FocusPlayer;
+            // #2# Check, if you have enough money?
+            if (_player.KalkulationUnit.Balance < 3500000 + 500000)
+            {
+                MessageBox.Show("You have no more money to buy Layoutkarte.");
+                return;
+            }
+            //creat
+            LayoutUnit unit = _player.DrawFirstHandUnit_Nachkauf();
+            _player.LayoutUnitList.Add(unit);
+            _player.BuyLayoutUnitRecord();
+            //GUI
+            ShowCurrentkalkulation(_player);
+            ShowPlayerLayoutList(dataGridView_layoutList, _player);
+        }
+
+        private void bt_nachkauf_oldlayout_Click(object sender, EventArgs e)
+        {
+            // #1#Wer wolle neue Layout kaufen? Focusplayer!
+            var _player = FocusRoom.FocusPlayer;
+            // #2# Check, if you have enough money?
+            if (_player.KalkulationUnit.Balance < 2000000 + 500000)
+            {
+                MessageBox.Show("You have no more money to buy Layoutkarte.");
+                return;
+            }
+            //creat
+            LayoutUnit unit = _player.DrawSecondHandUnit_Nachkauf();
+            _player.LayoutUnitList.Add(unit);
+            _player.BuyLayoutUnitRecord();
+            //GUI
+            ShowCurrentkalkulation(_player);
+            ShowPlayerLayoutList(dataGridView_layoutList, _player);
+        }
+        #endregion
+
+        private void toolBt_NextPhase_Click(object sender, EventArgs e)
+        {
+            FocusRoom.NextPhase();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ShowCurrentkalkulation(FocusRoom.FocusPlayer);
+        }
     }
 }
