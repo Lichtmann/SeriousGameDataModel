@@ -9,7 +9,7 @@ namespace DataModel.Model.Karten //.Interface
     public class InformationKarte : BaseKarte, IPhase
     {
         private int karteKosten = 130000;
-        private bool _isSeceret = true;
+        private bool _isSecret = true;
         private Phases _apperPhase = Phases.Phase2_3;
         private Phases _broadcastPhase = Phases.Phase2_3;
         private Player _firstOwner = new Player("who");
@@ -41,7 +41,7 @@ namespace DataModel.Model.Karten //.Interface
 
         public Phases AppearPhase { get => _apperPhase; set => _apperPhase = value; }
         public Phases BroadcastPhase { get => _broadcastPhase; set => _broadcastPhase = value; }
-        public bool IsSecret { get => _isSeceret; set => _isSeceret=value; }
+        public bool IsSecret { get => _isSecret; set => _isSecret=value; }
         public string DescriptionText { get => _descriptionText; set => _descriptionText = value; }
         public int KarteKosten { get => karteKosten; set => karteKosten = value; }
         public Player FirstOwner { get => _firstOwner; set => _firstOwner = value; }

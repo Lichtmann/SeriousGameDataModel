@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DataModel.Model.BetriebsmittelKatalog" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAgAAAABYAAABQAIAAAAIAABABIAAAAAQAAAAAAQAA=</HashCode>
+      <FileName>Model\Maschine\BetriebsmittelKatalog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.Karten.BaseKarte" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAMAAAAAAAAgAAAEMBAAAAAAABAAAAAAAAAAABAEQA=</HashCode>
+      <FileName>Model\Karten\BaseKarte.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.Karten.EreignisKarte" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Karten\EreignisKarte.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.Karten.InforKarteLib" Collapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAGAAAAAAIQQAAAIA4CAAAGAABAAAABACEAQAAAAA=</HashCode>
+      <FileName>Model\Karten\InforKarteLib.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.Karten.InformationKarte" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAAAggqAAAAAAgAEAAAgBAACgAAAgAAAAAAAAA=</HashCode>
+      <FileName>Model\Karten\InformationKarte.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DataModel.Model.Karten.ZielKarte" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAIgAAAAEAAAAAAAEIIAAAAA=</HashCode>
+      <FileName>Model\Karten\ZielKarte.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.Karten.ZielKarteLib" Collapsed="true">
+    <Position X="14.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAQAgAAIAAAAAAEAAAAAACAACAAAAAAAE=</HashCode>
+      <FileName>Model\Karten\ZielKarteLib.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.EnumExtensions" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAADAAAAAAAAAAACAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\EnumAndAttribute\EnumExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.DefaultPreisValueAttribute" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\EnumAndAttribute\EnumLayout.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.RateValueAttribute" Collapsed="true">
+    <Position X="9.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Model\EnumAndAttribute\EnumLieferung.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.PhaseValueAttribute" Collapsed="true">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\EnumAndAttribute\EnumPhases.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.Evaluation" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AiAxEEgAAAACAgAIEAAAAAEAAR4AQAABCkwAoAAAIKE=</HashCode>
+      <FileName>Model\Evaluation\Evaluation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.Gewichtung" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAMAAAEAAAAAAAAAAgAABAAAAAAIAA=</HashCode>
+      <FileName>Model\Evaluation\Gewichtung.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.BudgetRecord" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAIAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Kalkulation\BudgetRecord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.KalkulationRecord" Collapsed="true">
+    <Position X="1.5" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAoAAAAgAAAEAIQAAAAAAIAAAAACAABAAAAABAA=</HashCode>
+      <FileName>Model\Kalkulation\KalkulationRecord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.RecordLib" Collapsed="true">
+    <Position X="11.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Model\Kalkulation\KalkulationRecord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.KalkulationUnit" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAADAAAAAgAAQAAgAAAAQgAAgAgAAAAhAAEAAgAA=</HashCode>
+      <FileName>Model\Kalkulation\KalkulationUnit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.KostenRecord" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAACAAAEAAAAAAA=</HashCode>
+      <FileName>Model\Kalkulation\KostenRecord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.LayoutUnit" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgQAoACAAAAAgAwEWABAgCQBAIgAAAAAAQIAAARAkBA=</HashCode>
+      <FileName>Model\Layout\LayoutUnit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.LayoutUnitLib" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAACAAAAAIAAAAEAAAAAIAA=</HashCode>
+      <FileName>Model\Layout\LayoutUnitLib.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.saeulen" Collapsed="true">
+    <Position X="13" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAQAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Layout\saeulen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.HerstellerKatalog" Collapsed="true">
+    <Position X="11.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARBAAEUBIAAAAQAAACABAIgBAAJBAAAAQAgMAAEQAA=</HashCode>
+      <FileName>Model\Maschine\HerstellerKatalog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.Maschine" Collapsed="true">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wAABIBAIAkABjAQAAABBQAQAQAgAAAABBQgAAYQBgBE=</HashCode>
+      <FileName>Model\Maschine\Maschine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.MaschineExtension" Collapsed="true">
+    <Position X="13" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BCAAAAAAZAIAAAAAAAAQAAAAAAAAAAAggAAAAAALAAE=</HashCode>
+      <FileName>Model\Maschine\MaschineExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.Produktion">
+    <Position X="11.25" Y="3.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAABAAAEECAAAAEAQAAAAAAAAAARAgACAAABA=</HashCode>
+      <FileName>Model\Maschine\Produktion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.ProduktionExtension">
+    <Position X="13" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAACCAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Maschine\ProduktionExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.ProduktionMenge" Collapsed="true">
+    <Position X="7.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAACAAAAAAAAAAAAAAQAAAACAAAAAAAA=</HashCode>
+      <FileName>Model\Maschine\ProduktionManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.ProduktionManager" Collapsed="true">
+    <Position X="14.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAACAAAAAgIAABEAAAAAAAAgIAAAAAAAAAAAAQEA=</HashCode>
+      <FileName>Model\Maschine\ProduktionManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.GameRoom" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAGAAAAiAkAEIgIAgBABAAAAAEALAgAAAGAgAFGAQIA=</HashCode>
+      <FileName>Model\GameRoom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.GameRoomExtension" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\GameRoomExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.MaschinenManager" Collapsed="true">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAIAAAAIAEAAQQAAAACAAgAAAAAACA=</HashCode>
+      <FileName>Model\MaschinenManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataModel.Model.Player" Collapsed="true">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEIgMCAggABCAAEAEoIMBECAQAgAAAACEAgAJkAABA=</HashCode>
+      <FileName>Model\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="DataModel.Model.InputRequire">
+    <Position X="7.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAACAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Model\Maschine\Produktion.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="DataModel.Model.BudgetType" Collapsed="true">
+    <Position X="9.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAACAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\EnumAndAttribute\EnumKalkulationEvent.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DataModel.Model.KostenType" Collapsed="true">
+    <Position X="13" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAggAIAAEAABAACAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Model\EnumAndAttribute\EnumKalkulationEvent.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DataModel.Model.KartenKategorie" Collapsed="true">
+    <Position X="7.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAABAAAAhAAAAAAAAAA=</HashCode>
+      <FileName>Model\EnumAndAttribute\EnumKarten.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DataModel.Model.KartenTypeAbkurz" Collapsed="true">
+    <Position X="9.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAEAACAAAAAAAAAgAAAAAAAAAACA=</HashCode>
+      <FileName>Model\EnumAndAttribute\EnumKarten.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DataModel.Model.LayoutUnitType" Collapsed="true">
+    <Position X="14.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Model\EnumAndAttribute\EnumLayout.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DataModel.Model.LieferungGrad" Collapsed="true">
+    <Position X="9.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Model\EnumAndAttribute\EnumLieferung.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DataModel.Model.LieferungErgebnis" Collapsed="true">
+    <Position X="7.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAQQAAAA=</HashCode>
+      <FileName>Model\EnumAndAttribute\EnumLieferung.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DataModel.Model.MaschinenType" Collapsed="true">
+    <Position X="11.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAABCAAAAAAAAAAAAIAAAICQAAAAA=</HashCode>
+      <FileName>Model\EnumAndAttribute\EnumMaschinen.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DataModel.Model.HerstellerType" Collapsed="true">
+    <Position X="13" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAgAAAAAAAAAAEA=</HashCode>
+      <FileName>Model\EnumAndAttribute\EnumMaschinen.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DataModel.Model.Phases" Collapsed="true">
+    <Position X="7.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAQAAABAAAAAIBAAAAAAAAgAAAAAAAAAAAAQAE=</HashCode>
+      <FileName>Model\EnumAndAttribute\EnumPhases.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DataModel.Model.Material" Collapsed="true">
+    <Position X="13" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAIAAEgAAAAAAAABBAAgyAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\EnumAndAttribute\EnumProdukts.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DataModel.Model.KabelType" Collapsed="true">
+    <Position X="14.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAABAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Model\EnumAndAttribute\EnumProdukts.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DataModel.Model.MaterialflussRanks" Collapsed="true">
+    <Position X="14.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAABAAAAAAAAAAAAAAAACAgAA=</HashCode>
+      <FileName>Model\EnumAndAttribute\EnumRanks.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DataModel.Model.KostenRanks" Collapsed="true">
+    <Position X="11.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAABAAAAAAAAAAAAAAAACAgAA=</HashCode>
+      <FileName>Model\EnumAndAttribute\EnumRanks.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DataModel.Model.ErweiterbarkeitRanks" Collapsed="true">
+    <Position X="11.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAABAAAAAAAAAAAAAAAACAgAA=</HashCode>
+      <FileName>Model\EnumAndAttribute\EnumRanks.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DataModel.Model.ZuganglichkeitRanks" Collapsed="true">
+    <Position X="11.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Model\EnumAndAttribute\EnumRanks.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DataModel.Model.ProduzierbareRanks" Collapsed="true">
+    <Position X="9.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Model\EnumAndAttribute\EnumRanks.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DataModel.Model.BudgetRanks" Collapsed="true">
+    <Position X="7.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Model\EnumAndAttribute\EnumRanks.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

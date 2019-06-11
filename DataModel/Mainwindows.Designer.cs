@@ -88,7 +88,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.bt_old_layout = new System.Windows.Forms.Button();
             this.bt_neu_layout = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.bt_buy_new_maschine = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.bt_timeDelay = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
@@ -723,6 +723,7 @@
             this.bt_nachkauf_maschinen.TabIndex = 8;
             this.bt_nachkauf_maschinen.Text = "Nachkauf  Maschine";
             this.bt_nachkauf_maschinen.UseVisualStyleBackColor = false;
+            this.bt_nachkauf_maschinen.Click += new System.EventHandler(this.bt_nachkauf_maschinen_Click);
             // 
             // label20
             // 
@@ -758,7 +759,7 @@
             this.gb_phase3_1.Controls.Add(this.label17);
             this.gb_phase3_1.Controls.Add(this.bt_old_layout);
             this.gb_phase3_1.Controls.Add(this.bt_neu_layout);
-            this.gb_phase3_1.Controls.Add(this.button2);
+            this.gb_phase3_1.Controls.Add(this.bt_buy_new_maschine);
             this.gb_phase3_1.Controls.Add(this.button1);
             this.gb_phase3_1.Controls.Add(this.bt_timeDelay);
             this.gb_phase3_1.Controls.Add(this.label16);
@@ -800,14 +801,15 @@
             this.bt_neu_layout.UseVisualStyleBackColor = true;
             this.bt_neu_layout.Click += new System.EventHandler(this.bt_neu_layout_Click);
             // 
-            // button2
+            // bt_buy_new_maschine
             // 
-            this.button2.Location = new System.Drawing.Point(291, 58);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(236, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "neu Maschine Plan to Buy";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bt_buy_new_maschine.Location = new System.Drawing.Point(291, 58);
+            this.bt_buy_new_maschine.Name = "bt_buy_new_maschine";
+            this.bt_buy_new_maschine.Size = new System.Drawing.Size(236, 23);
+            this.bt_buy_new_maschine.TabIndex = 5;
+            this.bt_buy_new_maschine.Text = "neu Maschine Plan to Buy";
+            this.bt_buy_new_maschine.UseVisualStyleBackColor = true;
+            this.bt_buy_new_maschine.Click += new System.EventHandler(this.bt_buy_new_maschine_Click);
             // 
             // button1
             // 
@@ -1293,7 +1295,7 @@
             this.button3.TabIndex = 10;
             this.button3.Text = "Refresh";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.bt_Refresh_Kalkulation_Click);
             // 
             // lbox_Balance
             // 
@@ -1567,7 +1569,7 @@
         private System.Windows.Forms.DataGridView dataGridView_showMenge;
         private System.Windows.Forms.Button bt_showMenge;
         private System.Windows.Forms.Button bt_neu_layout;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button bt_buy_new_maschine;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button bt_timeDelay;
         private System.Windows.Forms.Label label16;

@@ -754,9 +754,21 @@ namespace DataModel
             FocusRoom.NextPhase();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void bt_Refresh_Kalkulation_Click(object sender, EventArgs e)
         {
             ShowCurrentkalkulation(FocusRoom.FocusPlayer);
         }
+
+        #region Buy Maschinen
+        private void bt_buy_new_maschine_Click(object sender, EventArgs e)
+        {
+            //Todo
+        }
+
+        private void bt_nachkauf_maschinen_Click(object sender, EventArgs e)
+        {
+            //Todo
+        }
+        #endregion
     }
 }

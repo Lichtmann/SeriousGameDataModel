@@ -15,7 +15,7 @@ namespace DataModel.Model
         // BetriebmittelKatalog // HerstellerKatalog
         private HerstellerKatalog _myHerstellerKatalog;         // KabelType
         private BetriebsmittelKatalog _myBetriebsmittelKatalog; // KabelType
-        // MaschinenEinkaufList
+        // Maschinen, Layout EinkaufList
         private List<Maschine> _maschinenList = new List<Maschine>();
         private List<LayoutUnit> _layoutUnitList = new List<LayoutUnit>();
         // 1 MaterialflussManager 

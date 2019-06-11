@@ -110,7 +110,7 @@ namespace DataModel.Model
         [PhaseValue(6)]
         Phase6_1 = 61,
         /// <summary>
-        /// 2 EventKarten(pahse == 5)
+        /// 2 EventKarten(pahse == 6)
         /// </summary>
         [PhaseValue(6)]
         Phase6_2 = 62,

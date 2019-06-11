@@ -115,6 +115,7 @@
     <EmbeddedResource Include="ViewPage\PageAddPlayer.resx">
       <DependentUpon>PageAddPlayer.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="MaschinenManageUML.cd" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DataModel.Model.GameRoom.datasource" />
