@@ -46,7 +46,8 @@ namespace DataModel
             GameRoom room = new GameRoom(neuRoomID);            
             RoomList.Add(room);
             UpdateFocusRoomGUI(room);
-            MessageBox.Show("Phase1 Schritt1: Add Player and Select KabelType.");
+            MessageBox.Show("Phase1 Schritt1: Add Player and Select KabelType.","Phase Massage");
+            this.SetPhaseButtonEnabled();
             ///LoadKatalog();
         }
 
@@ -163,12 +164,6 @@ namespace DataModel
             if (FocusRoom == null) return;
             if (FocusRoom.PlayerList.Count < 1) return;
             if (FocusRoom.KabelType == KabelType.unknow) return;
-            //Unable Button
-            bt_OpenRoom.Enabled = false;
-            bt_AddPlayer.Enabled = false;
-            bt_deleteplayer.Enabled = false;
-            bt_KabelType.Enabled = false;
-            bt_StartGameP2.Enabled = false; ///#
             // #!# Initial Game with GameInhalt Ressource
             FocusRoom.StartGameWithKabelType();
             // GUI Show Katalog
@@ -178,8 +173,9 @@ namespace DataModel
             MessageBox.Show("GameRoom: " + FocusRoom.RoomID 
                 + "\nStart with " + FocusRoom.PlayerList.Count + " Players\n" 
                 + "KabelType: " + FocusRoom.KabelType);
-            // GUI Ziel 
+            // GUI Ziel + Butten.Enabled
             FocusRoom.NextPhase();
+            this.SetPhaseButtonEnabled();
             InitialDataGridViewZielKarte();
         }
         
@@ -349,10 +345,12 @@ namespace DataModel
 
         private void bt_nextP14_Click(object sender, EventArgs e)
         {
-            bt_zielKarte.Enabled = false;
-            bt_showMenge.Enabled = true;
-            bt_nextP14.Enabled = false;
-            toolBt_NextPhase.Enabled = true;
+            if (FocusRoom.ZielKarte == null)
+            {
+                MessageBox.Show("Bitten Sie ziehen eine Zielkarte","Info");
+                return;
+            }
+
             foreach (Player player in FocusRoom.PlayerList)
             {
                 InterpretationZielKarten(player);
@@ -360,7 +358,7 @@ namespace DataModel
             listBox1.SetSelected(0, true);
             //Next
             FocusRoom.NextPhase();
-
+            this.SetPhaseButtonEnabled();
             //Show Zustand  
             ShowCurrentkalkulation(FocusRoom.FocusPlayer);
 
@@ -749,10 +747,160 @@ namespace DataModel
         }
         #endregion
 
+        #region Phase Control 
+
         private void toolBt_NextPhase_Click(object sender, EventArgs e)
         {
             FocusRoom.NextPhase();
         }
+
+        public void SetPhaseButtonEnabled()
+        {
+            var room = FocusRoom;
+            switch (room.CurrentPhase)
+            {
+                case Phases.Phase1_1:
+                    //Open
+                    bt_AddPlayer.Enabled = true;
+                    bt_deleteplayer.Enabled = true;
+                    bt_KabelType.Enabled = true;
+                    bt_StartGameP2.Enabled = true;
+                    break;
+                case Phases.Phase1_2:
+                    label2.ForeColor = Color.Red;
+                    //Close
+                    bt_OpenRoom.Enabled = false;
+                    bt_AddPlayer.Enabled = false;
+                    bt_deleteplayer.Enabled = false;
+                    bt_KabelType.Enabled = false;
+                    bt_StartGameP2.Enabled = false; ///#
+                    //Open
+                    bt_zielKarte.Enabled = true;
+                    bt_nextP14.Enabled = true;
+                    break;
+                case Phases.Phase1_3:
+                    label2.ForeColor = Color.Black;
+                    label33.ForeColor = Color.Red;
+                    bt_zielKarte.Enabled = false;
+                    bt_nextP14.Enabled = false;
+                    bt_showMenge.Enabled = true;
+                    toolBt_NextPhase.Visible = true;
+                    toolBt_NextPhase.Enabled = true;
+                    break;
+                case Phases.Phase2_1:
+                    label33.ForeColor = Color.Black;
+                    label12.ForeColor = Color.Red;
+                    break;
+                case Phases.Phase2_2:
+                    label12.ForeColor = Color.Black;
+                    label34.ForeColor = Color.Red;
+                    break;
+                case Phases.Phase2_3:
+                    label34.ForeColor = Color.Black;
+                    label35.ForeColor = Color.Red;
+                    bt_buyInforCard.Enabled = true;
+                    break;
+                case Phases.Phase3_1:
+                    label35.ForeColor = Color.Black;
+                    label14.ForeColor = Color.Red;
+                    label15.ForeColor = Color.Red;
+                    bt_buyInforCard.Enabled = false;
+                    bt_buy_new_maschine.Enabled = true;
+                    bt_timeDelay.Enabled = true;
+                    break;
+                case Phases.Phase3_2:
+                    label35.ForeColor = Color.Black;
+                    label14.ForeColor = Color.Red;
+                    label15.ForeColor = Color.Red;
+                    bt_buyInforCard.Enabled = false;
+                    bt_buy_new_maschine.Enabled = true;
+                    bt_timeDelay.Enabled = true;
+                    break;
+                case Phases.Phase3_3:
+                    label14.ForeColor = Color.Black;
+                    label15.ForeColor = Color.Black;
+                    label17.ForeColor = Color.Red;
+                    bt_buy_new_maschine.Enabled = false;
+                    bt_timeDelay.Enabled = false;
+                    bt_neu_layout.Enabled = true;
+                    bt_old_layout.Enabled = true;
+                    break;
+                case Phases.Phase3_4:
+                    label17.ForeColor = Color.Black;
+                    label18.ForeColor = Color.Red;
+                    bt_neu_layout.Enabled = false;
+                    bt_old_layout.Enabled = false;
+                    bt_nachkauf_maschinen.Enabled = true;
+                    bt_nachkauf_neulayout.Enabled = true;
+                    bt_nachkauf_oldlayout.Enabled = true;
+                    button6.Enabled = true;
+                    break;
+                case Phases.Phase3_5:
+                    label18.ForeColor = Color.Black;
+                    label19.ForeColor = Color.Red;
+                    break;
+                case Phases.Phase3_6:
+                    label19.ForeColor = Color.Black;
+                    label22.ForeColor = Color.Red;
+                    button6.Enabled = false;
+                    bt_work_inforcard_phase3.Enabled = true;
+                    break;
+                case Phases.Phase3_7:
+                    label22.ForeColor = Color.Black;
+                    label23.ForeColor = Color.Red;
+                    bt_work_inforcard_phase3.Enabled = false;
+                    bt_Eventcard_phase3.Enabled = true;
+                    break;
+                case Phases.Phase4_1:
+                    label24.ForeColor = Color.Black;
+                    bt_Eventcard_phase3.Enabled = false;
+                    bt_inforcard_phase4.Enabled = true;
+                    break;
+                case Phases.Phase4_2:
+                    bt_inforcard_phase4.Enabled = false;
+                    bt_eventcard_phase4.Enabled = true;
+                    break;
+                case Phases.Phase5_1:
+                    label25.ForeColor = Color.Red;
+                    bt_eventcard_phase4.Enabled = false;
+                    bt_SetHersteller.Enabled = true;
+                    break;
+                case Phases.Phase5_2:
+                    label25.ForeColor = Color.Black;
+                    label24.ForeColor = Color.Red;
+                    bt_SetHersteller.Enabled = false;
+                    bt_inforkarte5.Enabled = true;
+                    break;
+                case Phases.Phase5_3:
+                    bt_inforkarte5.Enabled = false;
+                    bt_EventPhase5.Enabled = true;
+                    break;
+                case Phases.Phase6_1:
+                    label24.ForeColor = Color.Black;
+                    label26.ForeColor = Color.Red;
+                    bt_EventPhase5.Enabled = false;
+                    bt_roll_Lieferung.Enabled = true;
+                    break;
+                case Phases.Phase6_2:
+                    label26.ForeColor = Color.Black;
+                    bt_roll_Lieferung.Enabled = false;
+                    bt_event_p6.Enabled = true;
+                    break;
+                case Phases.Phase7_1:
+                    label28.ForeColor = Color.Red;
+                    label27.ForeColor = Color.Red;
+                    bt_event_p6.Enabled = false;
+                    bt_event_p7.Enabled = true;
+                    bt_Inforcard_p7.Enabled = true;
+                    break;
+                case Phases.Phase7_2:
+                    
+                    break;
+                default:
+                    break;
+            }
+        }
+        #endregion
 
         private void bt_Refresh_Kalkulation_Click(object sender, EventArgs e)
         {

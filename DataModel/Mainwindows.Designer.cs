@@ -144,13 +144,16 @@
             this.label30 = new System.Windows.Forms.Label();
             this.tb_budget = new System.Windows.Forms.TextBox();
             this.tabLayout = new System.Windows.Forms.TabPage();
+            this.dataGridView_layoutList = new System.Windows.Forms.DataGridView();
             this.tabMaschinen = new System.Windows.Forms.TabPage();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripFocus = new System.Windows.Forms.ToolStripStatusLabel();
             this.playerListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridView_layoutList = new System.Windows.Forms.DataGridView();
+            this.label33 = new System.Windows.Forms.Label();
             this.gameRoomBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gameRoomBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -185,9 +188,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_MyBetriebmittelKatalog)).BeginInit();
             this.tabBudget.SuspendLayout();
             this.tabLayout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_layoutList)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playerListBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_layoutList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameRoomBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameRoomBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -276,11 +279,13 @@
             // 
             this.toolBt_NextPhase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolBt_NextPhase.Enabled = false;
+            this.toolBt_NextPhase.ForeColor = System.Drawing.Color.Red;
             this.toolBt_NextPhase.Image = ((System.Drawing.Image)(resources.GetObject("toolBt_NextPhase.Image")));
             this.toolBt_NextPhase.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolBt_NextPhase.Name = "toolBt_NextPhase";
             this.toolBt_NextPhase.Size = new System.Drawing.Size(73, 22);
             this.toolBt_NextPhase.Text = "NextPhase";
+            this.toolBt_NextPhase.Visible = false;
             this.toolBt_NextPhase.Click += new System.EventHandler(this.toolBt_NextPhase_Click);
             // 
             // Lb_currentPhase
@@ -348,6 +353,7 @@
             // 
             // bt_deleteplayer
             // 
+            this.bt_deleteplayer.Enabled = false;
             this.bt_deleteplayer.Location = new System.Drawing.Point(132, 3);
             this.bt_deleteplayer.Name = "bt_deleteplayer";
             this.bt_deleteplayer.Size = new System.Drawing.Size(114, 23);
@@ -368,6 +374,7 @@
             // 
             // bt_AddPlayer
             // 
+            this.bt_AddPlayer.Enabled = false;
             this.bt_AddPlayer.Location = new System.Drawing.Point(12, 3);
             this.bt_AddPlayer.Name = "bt_AddPlayer";
             this.bt_AddPlayer.Size = new System.Drawing.Size(114, 23);
@@ -388,6 +395,7 @@
             // 
             // bt_KabelType
             // 
+            this.bt_KabelType.Enabled = false;
             this.bt_KabelType.Location = new System.Drawing.Point(12, 232);
             this.bt_KabelType.Name = "bt_KabelType";
             this.bt_KabelType.Size = new System.Drawing.Size(114, 23);
@@ -398,6 +406,7 @@
             // 
             // bt_StartGameP2
             // 
+            this.bt_StartGameP2.Enabled = false;
             this.bt_StartGameP2.Location = new System.Drawing.Point(395, 232);
             this.bt_StartGameP2.Name = "bt_StartGameP2";
             this.bt_StartGameP2.Size = new System.Drawing.Size(75, 23);
@@ -420,6 +429,7 @@
             // 
             // bt_nextP14
             // 
+            this.bt_nextP14.Enabled = false;
             this.bt_nextP14.Location = new System.Drawing.Point(392, 32);
             this.bt_nextP14.Name = "bt_nextP14";
             this.bt_nextP14.Size = new System.Drawing.Size(75, 23);
@@ -441,6 +451,7 @@
             // 
             // bt_zielKarte
             // 
+            this.bt_zielKarte.Enabled = false;
             this.bt_zielKarte.Location = new System.Drawing.Point(9, 32);
             this.bt_zielKarte.Name = "bt_zielKarte";
             this.bt_zielKarte.Size = new System.Drawing.Size(114, 23);
@@ -596,6 +607,7 @@
             // bt_eventcard_phase4
             // 
             this.bt_eventcard_phase4.BackColor = System.Drawing.Color.DarkOrange;
+            this.bt_eventcard_phase4.Enabled = false;
             this.bt_eventcard_phase4.Location = new System.Drawing.Point(287, 24);
             this.bt_eventcard_phase4.Name = "bt_eventcard_phase4";
             this.bt_eventcard_phase4.Size = new System.Drawing.Size(236, 23);
@@ -606,6 +618,7 @@
             // bt_inforcard_phase4
             // 
             this.bt_inforcard_phase4.BackColor = System.Drawing.Color.LemonChiffon;
+            this.bt_inforcard_phase4.Enabled = false;
             this.bt_inforcard_phase4.Location = new System.Drawing.Point(13, 24);
             this.bt_inforcard_phase4.Name = "bt_inforcard_phase4";
             this.bt_inforcard_phase4.Size = new System.Drawing.Size(236, 23);
@@ -657,6 +670,7 @@
             // bt_Eventcard_phase3
             // 
             this.bt_Eventcard_phase3.BackColor = System.Drawing.Color.DarkOrange;
+            this.bt_Eventcard_phase3.Enabled = false;
             this.bt_Eventcard_phase3.Location = new System.Drawing.Point(287, 162);
             this.bt_Eventcard_phase3.Name = "bt_Eventcard_phase3";
             this.bt_Eventcard_phase3.Size = new System.Drawing.Size(236, 23);
@@ -667,6 +681,7 @@
             // bt_work_inforcard_phase3
             // 
             this.bt_work_inforcard_phase3.BackColor = System.Drawing.Color.LemonChiffon;
+            this.bt_work_inforcard_phase3.Enabled = false;
             this.bt_work_inforcard_phase3.Location = new System.Drawing.Point(287, 133);
             this.bt_work_inforcard_phase3.Name = "bt_work_inforcard_phase3";
             this.bt_work_inforcard_phase3.Size = new System.Drawing.Size(236, 23);
@@ -685,6 +700,7 @@
             // 
             // button6
             // 
+            this.button6.Enabled = false;
             this.button6.Location = new System.Drawing.Point(287, 90);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(236, 23);
@@ -695,6 +711,7 @@
             // bt_nachkauf_oldlayout
             // 
             this.bt_nachkauf_oldlayout.BackColor = System.Drawing.Color.LightCoral;
+            this.bt_nachkauf_oldlayout.Enabled = false;
             this.bt_nachkauf_oldlayout.Location = new System.Drawing.Point(408, 54);
             this.bt_nachkauf_oldlayout.Name = "bt_nachkauf_oldlayout";
             this.bt_nachkauf_oldlayout.Size = new System.Drawing.Size(115, 23);
@@ -706,6 +723,7 @@
             // bt_nachkauf_neulayout
             // 
             this.bt_nachkauf_neulayout.BackColor = System.Drawing.Color.LightCoral;
+            this.bt_nachkauf_neulayout.Enabled = false;
             this.bt_nachkauf_neulayout.Location = new System.Drawing.Point(287, 54);
             this.bt_nachkauf_neulayout.Name = "bt_nachkauf_neulayout";
             this.bt_nachkauf_neulayout.Size = new System.Drawing.Size(115, 23);
@@ -717,6 +735,7 @@
             // bt_nachkauf_maschinen
             // 
             this.bt_nachkauf_maschinen.BackColor = System.Drawing.Color.LightCoral;
+            this.bt_nachkauf_maschinen.Enabled = false;
             this.bt_nachkauf_maschinen.Location = new System.Drawing.Point(287, 21);
             this.bt_nachkauf_maschinen.Name = "bt_nachkauf_maschinen";
             this.bt_nachkauf_maschinen.Size = new System.Drawing.Size(236, 23);
@@ -783,6 +802,7 @@
             // 
             // bt_old_layout
             // 
+            this.bt_old_layout.Enabled = false;
             this.bt_old_layout.Location = new System.Drawing.Point(412, 120);
             this.bt_old_layout.Name = "bt_old_layout";
             this.bt_old_layout.Size = new System.Drawing.Size(115, 23);
@@ -793,6 +813,7 @@
             // 
             // bt_neu_layout
             // 
+            this.bt_neu_layout.Enabled = false;
             this.bt_neu_layout.Location = new System.Drawing.Point(291, 120);
             this.bt_neu_layout.Name = "bt_neu_layout";
             this.bt_neu_layout.Size = new System.Drawing.Size(115, 23);
@@ -803,6 +824,7 @@
             // 
             // bt_buy_new_maschine
             // 
+            this.bt_buy_new_maschine.Enabled = false;
             this.bt_buy_new_maschine.Location = new System.Drawing.Point(291, 58);
             this.bt_buy_new_maschine.Name = "bt_buy_new_maschine";
             this.bt_buy_new_maschine.Size = new System.Drawing.Size(236, 23);
@@ -822,6 +844,7 @@
             // 
             // bt_timeDelay
             // 
+            this.bt_timeDelay.Enabled = false;
             this.bt_timeDelay.Location = new System.Drawing.Point(291, 89);
             this.bt_timeDelay.Name = "bt_timeDelay";
             this.bt_timeDelay.Size = new System.Drawing.Size(236, 23);
@@ -862,6 +885,8 @@
             this.gb_phase2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gb_phase2.BackColor = System.Drawing.Color.Transparent;
+            this.gb_phase2.Controls.Add(this.label35);
+            this.gb_phase2.Controls.Add(this.label34);
             this.gb_phase2.Controls.Add(this.bt_buyInforCard);
             this.gb_phase2.Controls.Add(this.label13);
             this.gb_phase2.Controls.Add(this.label12);
@@ -874,6 +899,7 @@
             // 
             // bt_buyInforCard
             // 
+            this.bt_buyInforCard.Enabled = false;
             this.bt_buyInforCard.Location = new System.Drawing.Point(11, 33);
             this.bt_buyInforCard.Name = "bt_buyInforCard";
             this.bt_buyInforCard.Size = new System.Drawing.Size(125, 23);
@@ -896,14 +922,15 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(9, 11);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(179, 12);
+            this.label12.Size = new System.Drawing.Size(53, 12);
             this.label12.TabIndex = 0;
-            this.label12.Text = "1. Read 2.Read MaschinenInfor";
+            this.label12.Text = "1. Read ";
             // 
             // gb_Phase1
             // 
             this.gb_Phase1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gb_Phase1.Controls.Add(this.label33);
             this.gb_Phase1.Controls.Add(this.label2);
             this.gb_Phase1.Controls.Add(this.label1);
             this.gb_Phase1.Location = new System.Drawing.Point(3, 3);
@@ -918,9 +945,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(2, 40);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 12);
+            this.label2.Size = new System.Drawing.Size(113, 12);
             this.label2.TabIndex = 1;
-            this.label2.Text = " 2: Ziel Karte";
+            this.label2.Text = " 2: Get Ziel Karte";
             // 
             // label1
             // 
@@ -1001,6 +1028,7 @@
             // bt_event_p7
             // 
             this.bt_event_p7.BackColor = System.Drawing.Color.DarkOrange;
+            this.bt_event_p7.Enabled = false;
             this.bt_event_p7.Location = new System.Drawing.Point(287, 29);
             this.bt_event_p7.Name = "bt_event_p7";
             this.bt_event_p7.Size = new System.Drawing.Size(236, 23);
@@ -1011,6 +1039,7 @@
             // bt_Inforcard_p7
             // 
             this.bt_Inforcard_p7.BackColor = System.Drawing.Color.LemonChiffon;
+            this.bt_Inforcard_p7.Enabled = false;
             this.bt_Inforcard_p7.Location = new System.Drawing.Point(287, 58);
             this.bt_Inforcard_p7.Name = "bt_Inforcard_p7";
             this.bt_Inforcard_p7.Size = new System.Drawing.Size(236, 23);
@@ -1037,6 +1066,7 @@
             // bt_SetHersteller
             // 
             this.bt_SetHersteller.BackColor = System.Drawing.Color.GreenYellow;
+            this.bt_SetHersteller.Enabled = false;
             this.bt_SetHersteller.Location = new System.Drawing.Point(287, 28);
             this.bt_SetHersteller.Name = "bt_SetHersteller";
             this.bt_SetHersteller.Size = new System.Drawing.Size(236, 23);
@@ -1065,6 +1095,7 @@
             // bt_EventPhase5
             // 
             this.bt_EventPhase5.BackColor = System.Drawing.Color.DarkOrange;
+            this.bt_EventPhase5.Enabled = false;
             this.bt_EventPhase5.Location = new System.Drawing.Point(287, 72);
             this.bt_EventPhase5.Name = "bt_EventPhase5";
             this.bt_EventPhase5.Size = new System.Drawing.Size(236, 23);
@@ -1075,6 +1106,7 @@
             // bt_inforkarte5
             // 
             this.bt_inforkarte5.BackColor = System.Drawing.Color.LemonChiffon;
+            this.bt_inforkarte5.Enabled = false;
             this.bt_inforkarte5.Location = new System.Drawing.Point(13, 72);
             this.bt_inforkarte5.Name = "bt_inforkarte5";
             this.bt_inforkarte5.Size = new System.Drawing.Size(236, 23);
@@ -1109,6 +1141,7 @@
             // bt_roll_Lieferung
             // 
             this.bt_roll_Lieferung.BackColor = System.Drawing.Color.GreenYellow;
+            this.bt_roll_Lieferung.Enabled = false;
             this.bt_roll_Lieferung.Location = new System.Drawing.Point(287, 23);
             this.bt_roll_Lieferung.Name = "bt_roll_Lieferung";
             this.bt_roll_Lieferung.Size = new System.Drawing.Size(236, 23);
@@ -1128,6 +1161,7 @@
             // bt_event_p6
             // 
             this.bt_event_p6.BackColor = System.Drawing.Color.DarkOrange;
+            this.bt_event_p6.Enabled = false;
             this.bt_event_p6.Location = new System.Drawing.Point(287, 72);
             this.bt_event_p6.Name = "bt_event_p6";
             this.bt_event_p6.Size = new System.Drawing.Size(236, 23);
@@ -1383,6 +1417,18 @@
             this.tabLayout.Text = "LayoutList";
             this.tabLayout.UseVisualStyleBackColor = true;
             // 
+            // dataGridView_layoutList
+            // 
+            this.dataGridView_layoutList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView_layoutList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_layoutList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_layoutList.Location = new System.Drawing.Point(22, 20);
+            this.dataGridView_layoutList.Name = "dataGridView_layoutList";
+            this.dataGridView_layoutList.RowTemplate.Height = 23;
+            this.dataGridView_layoutList.Size = new System.Drawing.Size(743, 390);
+            this.dataGridView_layoutList.TabIndex = 0;
+            // 
             // tabMaschinen
             // 
             this.tabMaschinen.Location = new System.Drawing.Point(4, 22);
@@ -1413,17 +1459,15 @@
             this.playerListBindingSource.DataMember = "PlayerList";
             this.playerListBindingSource.DataSource = this.gameRoomBindingSource1;
             // 
-            // dataGridView_layoutList
+            // label33
             // 
-            this.dataGridView_layoutList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView_layoutList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView_layoutList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_layoutList.Location = new System.Drawing.Point(22, 20);
-            this.dataGridView_layoutList.Name = "dataGridView_layoutList";
-            this.dataGridView_layoutList.RowTemplate.Height = 23;
-            this.dataGridView_layoutList.Size = new System.Drawing.Size(743, 390);
-            this.dataGridView_layoutList.TabIndex = 0;
+            this.label33.AutoSize = true;
+            this.label33.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label33.Location = new System.Drawing.Point(157, 40);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(119, 12);
+            this.label33.TabIndex = 2;
+            this.label33.Text = " 3: Read Ziel Karte";
             // 
             // gameRoomBindingSource1
             // 
@@ -1432,6 +1476,24 @@
             // gameRoomBindingSource
             // 
             this.gameRoomBindingSource.DataSource = typeof(DataModel.Model.GameRoom);
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(157, 11);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(131, 12);
+            this.label34.TabIndex = 3;
+            this.label34.Text = "2.Read MaschinenInfor";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(331, 11);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(95, 12);
+            this.label35.TabIndex = 4;
+            this.label35.Text = "3.Buy InforCard";
             // 
             // MainWindows
             // 
@@ -1494,10 +1556,10 @@
             this.tabBudget.ResumeLayout(false);
             this.tabBudget.PerformLayout();
             this.tabLayout.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_layoutList)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playerListBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_layoutList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameRoomBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameRoomBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -1628,6 +1690,9 @@
         private System.Windows.Forms.ListBox lbox_Budget;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView dataGridView_layoutList;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label34;
     }
 }
 
