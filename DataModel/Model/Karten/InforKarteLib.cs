@@ -357,15 +357,21 @@ namespace DataModel.Model.Karten
 
         private static void DoKarte05(InformationKarte card)
         {
-            /*Das Kontrollsystem bei einigen Maschinen von Zeus Machine weist erhebliche Mängel auf.             * Die Lieferzuverlässigkeit der Vernetzungsanlage 1, Mantelmaschine und Grobdrahtzugmaschine sinkt auf „schlecht“.            */
+            /*Das Kontrollsystem bei einigen Maschinen von Zeus Machine weist erhebliche Mängel auf.
+             * Die Lieferzuverlässigkeit der Vernetzungsanlage 1, Mantelmaschine und Grobdrahtzugmaschine sinkt auf „schlecht“.
+            */
         }
         private static void DoKarte06(InformationKarte card)
         {
-            /*Du hast erfahren, dass der Hersteller Cablemachines für die Temperkammer einen neuen Produktmanager hat              * und in letzter Zeit alle Liefertermine einhält.            Die Lieferzuverlässigkeit des Herstellers steigt auf „gut“.*/
+            /*Du hast erfahren, dass der Hersteller Cablemachines für die Temperkammer einen neuen Produktmanager hat 
+             * und in letzter Zeit alle Liefertermine einhält.
+            Die Lieferzuverlässigkeit des Herstellers steigt auf „gut“.*/
         }
         private static void DoKarte07(InformationKarte card)
         {
-
+            /*Das Sicherheitskonzept der Mantelmaschine von Hersteller Voltmaster weist Mägnel auf.
+             * Die Maschine muss reklamiert werden. Es gibt eine Verzögerung, die 230.000 € kostet.
+             */
         }
         private static void DoKarte08(InformationKarte card)
         {
