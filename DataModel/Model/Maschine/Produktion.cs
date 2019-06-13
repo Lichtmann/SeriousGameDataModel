@@ -18,7 +18,7 @@ namespace DataModel.Model//.Maschine
     public class Produktion
     {
         private Material _outputProdukt;
-        private List<InputRequire> _inputProdukts;
+        private List<InputRequire> _inputProdukts=new List<InputRequire>();
 
         private int _minMenge;
         private int _maxMenge;

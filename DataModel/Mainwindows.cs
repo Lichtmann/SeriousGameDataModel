@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -208,13 +209,14 @@ namespace DataModel
 
             for (int i = 0; i < mlist.Count; i++)
             {
+                CultureInfo de = new CultureInfo("de-DE");
 
                 dataGridView_DefaultHerstellerKatalog.Rows[i].Cells[0].Value = mlist[i].ToString();
-                dataGridView_DefaultHerstellerKatalog.Rows[i].Cells[1].Value = katalog.GetPreis(mlist[i], HerstellerType.Cablemachines);
+                dataGridView_DefaultHerstellerKatalog.Rows[i].Cells[1].Value = katalog.GetPreis(mlist[i], HerstellerType.Cablemachines).ToNum();
                 dataGridView_DefaultHerstellerKatalog.Rows[i].Cells[1].Style.BackColor = LieferungColor(katalog.GetLieferungGrad(mlist[i], HerstellerType.Cablemachines));
-                dataGridView_DefaultHerstellerKatalog.Rows[i].Cells[2].Value = katalog.GetPreis(mlist[i], HerstellerType.Voltmaster);
+                dataGridView_DefaultHerstellerKatalog.Rows[i].Cells[2].Value = katalog.GetPreis(mlist[i], HerstellerType.Voltmaster).ToNum();
                 dataGridView_DefaultHerstellerKatalog.Rows[i].Cells[2].Style.BackColor = LieferungColor(katalog.GetLieferungGrad(mlist[i], HerstellerType.Voltmaster));
-                dataGridView_DefaultHerstellerKatalog.Rows[i].Cells[3].Value = katalog.GetPreis(mlist[i], HerstellerType.Zeus_Machine);
+                dataGridView_DefaultHerstellerKatalog.Rows[i].Cells[3].Value = katalog.GetPreis(mlist[i], HerstellerType.Zeus_Machine).ToNum();
                 dataGridView_DefaultHerstellerKatalog.Rows[i].Cells[3].Style.BackColor = LieferungColor(katalog.GetLieferungGrad(mlist[i], HerstellerType.Zeus_Machine));
             }
         }
@@ -251,10 +253,10 @@ namespace DataModel
                 {
                     row.Cells[3].Value = maschinenList[i].OutputProdukts.First().OutputProdukt.ToString();
                 }
-                row.Cells[4].Value = maschinenList[i].OutputProdukts.First().MinMenge;
-                row.Cells[5].Value = maschinenList[i].OutputProdukts.First().MaxMenge;
-                row.Cells[6].Value = maschinenList[i].MarktPreis;
-                row.Cells[7].Value = maschinenList[i].Area;
+                row.Cells[4].Value = maschinenList[i].OutputProdukts.First().MinMenge.ToNum(10);
+                row.Cells[5].Value = maschinenList[i].OutputProdukts.First().MaxMenge.ToNum(10);
+                row.Cells[6].Value = maschinenList[i].MarktPreis.ToNum();
+                row.Cells[7].Value = maschinenList[i].Area.ToNum(10);
                 if (m_type == MaschinenType.Schirmmaschine  && katalog.KabelType == KabelType.VPE)
                 {
                     dataGridView_DefaultMaschinenKatalog.Rows.Add(1);
@@ -407,7 +409,7 @@ namespace DataModel
         private string RenderZielKarte(ZielKarte zielKarte)
         {
             return "ZielKarte: " + zielKarte.ID + "\n" + "Vorgaben" + "\n" +
-                            "Budget: " + zielKarte.StartBudget.ToString("N0") + "€" + "\n" +
+                            "Budget: " + zielKarte.StartBudget.ToEuro()+ "\n" +
                             "Menge:  " + zielKarte.Produktionsmenge.ToString() + " m/Tag" + "\n" +
                             "Bewertungskriterien:\n" +
                             zielKarte.Gewichtung.MaterialflussGewichtung + "x Materialfluss\n" +
@@ -461,7 +463,7 @@ namespace DataModel
                 view.Rows[4].Cells[0].Value = "GW: Erweitebarkeit";
                 view.Rows[5].Cells[0].Value = "GW: Budget:";
                 view.Rows[0].Cells[1].Value = focusPlayer.Zielkarte.ID;
-                view.Rows[1].Cells[1].Value = focusPlayer.Zielkarte.StartBudget;
+                view.Rows[1].Cells[1].Value = focusPlayer.Zielkarte.StartBudget.ToEuro();
                 view.Rows[2].Cells[1].Value = focusPlayer.Zielkarte.Produktionsmenge;
                 view.Rows[3].Cells[1].Value = focusPlayer.Zielkarte.Gewichtung.MaterialflussGewichtung;
                 view.Rows[4].Cells[1].Value = focusPlayer.Zielkarte.Gewichtung.ErweiterbarkeitGewichtung;
@@ -494,11 +496,11 @@ namespace DataModel
             for (int i = 0; i < mlist.Count; i++)
             {
                 view.Rows[i].Cells[0].Value = mlist[i].ToString();
-                view.Rows[i].Cells[1].Value = katalog.GetPreis(mlist[i], HerstellerType.Cablemachines);
+                view.Rows[i].Cells[1].Value = katalog.GetPreis(mlist[i], HerstellerType.Cablemachines).ToNum();
                 view.Rows[i].Cells[1].Style.BackColor = LieferungColor(katalog.GetLieferungGrad(mlist[i], HerstellerType.Cablemachines));
-                view.Rows[i].Cells[2].Value = katalog.GetPreis(mlist[i], HerstellerType.Voltmaster);
+                view.Rows[i].Cells[2].Value = katalog.GetPreis(mlist[i], HerstellerType.Voltmaster).ToNum();
                 view.Rows[i].Cells[2].Style.BackColor = LieferungColor(katalog.GetLieferungGrad(mlist[i], HerstellerType.Voltmaster));
-                view.Rows[i].Cells[3].Value = katalog.GetPreis(mlist[i], HerstellerType.Zeus_Machine);
+                view.Rows[i].Cells[3].Value = katalog.GetPreis(mlist[i], HerstellerType.Zeus_Machine).ToNum();
                 view.Rows[i].Cells[3].Style.BackColor = LieferungColor(katalog.GetLieferungGrad(mlist[i], HerstellerType.Zeus_Machine));
             }
         }
@@ -547,10 +549,10 @@ namespace DataModel
                 {
                     row.Cells[3].Value = maschinenList[i].OutputProdukts.First().OutputProdukt.ToString();
                 }
-                row.Cells[4].Value = maschinenList[i].OutputProdukts.First().MinMenge;
-                row.Cells[5].Value = maschinenList[i].OutputProdukts.First().MaxMenge;
-                row.Cells[6].Value = maschinenList[i].MarktPreis;
-                row.Cells[7].Value = maschinenList[i].Area;
+                row.Cells[4].Value = maschinenList[i].OutputProdukts.First().MinMenge.ToNum(10);
+                row.Cells[5].Value = maschinenList[i].OutputProdukts.First().MaxMenge.ToNum(10);
+                row.Cells[6].Value = maschinenList[i].MarktPreis.ToNum();
+                row.Cells[7].Value = maschinenList[i].Area.ToNum(10);
                 if (m_type == MaschinenType.Schirmmaschine && katalog.KabelType == KabelType.VPE)
                 {
                     view.Rows.Add(1);
@@ -582,13 +584,13 @@ namespace DataModel
                 var row = view.Rows[index - 1];
                 row.Cells[0].Value = newlayout.ID;
                 row.Cells[1].Value = newlayout.Type;
-                row.Cells[2].Value = newlayout.Type.DefaultPreis();
+                row.Cells[2].Value = newlayout.Type.DefaultPreis().ToNum();
                 row.Cells[3].Value = newlayout.IsNachKauf;
-                row.Cells[4].Value = newlayout.UnitPreisChange;
-                row.Cells[5].Value = newlayout.SaeulenKosten;
-                row.Cells[6].Value = newlayout.EndKosten;
-                row.Cells[7].Value = newlayout.AvailableUnit;
-                row.Cells[8].Value = newlayout.AvailableArea;
+                row.Cells[4].Value = newlayout.UnitPreisChange.ToNum();
+                row.Cells[5].Value = newlayout.SaeulenKosten.ToNum();
+                row.Cells[6].Value = newlayout.EndKosten.ToNum();
+                row.Cells[7].Value = newlayout.AvailableUnit.ToNum();
+                row.Cells[8].Value = newlayout.AvailableArea.ToNum();
             }
             foreach (LayoutUnit ollayout in focusPlayer.OldLayoutUnitList)
             {
@@ -597,13 +599,13 @@ namespace DataModel
                 var row = view.Rows[index - 1];
                 row.Cells[0].Value = ollayout.ID;
                 row.Cells[1].Value = ollayout.Type;
-                row.Cells[2].Value = ollayout.Type.DefaultPreis();
+                row.Cells[2].Value = ollayout.Type.DefaultPreis().ToNum();
                 row.Cells[3].Value = ollayout.IsNachKauf;
-                row.Cells[4].Value = ollayout.UnitPreisChange;
-                row.Cells[5].Value = ollayout.SaeulenKosten;
-                row.Cells[6].Value = ollayout.EndKosten;
-                row.Cells[7].Value = ollayout.AvailableUnit;
-                row.Cells[8].Value = ollayout.AvailableArea;
+                row.Cells[4].Value = ollayout.UnitPreisChange.ToNum();
+                row.Cells[5].Value = ollayout.SaeulenKosten.ToNum();
+                row.Cells[6].Value = ollayout.EndKosten.ToNum();
+                row.Cells[7].Value = ollayout.AvailableUnit.ToNum();
+                row.Cells[8].Value = ollayout.AvailableArea.ToNum();
             }
 
         }
@@ -611,9 +613,9 @@ namespace DataModel
 
         public void ShowCurrentkalkulation(Player focusPlayer)
         {
-            tb_budget.Text = focusPlayer.KalkulationUnit.Budget.ToString();
-            tb_kosten.Text = focusPlayer.KalkulationUnit.Kosten.ToString();
-            tb_balance.Text = focusPlayer.KalkulationUnit.Balance.ToString();
+            tb_budget.Text = focusPlayer.KalkulationUnit.Budget.ToEuro();
+            tb_kosten.Text = focusPlayer.KalkulationUnit.Kosten.ToEuro();
+            tb_balance.Text = focusPlayer.KalkulationUnit.Balance.ToEuro();
             lbox_Budget.Items.Clear();
             foreach (BudgetRecord b_record in focusPlayer.KalkulationUnit.BudgetRecordList)
             {
@@ -666,6 +668,28 @@ namespace DataModel
             ShowCurrentkalkulation(_player);
             //RefreshDefultKatalog();
             //RefreshInformationOfPlayer();            
+        }
+        #endregion
+
+        #region Buy Maschinen
+        private void bt_buy_new_maschine_Click(object sender, EventArgs e)
+        {
+            //Todo
+            PageBuyMaschine buyMaschineDialog = new PageBuyMaschine(FocusRoom.FocusPlayer);
+            DialogResult result = buyMaschineDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                ShowCurrentkalkulation(FocusRoom.FocusPlayer);
+            }
+            else
+            {
+                //none
+            }
+        }
+
+        private void bt_nachkauf_maschinen_Click(object sender, EventArgs e)
+        {
+            //Todo
         }
         #endregion
 
@@ -907,16 +931,17 @@ namespace DataModel
             ShowCurrentkalkulation(FocusRoom.FocusPlayer);
         }
 
-        #region Buy Maschinen
-        private void bt_buy_new_maschine_Click(object sender, EventArgs e)
+        private void bt_timeDelay_Click(object sender, EventArgs e)
         {
-            //Todo
+            if (FocusRoom.CurrentPhase == Phases.Phase3_1  || FocusRoom.CurrentPhase == Phases.Phase3_2)
+            {
+
+            }
         }
 
-        private void bt_nachkauf_maschinen_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {
-            //Todo
+
         }
-        #endregion
     }
 }

@@ -11,35 +11,35 @@ namespace DataModel.Model//.EnumAndAttribute
         /// <summary>
         /// Beide Kabel Type
         /// </summary>
-        Grobdrahtzugmaschine1,
+        Grobdrahtzugmaschine1 = 1,
         /// <summary>
         /// Beide Kabel Type
         /// </summary>
-        Grobdrahtzugmaschine2,
+        Grobdrahtzugmaschine2 = 2,
         /// <summary>
         /// Beide Kabel Type
         /// </summary>
-        Korbverseilmaschine,        /// <summary>
+        Korbverseilmaschine = 3,        /// <summary>
         /// Nur VPE
-        /// </summary>        Vernetzungsanlage1,
+        /// </summary>        Vernetzungsanlage1 = 4,
         /// <summary>
         /// Nur VPE
-        /// </summary>        Vernetzungsanlage2,
+        /// </summary>        Vernetzungsanlage2 = 5,
         /// <summary>
         /// Nur VPE
-        /// </summary>        Temperkammer,
+        /// </summary>        Temperkammer = 6,
         /// <summary>
         /// Nur MI
-        /// </summary>        Isolierungsanlage,
+        /// </summary>        Isolierungsanlage = 7,
         /// <summary>
         /// Nur MI
-        /// </summary>        Vakuumkessel,
+        /// </summary>        Vakuumkessel = 8,
         /// <summary>
         /// Beide Kabel Type
-        /// </summary>        Schirmmaschine,
+        /// </summary>        Schirmmaschine = 9,
         /// <summary>
         /// Beide Kabel Type
-        /// </summary>        Mantelmaschine,
+        /// </summary>        Mantelmaschine = 10,
     }
 
     public enum HerstellerType

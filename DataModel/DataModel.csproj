@@ -70,6 +70,7 @@
     <Compile Include="Model\Kalkulation\KalkulationRecord.cs" />
     <Compile Include="Model\Kalkulation\KalkulationUnit.cs" />
     <Compile Include="Model\Kalkulation\KostenRecord.cs" />
+    <Compile Include="Model\Kalkulation\RecordLib.cs" />
     <Compile Include="Model\Karten\BaseKarte.cs" />
     <Compile Include="Model\Karten\EreignisKarte.cs" />
     <Compile Include="Model\Karten\InforKarteLib.cs" />
@@ -100,6 +101,12 @@
     <Compile Include="ViewPage\PageAddPlayer.Designer.cs">
       <DependentUpon>PageAddPlayer.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewPage\PageBuyMaschine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewPage\PageBuyMaschine.Designer.cs">
+      <DependentUpon>PageBuyMaschine.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MAinwindows.resx">
       <DependentUpon>Mainwindows.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +121,9 @@
     </Compile>
     <EmbeddedResource Include="ViewPage\PageAddPlayer.resx">
       <DependentUpon>PageAddPlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewPage\PageBuyMaschine.resx">
+      <DependentUpon>PageBuyMaschine.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="MaschinenManageUML.cd" />

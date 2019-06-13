@@ -95,10 +95,13 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.gb_phase2 = new System.Windows.Forms.GroupBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
             this.bt_buyInforCard = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.gb_Phase1 = new System.Windows.Forms.GroupBox();
+            this.label33 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPhase67 = new System.Windows.Forms.TabPage();
@@ -149,11 +152,8 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripFocus = new System.Windows.Forms.ToolStripStatusLabel();
             this.playerListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label33 = new System.Windows.Forms.Label();
             this.gameRoomBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gameRoomBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -707,6 +707,7 @@
             this.button6.TabIndex = 11;
             this.button6.Text = "Time Delay 1min/click";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // bt_nachkauf_oldlayout
             // 
@@ -851,6 +852,7 @@
             this.bt_timeDelay.TabIndex = 3;
             this.bt_timeDelay.Text = "Time Delay 1min/click";
             this.bt_timeDelay.UseVisualStyleBackColor = true;
+            this.bt_timeDelay.Click += new System.EventHandler(this.bt_timeDelay_Click);
             // 
             // label16
             // 
@@ -897,6 +899,24 @@
             this.gb_phase2.TabStop = false;
             this.gb_phase2.Text = "Phase2";
             // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(331, 11);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(95, 12);
+            this.label35.TabIndex = 4;
+            this.label35.Text = "3.Buy InforCard";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(157, 11);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(131, 12);
+            this.label34.TabIndex = 3;
+            this.label34.Text = "2.Read MaschinenInfor";
+            // 
             // bt_buyInforCard
             // 
             this.bt_buyInforCard.Enabled = false;
@@ -939,6 +959,16 @@
             this.gb_Phase1.TabIndex = 0;
             this.gb_Phase1.TabStop = false;
             this.gb_Phase1.Text = "Phase1";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label33.Location = new System.Drawing.Point(157, 40);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(119, 12);
+            this.label33.TabIndex = 2;
+            this.label33.Text = " 3: Read Ziel Karte";
             // 
             // label2
             // 
@@ -1459,16 +1489,6 @@
             this.playerListBindingSource.DataMember = "PlayerList";
             this.playerListBindingSource.DataSource = this.gameRoomBindingSource1;
             // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label33.Location = new System.Drawing.Point(157, 40);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(119, 12);
-            this.label33.TabIndex = 2;
-            this.label33.Text = " 3: Read Ziel Karte";
-            // 
             // gameRoomBindingSource1
             // 
             this.gameRoomBindingSource1.DataSource = typeof(DataModel.Model.GameRoom);
@@ -1476,24 +1496,6 @@
             // gameRoomBindingSource
             // 
             this.gameRoomBindingSource.DataSource = typeof(DataModel.Model.GameRoom);
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(157, 11);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(131, 12);
-            this.label34.TabIndex = 3;
-            this.label34.Text = "2.Read MaschinenInfor";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(331, 11);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(95, 12);
-            this.label35.TabIndex = 4;
-            this.label35.Text = "3.Buy InforCard";
             // 
             // MainWindows
             // 

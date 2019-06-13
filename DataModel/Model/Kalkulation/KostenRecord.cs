@@ -37,6 +37,10 @@ namespace DataModel.Model
 
             return this.Phase + "## " + this.EventName + "####" + this.MoneyAmount + " ##" + this.Description;
             }
+            else if (this.EventName == "MaschinenKosten")
+            {
+                return this.Phase + "## " + this.EventName + "####" + this.MoneyAmount + " ##" + this.Description;
+            }
 
             return this.Phase + "## " + this.EventName + "####" + this.MoneyAmount;
         }

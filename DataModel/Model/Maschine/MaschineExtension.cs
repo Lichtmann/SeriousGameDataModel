@@ -81,12 +81,12 @@ namespace DataModel.Model
             defaultMaschine.MarktPreis = 300000;
             defaultMaschine.Area = 300;
             defaultMaschine.OutputProdukts.Clear();
-            var produktion = Material.Leiterdraht.SingleInputProduktion();
-            produktion.MaxMenge = 250000;
-            defaultMaschine.OutputProdukts.Add(produktion);
-            produktion = Material.Schirmdraht.SingleInputProduktion();
-            produktion.MaxMenge = 200;
-            defaultMaschine.OutputProdukts.Add(produktion);
+            var produktion1 = Material.Leiterdraht.SingleInputProduktion();
+            produktion1.MaxMenge = 250000;
+            defaultMaschine.OutputProdukts.Add(produktion1);
+            var produktion2 = Material.Schirmdraht.SingleInputProduktion();
+            produktion2.MaxMenge = 250000;
+            defaultMaschine.OutputProdukts.Add(produktion2);
             return defaultMaschine;
         }
         private static Maschine DefaultVakuumkessel()
@@ -264,6 +264,33 @@ namespace DataModel.Model
             return null;
         }
 
-       
+        public static Maschine CloneInstance(this Maschine Muster)
+        {
+            Maschine neuMaschine = GenerateMusterMaschine();
+            neuMaschine.Type = Muster.Type;
+            neuMaschine.MarktPreis = Muster.MarktPreis;
+            neuMaschine.Area = Muster.Area;
+            neuMaschine.OutputProdukts.Clear();
+            foreach (Produktion p in Muster.OutputProdukts)
+            {
+                Produktion newP = new Produktion();
+                newP.OutputProdukt = p.OutputProdukt;
+                newP.MaxMenge = p.MaxMenge;
+                newP.MinMenge = p.MinMenge;
+                foreach (InputRequire input in p.InputProdukts)
+                {
+                    InputRequire newInput = new InputRequire()
+                    {
+                        InputProdukt = input.InputProdukt,
+                        Rate = input.Rate
+                    };
+                    newP.InputProdukts.Add(newInput);
+                }
+                neuMaschine.OutputProdukts.Add(newP);
+            }
+            return neuMaschine;
+
+        }
+
     }
 }

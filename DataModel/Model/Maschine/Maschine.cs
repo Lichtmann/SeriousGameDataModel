@@ -11,6 +11,8 @@ namespace DataModel.Model//.Maschine
         //Identify [Fest][Initial]
         private string _name;
         private string _id;
+        //Player
+        private Player _owner = new Player("who");
         //Type [Fest][Initial]
         private MaschinenType _type;
         //Area Require [Fest][Initial]
@@ -25,6 +27,7 @@ namespace DataModel.Model//.Maschine
         //Hersteller [Initial][EventChange]
         private HerstellerType _hersteller;
         private LieferungGrad _lieferungGrad;
+        private bool hasRoll = false;
         private LieferungErgebnis _lieferungErgebnis;
         //Produktion [Initial][EventChange]
         private List<Produktion> _outputProdukts;
@@ -49,10 +52,28 @@ namespace DataModel.Model//.Maschine
         public MaschinenType Type { get => _type; set => _type = value; }
         public string Name { get => _name; set => _name = value; }
         public string ID { get => _id; set => _id = value; }
+        public Player Owner { get => _owner; set => _owner = value; }
         public int Area { get => _area; set => _area = value; }
         public int KalkulationPreis { get => _kalkulationPreis; set => _kalkulationPreis = value; }
-        public int MarktPreis { get => _marktPreis; set => _marktPreis = value; }
-        public int HerstellerPreis { get => _herstellerPreis; set => _herstellerPreis = value; }
+        public int MarktPreis
+        {
+            get => _marktPreis;
+            set
+            {
+                _marktPreis = value;
+                //Do something
+                UpdateKalkulationPreis();
+            } 
+        }
+        public int HerstellerPreis
+        {
+            get => _herstellerPreis;
+            set
+            {
+                _herstellerPreis = value;
+                UpdateKalkulationPreis();
+            }
+        }
         public double AufPreisRate { get => _aufPreisRate; set => _aufPreisRate = value; }  // 1.0 ~1.5~ 1.2*1.5
         //public int AufPreis { get => _aufPreis; set => _aufPreis = value; }
         public bool IsNachKauf { get => _isNachKauf; set => _isNachKauf = value; }
@@ -76,6 +97,7 @@ namespace DataModel.Model//.Maschine
             }
         }
         public List<Produktion> OutputProdukts { get => _outputProdukts; set => _outputProdukts = value; }
+        public bool HasRoll { get => hasRoll; set => hasRoll = value; }
 
 
         #region Public Methode
@@ -87,11 +109,16 @@ namespace DataModel.Model//.Maschine
         }
         public void UpdateKalkulationPreis()
         {
-            if (true /*Phase in 1~3*/)
+            if (Owner.PlayerName == "who")
+            {
+                KalkulationPreis = (int)(MarktPreis * AufPreisRate);
+                return;
+            }
+            if (Owner.AtRomm.CurrentPhase < Phases.Phase5_1)
             {
                 KalkulationPreis = (int)(MarktPreis * AufPreisRate);
             }
-            else if (true /*Phase in 5~6*/ )
+            else 
             {
                 KalkulationPreis = (int)(HerstellerPreis * AufPreisRate);
             }
@@ -149,10 +176,7 @@ namespace DataModel.Model//.Maschine
                 AufPreisRate = 1.2 * (1.0 + LieferungErgebnis.AufpreisRate());
             }
         }
-        public void AddProdukt()
-        {
-            //Todo
-        }
+
         #endregion
     }
 }
