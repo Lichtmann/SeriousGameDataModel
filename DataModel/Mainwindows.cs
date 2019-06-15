@@ -120,6 +120,8 @@ namespace DataModel
             FocusRoom.FocusPlayer = FocusRoom.PlayerList.Where(p => p.PlayerName == item?.PlayerName).First();
             ClearInformationofOldPlayer();
             ShowInformationofFocusPlayer();
+
+
             if (bt_showMenge.Enabled)
             {
                 ShowProduktionRequir(dataGridView_showMenge);
@@ -444,7 +446,7 @@ namespace DataModel
             ShowPlayerPlayerZielKarte(dataGridView_MyGoal, FocusRoom.FocusPlayer);
             ShowPlayerHerstellerKatalog(dataGridView_herstellerKatalog, FocusRoom.FocusPlayer);
             ShowPlayerBetriebsmittelKatalog(dataGridView_MyBetriebmittelKatalog, FocusRoom.FocusPlayer);
-            //ShowPlayerBetriebsmittelKatalog();
+            ShowPlayerMaschinenList(dataGridView_maschinnelistShow, FocusRoom.FocusPlayer);
         }
 
         private void ShowPlayerPlayerZielKarte(DataGridView view, Player focusPlayer)
@@ -634,6 +636,52 @@ namespace DataModel
             }
         }
 
+        //GUI
+        public void ShowPlayerMaschinenList(DataGridView view, Player focusPlayer)
+        {
+            view.Rows.Clear();
+            view.Columns.Clear();
+            view.Columns.Add("MaschineType", "MaschineType");
+            view.Columns.Add("Name", "Name");
+            view.Columns.Add("ID", "ID");
+            view.Columns.Add("IsNachKauf", "IsNachKauf");
+            view.Columns.Add("MarktPreis", "MarktPreis");
+            view.Columns.Add("Hersteller", "Hersteller");
+            view.Columns.Add("HerstellerPreis", "HerstellerPreis");
+            view.Columns.Add("LieferungGrad", "LieferungGrad");
+            view.Columns.Add("hasRoll", "hasRoll");
+            view.Columns.Add("LieferungErgebnis", "LieferungErgebnis");
+            view.Columns.Add("AufPreisRate", "AufPreisRate");
+            view.Columns.Add("KalkulationPreis", "KalkulationPreis");//11
+            //view.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;          
+                                 
+            foreach (var maschine in focusPlayer.MaschinenList)
+            {
+                //new line
+                view.Rows.Add(1);
+                var index = view.Rows.Count - 1;
+                var row = view.Rows[index - 1];
+                //
+                row.Cells[0].Value = maschine.Type;
+                row.Cells[1].Value = maschine.Name;
+                row.Cells[2].Value = maschine.ID;
+                row.Cells[3].Value = maschine.IsNachKauf;
+                row.Cells[4].Value = maschine.MarktPreis;
+                row.Cells[5].Value = maschine.Hersteller;
+                row.Cells[6].Value = maschine.HerstellerPreis;
+                row.Cells[7].Value = maschine.LieferungGrad;
+                row.Cells[8].Value = maschine.HasRoll;
+                row.Cells[9].Value = maschine.LieferungErgebnis.ToString();
+                row.Cells[10].Value = maschine.AufPreisRate;
+                row.Cells[11].Value = maschine.KalkulationPreis;
+            }
+
+            view.Rows.Add(1);            
+            var erow = view.Rows[view.Rows.Count - 1 - 1];
+            erow.Cells[0].Value = "Summe Kosten:";
+            erow.Cells[1].Value = focusPlayer.MaschinenList.Sum(m => m.KalkulationPreis);
+
+        }
         #endregion
 
         #region InforKarten 
@@ -680,6 +728,7 @@ namespace DataModel
             if (result == DialogResult.OK)
             {
                 ShowCurrentkalkulation(FocusRoom.FocusPlayer);
+                ShowPlayerMaschinenList(dataGridView_maschinnelistShow, FocusRoom.FocusPlayer);
             }
             else
             {
@@ -956,6 +1005,7 @@ namespace DataModel
             if (result == DialogResult.OK)
             {
                 ShowCurrentkalkulation(FocusRoom.FocusPlayer);
+                ShowPlayerMaschinenList(dataGridView_maschinnelistShow, FocusRoom.FocusPlayer);
             }
             else
             {
@@ -965,7 +1015,26 @@ namespace DataModel
 
         private void bt_roll_Lieferung_Click(object sender, EventArgs e)
         {
+            if (! FocusRoom.FocusPlayer.MaschinenList.Any(m => m.HasRoll == false))
+            {
+                MessageBox.Show("There are no more Maschine should to roll","Info");
+                return;
+            }
 
+            Maschine nextmaschine = FocusRoom.FocusPlayer.MaschinenList.First(m => m.HasRoll == false);
+
+
+            PageRollLieferung rollLieferung = new PageRollLieferung(nextmaschine);
+            DialogResult result = rollLieferung.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                ShowCurrentkalkulation(FocusRoom.FocusPlayer);
+                ShowPlayerMaschinenList(dataGridView_maschinnelistShow, FocusRoom.FocusPlayer);
+            }
+            else
+            {
+                //none
+            }
         }
 
         private void bt_Evaliation_Click(object sender, EventArgs e)

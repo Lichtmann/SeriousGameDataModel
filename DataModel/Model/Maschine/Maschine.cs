@@ -54,7 +54,15 @@ namespace DataModel.Model//.Maschine
         public string ID { get => _id; set => _id = value; }
         public Player Owner { get => _owner; set => _owner = value; }
         public int Area { get => _area; set => _area = value; }
-        public int KalkulationPreis { get => _kalkulationPreis; set => _kalkulationPreis = value; }
+        public int KalkulationPreis
+        {
+            get
+            {
+                UpdateKalkulationPreis();
+                return _kalkulationPreis;
+            }
+            set => _kalkulationPreis = value;
+        }
         public int MarktPreis
         {
             get => _marktPreis;

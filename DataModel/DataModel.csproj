@@ -108,6 +108,12 @@
     <Compile Include="ViewPage\PageBuyMaschine.Designer.cs">
       <DependentUpon>PageBuyMaschine.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewPage\PageRollLieferung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewPage\PageRollLieferung.Designer.cs">
+      <DependentUpon>PageRollLieferung.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewPage\PageSetHersteller.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewPage\PageBuyMaschine.resx">
       <DependentUpon>PageBuyMaschine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewPage\PageRollLieferung.resx">
+      <DependentUpon>PageRollLieferung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewPage\PageSetHersteller.resx">
       <DependentUpon>PageSetHersteller.cs</DependentUpon>

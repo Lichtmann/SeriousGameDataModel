@@ -38,6 +38,7 @@ namespace DataModel.ViewPage
                 listBox1.SelectedIndex = 0;
             }
             ShowKauflistMaschinen(dataGridView1, Player);
+            ShowSummary();
         }
 
         public Player Player { get => player; set => player = value; }
@@ -60,6 +61,7 @@ namespace DataModel.ViewPage
             player.BuyMaschinenRecord();
 
             ShowKauflistMaschinen(dataGridView1, Player);
+            ShowSummary();
         }
 
         private void bt_Delete_Click(object sender, EventArgs e)
@@ -71,6 +73,7 @@ namespace DataModel.ViewPage
             Player.MaschinenList.Remove(lastmaschine);
 
             ShowKauflistMaschinen(dataGridView1, Player);
+            ShowSummary();
         }
 
         //GUI
@@ -113,7 +116,7 @@ namespace DataModel.ViewPage
                 row.Cells[5].Value = listofthistype.Sum(m => m.Area);                
             }
 
-            ShowSummary();
+            
         }
 
         private void ShowSummary()

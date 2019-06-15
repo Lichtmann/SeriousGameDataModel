@@ -151,6 +151,8 @@
             this.tabMaschinen = new System.Windows.Forms.TabPage();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripFocus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.dataGridView_maschinnelistShow = new System.Windows.Forms.DataGridView();
+            this.lb_roll_number = new System.Windows.Forms.Label();
             this.playerListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gameRoomBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gameRoomBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -189,7 +191,9 @@
             this.tabBudget.SuspendLayout();
             this.tabLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_layoutList)).BeginInit();
+            this.tabMaschinen.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_maschinnelistShow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameRoomBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameRoomBindingSource)).BeginInit();
@@ -1151,6 +1155,7 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.lb_roll_number);
             this.groupBox3.Controls.Add(this.label29);
             this.groupBox3.Controls.Add(this.bt_roll_Lieferung);
             this.groupBox3.Controls.Add(this.label26);
@@ -1179,7 +1184,7 @@
             this.bt_roll_Lieferung.Name = "bt_roll_Lieferung";
             this.bt_roll_Lieferung.Size = new System.Drawing.Size(236, 23);
             this.bt_roll_Lieferung.TabIndex = 19;
-            this.bt_roll_Lieferung.Text = "Roll";
+            this.bt_roll_Lieferung.Text = "Roll for next Maschine";
             this.bt_roll_Lieferung.UseVisualStyleBackColor = false;
             this.bt_roll_Lieferung.Click += new System.EventHandler(this.bt_roll_Lieferung_Click);
             // 
@@ -1465,6 +1470,7 @@
             // 
             // tabMaschinen
             // 
+            this.tabMaschinen.Controls.Add(this.dataGridView_maschinnelistShow);
             this.tabMaschinen.Location = new System.Drawing.Point(4, 22);
             this.tabMaschinen.Name = "tabMaschinen";
             this.tabMaschinen.Size = new System.Drawing.Size(773, 650);
@@ -1487,6 +1493,26 @@
             this.toolStripFocus.Name = "toolStripFocus";
             this.toolStripFocus.Size = new System.Drawing.Size(44, 17);
             this.toolStripFocus.Text = "Focus:";
+            // 
+            // dataGridView_maschinnelistShow
+            // 
+            this.dataGridView_maschinnelistShow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView_maschinnelistShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_maschinnelistShow.Location = new System.Drawing.Point(15, 9);
+            this.dataGridView_maschinnelistShow.Name = "dataGridView_maschinnelistShow";
+            this.dataGridView_maschinnelistShow.RowTemplate.Height = 23;
+            this.dataGridView_maschinnelistShow.Size = new System.Drawing.Size(750, 333);
+            this.dataGridView_maschinnelistShow.TabIndex = 0;
+            // 
+            // lb_roll_number
+            // 
+            this.lb_roll_number.AutoSize = true;
+            this.lb_roll_number.Location = new System.Drawing.Point(268, 49);
+            this.lb_roll_number.Name = "lb_roll_number";
+            this.lb_roll_number.Size = new System.Drawing.Size(275, 12);
+            this.lb_roll_number.TabIndex = 1;
+            this.lb_roll_number.Text = "There are n Maschinen to Roll the number(1-6)";
             // 
             // playerListBindingSource
             // 
@@ -1563,8 +1589,10 @@
             this.tabBudget.PerformLayout();
             this.tabLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_layoutList)).EndInit();
+            this.tabMaschinen.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_maschinnelistShow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameRoomBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameRoomBindingSource)).EndInit();
@@ -1699,6 +1727,8 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.DataGridView dataGridView_maschinnelistShow;
+        private System.Windows.Forms.Label lb_roll_number;
     }
 }
 

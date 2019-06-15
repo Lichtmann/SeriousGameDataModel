@@ -98,5 +98,48 @@ namespace DataModel.Model
             }
         }
 
+        public static LieferungErgebnis GetLieferungErgebnis(LieferungGrad grad, int number)
+        {
+            if (grad == LieferungGrad.Gut)
+            {
+                if (number == 1)
+                {
+                    return LieferungErgebnis.GutLate;
+                }else
+                    return LieferungErgebnis.Allright;
+            }
+            else if (grad == LieferungGrad.Mittel)
+            {
+                if (number == 1 || number == 2)
+                {
+                    return LieferungErgebnis.MittelLate;
+                }
+                else if (number == 3)
+                {
+                    return LieferungErgebnis.MittelRepair;
+                }
+                return LieferungErgebnis.Allright;
+            }
+            else if (grad == LieferungGrad.Schlecht)
+            {
+                if (number == 1 || number == 2)
+                {
+                    return LieferungErgebnis.SchlechtLate;
+                }
+                else if (number == 3 || number == 4)
+                {
+                    return LieferungErgebnis.SchlechtRepair;
+                }
+                return LieferungErgebnis.Allright;
+            }  
+                return LieferungErgebnis.Allright;
+        }
+
+        public static int RollNumber1To6()
+        {
+            Random ran = new Random();
+            int number = (ran.Next(1, 100) % 6) + 1;
+            return number;
+        }
     }
 }
