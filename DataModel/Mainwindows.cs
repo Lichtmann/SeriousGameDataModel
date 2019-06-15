@@ -935,11 +935,45 @@ namespace DataModel
         {
             if (FocusRoom.CurrentPhase == Phases.Phase3_1  || FocusRoom.CurrentPhase == Phases.Phase3_2)
             {
-
+                FocusRoom.FocusPlayer.ZeitStrafeRecord();
+                ShowCurrentkalkulation(FocusRoom.FocusPlayer);
             }
         }
 
         private void button6_Click(object sender, EventArgs e)
+        {
+            if (FocusRoom.CurrentPhase == Phases.Phase3_4 || FocusRoom.CurrentPhase == Phases.Phase3_5)
+            {
+                FocusRoom.FocusPlayer.ZeitStrafeRecord();
+                ShowCurrentkalkulation(FocusRoom.FocusPlayer);
+            }
+        }
+
+        private void bt_SetHersteller_Click(object sender, EventArgs e)
+        {
+            PageSetHersteller setHersteller = new PageSetHersteller(FocusRoom.FocusPlayer);
+            DialogResult result = setHersteller.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                ShowCurrentkalkulation(FocusRoom.FocusPlayer);
+            }
+            else
+            {
+                //none
+            }
+        }
+
+        private void bt_roll_Lieferung_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bt_Evaliation_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
         {
 
         }

@@ -129,6 +129,8 @@ namespace DataModel.Model
             {
                 PlayerList[i].MyHerstellerKatalog = new HerstellerKatalog(this.KabelType);
                 PlayerList[i].MyBetriebsmittelKatalog = new BetriebsmittelKatalog(this.KabelType);
+                //Initial of DecideList
+                PlayerList[i].HerstellerDecideList = PlayerList[i].CreatDecideList();
             }
         }
     }

@@ -86,6 +86,7 @@
     <Compile Include="Model\Layout\saeulen.cs" />
     <Compile Include="Model\MaschinenManager.cs" />
     <Compile Include="Model\Maschine\BetriebsmittelKatalog.cs" />
+    <Compile Include="Model\Maschine\HerstellerExtension.cs" />
     <Compile Include="Model\Maschine\HerstellerKatalog.cs" />
     <Compile Include="Model\Maschine\Maschine.cs" />
     <Compile Include="Model\Maschine\MaschineExtension.cs" />
@@ -107,6 +108,12 @@
     <Compile Include="ViewPage\PageBuyMaschine.Designer.cs">
       <DependentUpon>PageBuyMaschine.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewPage\PageSetHersteller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewPage\PageSetHersteller.Designer.cs">
+      <DependentUpon>PageSetHersteller.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MAinwindows.resx">
       <DependentUpon>Mainwindows.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewPage\PageBuyMaschine.resx">
       <DependentUpon>PageBuyMaschine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewPage\PageSetHersteller.resx">
+      <DependentUpon>PageSetHersteller.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="MaschinenManageUML.cd" />

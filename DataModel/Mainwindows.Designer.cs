@@ -1010,6 +1010,7 @@
             this.button9.TabIndex = 21;
             this.button9.Text = "How is winner?";
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // groupBox4
             // 
@@ -1036,6 +1037,7 @@
             this.bt_Evaliation.TabIndex = 20;
             this.bt_Evaliation.Text = "Evaliation";
             this.bt_Evaliation.UseVisualStyleBackColor = false;
+            this.bt_Evaliation.Click += new System.EventHandler(this.bt_Evaliation_Click);
             // 
             // label28
             // 
@@ -1103,6 +1105,7 @@
             this.bt_SetHersteller.TabIndex = 19;
             this.bt_SetHersteller.Text = "Set Hersteller";
             this.bt_SetHersteller.UseVisualStyleBackColor = false;
+            this.bt_SetHersteller.Click += new System.EventHandler(this.bt_SetHersteller_Click);
             // 
             // label25
             // 
@@ -1178,6 +1181,7 @@
             this.bt_roll_Lieferung.TabIndex = 19;
             this.bt_roll_Lieferung.Text = "Roll";
             this.bt_roll_Lieferung.UseVisualStyleBackColor = false;
+            this.bt_roll_Lieferung.Click += new System.EventHandler(this.bt_roll_Lieferung_Click);
             // 
             // label26
             // 

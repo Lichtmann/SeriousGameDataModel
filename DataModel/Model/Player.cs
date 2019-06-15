@@ -18,6 +18,7 @@ namespace DataModel.Model
         // Maschinen, Layout EinkaufList
         private List<Maschine> _maschinenList = new List<Maschine>();
         private List<LayoutUnit> _layoutUnitList = new List<LayoutUnit>();
+        private List<Decide> _herstellerDecideList = new List<Decide>();
         // 1 MaterialflussManager 
 
         // 2 KostenManager + 6 BudgetManager => KalkulationUnit
@@ -66,6 +67,7 @@ namespace DataModel.Model
         //Maschinen Kosten, Anzahl, Kapazitat,
         public ProduktionManager MyProduktionManager { get => _myProduktionManager; set => _myProduktionManager = value; }
         public List<Maschine> MaschinenList { get => _maschinenList; set => _maschinenList = value; }
+        public List<Decide> HerstellerDecideList { get => _herstellerDecideList; set => _herstellerDecideList = value; }
         public int MaschinenAnzahl => MaschinenList.Count;
         public int MaschinenEinkaufKosten => MaschinenList.Select(m => m.KalkulationPreis).Sum();
         #endregion
@@ -130,7 +132,7 @@ namespace DataModel.Model
         #region Katalog
         public HerstellerKatalog MyHerstellerKatalog { get => _myHerstellerKatalog; set => _myHerstellerKatalog = value; }
         public BetriebsmittelKatalog MyBetriebsmittelKatalog { get => _myBetriebsmittelKatalog; set => _myBetriebsmittelKatalog = value; }
-       
+
 
         #endregion
 

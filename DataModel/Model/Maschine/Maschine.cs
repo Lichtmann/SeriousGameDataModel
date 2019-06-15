@@ -136,6 +136,7 @@ namespace DataModel.Model//.Maschine
             //Do something
             UpdateKalkulationPreis();
         }
+        //useless
         public void UpdateHersteller(HerstellerType neuHersteller)
         {
             bool dictionaryisbuild = false;

@@ -240,7 +240,7 @@ namespace DataModel.Model
                 PreisTable.Add(key, preis);
             }
         }
-        public int GetHerstellerPreis(MaschinenType m_type, HerstellerType hersteller, int preis)
+        public int GetHerstellerPreis(MaschinenType m_type, HerstellerType hersteller)
         {
             int val;
             var key = new Tuple<MaschinenType, HerstellerType>(m_type, hersteller);

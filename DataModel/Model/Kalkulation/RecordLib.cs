@@ -63,7 +63,6 @@ namespace DataModel.Model
             player.KalkulationUnit.DoKostenCount();
         }
 
-
         public static void BuyMaschinenRecord(this Player player/*, LayoutUnit layoutUnit*/)
         {
             if (player.KalkulationUnit.KostenRecordList.Any(r => r.EventName == "MaschinenKosten"))
@@ -80,7 +79,49 @@ namespace DataModel.Model
             player.KalkulationUnit.KostenRecordList.Add(k_event);
             player.KalkulationUnit.DoKostenCount();
         }
-                
+          
+        public static void ZeitStrafeRecord(this Player player)
+        {
+            if (player.AtRomm.CurrentPhase <= Phases.Phase3_2)
+            {
+                if (player.KalkulationUnit.KostenRecordList.Any(r => r.EventName == "ZeitStrafe1"))
+                {
+                    var record = player.KalkulationUnit.KostenRecordList.First(r => r.EventName == "ZeitStrafe1");
+                    record.MoneyAmount += 200000;
+                    record.Description = (record.MoneyAmount / 200000).ToString() + "min";
+                    player.KalkulationUnit.DoKostenCount();
+                    return;
+                }
+                int currentkosten = 200000;
+                KostenRecord k_event = new KostenRecord(player.AtRomm.CurrentPhase, KostenType.TimeoutFee, currentkosten);
+                k_event.EventName = "ZeitStrafe1";
+                k_event.Description = "1 min";
+                player.KalkulationUnit.KostenRecordList.Add(k_event);
+                player.KalkulationUnit.DoKostenCount();
+            }
+            else if (player.AtRomm.CurrentPhase <= Phases.Phase3_5)
+            {
+                if (player.KalkulationUnit.KostenRecordList.Any(r => r.EventName == "ZeitStrafe2"))
+                {
+                    var record = player.KalkulationUnit.KostenRecordList.First(r => r.EventName == "ZeitStrafe2");
+                    record.MoneyAmount += 200000;
+                    record.Description = (record.MoneyAmount / 200000).ToString() + "min";
+                    player.KalkulationUnit.DoKostenCount();
+                    return;
+                }
+                int currentkosten = 200000;
+                KostenRecord k_event = new KostenRecord(player.AtRomm.CurrentPhase, KostenType.TimeoutFee, currentkosten);
+                k_event.EventName = "ZeitStrafe2";
+                k_event.Description = "1 min";
+                player.KalkulationUnit.KostenRecordList.Add(k_event);
+                player.KalkulationUnit.DoKostenCount();
+            }
+
+
+
+
+        }
+
     }
 
 }
